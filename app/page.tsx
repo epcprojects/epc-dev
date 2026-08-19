@@ -1,69 +1,86 @@
+"use client";
+import { PulsingBorder } from "@paper-design/shaders-react";
 import Image from "next/image";
-
+import { Images } from "./ui";
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+    <section className="-mt-28 bg-[url('/images/HeroBgGradient.png')] bg-position-[center_top] bg-size-[100%_auto] bg-no-repeat pt-28 ">
+      <div className="pt-26.5 pb-20 container max-w-7xl mx-auto px-8 grid grid-cols-10 items-center gap-16">
+        <div className="col-span-7 flex flex-col gap-7.5">
+          <div className="flex flex-col gap-4.5">
+            <div className="flex flex-col gap-3">
+              <div className="w-fit rounded-lg bg-[linear-gradient(90deg,#8740FF_0%,#66666600_60%)] p-px">
+                <div className="rounded-lg bg-mirage px-3.5 py-1.5">
+                  <p className="w-fit bg-[linear-gradient(90deg,#8740FF_0%,#FFFFFF_30%)] bg-clip-text text-lg text-transparent">
+                    Global Product Development Agency
+                  </p>
+                </div>
+              </div>
+              {/* <div className="relative isolate w-fit overflow-hidden rounded-lg bg-[linear-gradient(90deg,#8740FF_0%,#66666600_60%)] p-px">
+                <div className="pointer-events-none absolute inset-0 z-10 rounded-lg mix-blend-screen">
+                  <PulsingBorder
+                    width="100%"
+                    height="100%"
+                    colors={["#8740FF", "#FFFFFF", "#8740FF"]}
+                    colorBack="#000000"
+                    roundness={0.15}
+                    thickness={0.018}
+                    softness={0.85}
+                    intensity={0.4}
+                    bloom={0.7}
+                    spots={2}
+                    spotSize={0.7}
+                    pulse={0.15}
+                    smoke={0.1}
+                    smokeSize={0.5}
+                    speed={1}
+                    scale={1}
+                  />
+                </div>
+                <div className="relative z-20 rounded-lg bg-mirage px-3.5 py-1.5">
+                  <p className="w-fit bg-[linear-gradient(90deg,#8740FF_0%,#FFFFFF_30%)] bg-clip-text text-lg text-transparent">
+                    Global Product Development Agency
+                  </p>
+                </div>
+              </div> */}
+
+              <h1 className="text-66 font-semibold text-white leading-21.5 tracking-[-1px]">
+                Empower Your Business with Custom Software & Web & App Solutions
+              </h1>
+            </div>
+            <p className="text-xl text-white">
+              We combine product design expertise with full-cycle software
+              engineering to build web platforms, mobile apps, SaaS products and
+              AI-powered solutions that are intuitive to use and ready to grow
+              with your business.
+            </p>
+          </div>
+          <div className="flex flex-row items-center gap-5">
+            <div className="flex flex-row items-center gap-2 py-1">
+              <p className="text-30 text-lavendar-indigo font-bold">15+</p>
+              <p className="text-sm text-gray-300">(Years of Experience)</p>
+            </div>
+            <div className="h-10 w-px shrink-0 bg-linear-to-b from-black/0 via-white to-black/0" />
+            <div className="flex flex-row items-center gap-2 py-1">
+              <p className="text-30 text-gray-50 font-bold">1.2k+</p>
+              <p className="text-sm text-gray-300">(Projects Shipped)</p>
+            </div>
+            <div className="h-10 w-px shrink-0 bg-linear-to-b from-black/0 via-white to-black/0" />
+            <div className="flex flex-row items-center gap-2 py-1">
+              <p className="text-30 text-lavendar-indigo font-bold">350+</p>
+              <p className="text-sm text-gray-300">(Brands Worldwide)</p>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div className="col-span-3">
+             <Image src={Images.landingImages.EndpointPicture} alt={"endpoint picture"}/>
         </div>
-      </main>
-    </div>
+      </div>
+    </section>
+    <section className="py-2.5 bg-dark-jungle-green">
+              
+    </section>
+    </>
   );
 }
