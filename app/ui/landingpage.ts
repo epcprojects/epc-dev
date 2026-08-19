@@ -9,6 +9,7 @@ import HyversaLogo from "@/public/images/Hyversa.svg";
 import CurrykingLogo from "@/public/images/Curryking.svg";
 import CapitalCareLogo from "@/public/images/Capitalcareinvestment.svg";
 import DuoworldLogo from "@/public/images/Duoworld.svg";
+import CustomSoftwareImage from "@/public/images/CustomSoftwareImage.png"
 export const landingImages = { Logo, EndpointPicture, HeroBgGradient ,
     MahanaLogo,
     BoondheshamsLogo,
@@ -17,6 +18,7 @@ export const landingImages = { Logo, EndpointPicture, HeroBgGradient ,
     HyversaLogo,
     CurrykingLogo,
     CapitalCareLogo,
-    DuoworldLogo
+    DuoworldLogo,
+    CustomSoftwareImage
 
 };

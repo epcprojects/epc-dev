@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
-import { Manrope} from "next/font/google";
+import { Manrope, Playfair_Display} from "next/font/google";
 import "./globals.css";
 import { Header } from "./components";
 
 const manrope = Manrope({
   subsets: ["latin"],
   display: "swap",
+});
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
@@ -17,7 +21,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${manrope.className} h-full antialiased`}
+      className={`${manrope.className} ${playfair.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <Header />
