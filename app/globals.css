@@ -88,3 +88,23 @@ body {
   position: relative;
   z-index: 1;
 }
+
+
+.animate-spin-slow {
+  animation: spin 6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+button:not(:disabled):not([aria-disabled='true']) {
+  @apply cursor-pointer;
+}
+
+button:disabled,
+button[aria-disabled='true'] {
+  @apply cursor-not-allowed;
+}

@@ -31,8 +31,8 @@ const ThemeButton = ({
     <button
       type={type}
       className={`
-        flex flex-row items-center gap-3 rounded-xl
-        px-4.5 py-3 text-lg font-medium
+        group flex flex-row items-center gap-3 rounded-xl
+       px-3 py-2 md:px-4.5 md:py-3 text-sm md:text-lg font-medium
         transition-opacity duration-200 hover:opacity-90
         ${variantClasses[variant]}
         ${className}
@@ -42,7 +42,7 @@ const ThemeButton = ({
       <span>{children}</span>
 
       {icon && (
-        <span className="shrink-0">
+        <span className="shrink-0 transition-all duration-300 group-hover:rotate-45">
           {icon}
         </span>
       )}
