@@ -95,8 +95,8 @@ export default function Home() {
   return (
     <>
       <section className="-mt-35 md:-mt-28 bg-[url('/images/HeroBgGradient.png')] bg-position-[center_top] bg-size-[100%_auto] bg-no-repeat pt-28 ">
-        <div className="pt-15 md:pt-20 pb-10 md:pb-26.5 container max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-10 items-center gap-5">
-          <div className="md:col-span-7 flex flex-col gap-4 md:gap-7.5">
+        <div className="pt-15 md:pt-20 pb-10 md:pb-26.5 container max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 xl:grid-cols-10 items-center gap-5">
+          <div className="xl:col-span-7 flex flex-col gap-4 md:gap-7.5">
             <div className="flex flex-col gap-2 md:gap-4.5">
               <div className="flex flex-col gap-3">
                 {/* <div className="w-fit rounded-lg bg-[linear-gradient(90deg,#8740FF_0%,#66666600_60%)] p-px">
@@ -174,7 +174,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="md:col-span-3 w-full">
+          <div className="xl:col-span-3   w-full">
             <ParticleImage />
           </div>
         </div>
@@ -195,9 +195,9 @@ export default function Home() {
       </section>
       <section className="py-8 md:py-24">
         <div className="container max-w-7xl mx-auto py-4 md:py-16 px-4 md:px-8 overflow-visible">
-          <div className="grid grid-cols-1 md:grid-cols-14 md:gap-3 gap-8 overflow-visible">
+          <div className="grid grid-cols-1 xl:grid-cols-14 xl:gap-3 gap-8 xl:-translate-x-3 2xl:translate-x-0 overflow-visible">
             <motion.div
-              className="relative md:-left-20 md:col-span-3 flex flex-col md:items-start items-center justify-between gap-12 overflow-visible"
+              className="relative xl:left-0 2xl:-left-20 xl:col-span-3 flex flex-col xl:items-start items-center justify-between gap-12 overflow-visible"
               variants={pillGroupVariants}
               initial="hidden"
               whileInView="visible"
@@ -239,7 +239,7 @@ export default function Home() {
                 />
               </motion.div>
             </motion.div>
-            <div className="md:col-span-8 flex flex-col gap-4 items-center ">
+            <div className="xl:col-span-8 flex flex-col gap-4 items-center ">
               <PulsingLabel text="What We Build" />
               <p className="text-2xl md:text-5xl font-playfair text-center text-white leading-[120%]">
                 We design and engineer digital products across web, mobile, SaaS
@@ -247,7 +247,7 @@ export default function Home() {
               </p>
             </div>
             <motion.div
-              className="relative md:-right-20 md:col-span-3 flex flex-col items-center md:items-end justify-between gap-12 overflow-visible"
+              className="relative xl:-right-5 2xl:-right-20 xl:col-span-3 flex flex-col items-center xl:items-end justify-between gap-12 overflow-visible"
               variants={pillGroupVariants}
               initial="hidden"
               whileInView="visible"

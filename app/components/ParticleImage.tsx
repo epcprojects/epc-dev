@@ -620,7 +620,7 @@ function buildParticles() {
     <canvas
       ref={canvasRef}
       aria-label="Interactive particle image"
-     className={`block max-w-60 md:min-w-105 w-full md:max-w-none aspect-1084/1451  bg-transparent ${className}`}
+     className={`block max-w-60 md:min-w-50 2xl:min-w-105 w-full md:max-w-none aspect-1084/1451  bg-transparent ${className}`}
     />
   );
 }
