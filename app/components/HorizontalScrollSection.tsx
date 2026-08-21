@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  useEffect,
   useLayoutEffect,
   useRef,
   useState,
@@ -9,6 +10,7 @@ import {
 
 import {
   motion,
+  useMotionValueEvent,
   useScroll,
   useTransform,
   type MotionValue,
@@ -23,37 +25,66 @@ type HorizontalSlideProps = {
   children: ReactNode;
   progress: MotionValue<number>;
   index: number;
+  totalItems: number;
+  isActive: boolean;
 };
 
 const HorizontalSlide = ({
   children,
   progress,
   index,
+  totalItems,
+  isActive,
 }: HorizontalSlideProps) => {
-  const start = index * 0.22;
-  const end = Math.min(start + 0.2, 1);
+  const slideRef = useRef<HTMLDivElement>(null);
+
+  const isFirstCard = index === 0;
+  const isLastTwoCards = index >= totalItems - 2;
+  const shouldAnimateEntrance = !isFirstCard && !isLastTwoCards;
+
+  const start = Math.min(index * 0.13, 0.72);
+  const end = Math.min(start + 0.12, 0.84);
 
   const translateY = useTransform(
     progress,
     [start, end],
-    [180, 0],
+    shouldAnimateEntrance ? [180, 0] : [0, 0],
   );
 
   const opacity = useTransform(
     progress,
     [start, end],
-    [0, 1],
+    shouldAnimateEntrance ? [0, 1] : [1, 1],
   );
 
   const scale = useTransform(
     progress,
     [start, end],
-    [0.96, 1],
+    shouldAnimateEntrance ? [0.96, 1] : [1, 1],
   );
+
+  useEffect(() => {
+    const container = slideRef.current;
+
+    if (!container) return;
+
+    const videos = Array.from(
+      container.querySelectorAll<HTMLVideoElement>("video"),
+    );
+
+    videos.forEach((video) => {
+      if (isActive) {
+        void video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    });
+  }, [isActive]);
 
   return (
     <motion.div
-      className="w-[50vw] max-w-[640px] shrink-0"
+      ref={slideRef}
+      className="w-[50vw] shrink-0"
       style={{
         y: translateY,
         opacity,
@@ -73,8 +104,8 @@ const HorizontalScrollSection = ({
   const viewportRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
 
-  const [scrollDistance, setScrollDistance] =
-    useState(0);
+  const [scrollDistance, setScrollDistance] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -83,8 +114,8 @@ const HorizontalScrollSection = ({
 
   const translateX = useTransform(
     scrollYProgress,
-    [0, 1],
-    [0, -scrollDistance],
+    [0, 0.9, 1],
+    [0, -scrollDistance, -scrollDistance],
   );
 
   useLayoutEffect(() => {
@@ -94,53 +125,71 @@ const HorizontalScrollSection = ({
     if (!viewport || !track) return;
 
     const calculateDistance = () => {
-      setScrollDistance(
-        Math.max(
-          0,
-          track.scrollWidth - viewport.clientWidth,
-        ),
-      );
+      const trackStyles = window.getComputedStyle(track);
+      const rightPadding =
+        Number.parseFloat(trackStyles.paddingRight) || 0;
+      const distance =
+        track.scrollWidth -
+        viewport.clientWidth -
+        rightPadding;
+
+      setScrollDistance(Math.max(0, distance));
     };
 
     calculateDistance();
 
-    const resizeObserver = new ResizeObserver(
-      calculateDistance,
-    );
+    const resizeObserver = new ResizeObserver(calculateDistance);
 
     resizeObserver.observe(viewport);
     resizeObserver.observe(track);
 
-    return () => resizeObserver.disconnect();
-  }, []);
+    return () => {
+      resizeObserver.disconnect();
+    };
+  }, [items.length]);
+
+  useMotionValueEvent(scrollYProgress, "change", (progress) => {
+    if (!items.length) return;
+    const horizontalProgress = Math.min(progress / 0.9, 1);
+
+    const nextIndex = Math.min(
+      Math.floor(horizontalProgress * items.length),
+      items.length - 1,
+    );
+
+    setActiveIndex((currentIndex) =>
+      currentIndex === nextIndex ? currentIndex : nextIndex,
+    );
+  });
+
+  const sectionHeight = `${Math.max(400, items.length * 80)}vh`;
 
   return (
     <section
       ref={sectionRef}
-      className="relative h-[400vh] border-y border-white/12 "
+      className="relative border-y border-white/12"
+      style={{ height: sectionHeight }}
     >
       <div
         ref={viewportRef}
-        className="sticky top-0 flex h-screen items-center overflow-hidden container max-w-7xl mx-auto"
+        className="sticky top-0 z-10 flex h-screen items-center overflow-hidden bg-mirage"
       >
         <motion.div
           ref={trackRef}
-          className="flex w-max items-center"
-          style={{
-            x: translateX,
-          }}
+          className="flex w-max items-center px-16"
+          style={{ x: translateX }}
         >
-          {/* Left panel is part of moving track */}
           <div className="flex h-screen w-[50vw] max-w-[640px] shrink-0 items-center border-r border-white/12 p-8">
             {leftContent}
           </div>
 
-          {/* Cards rise and fade while whole track moves */}
           {items.map((item, index) => (
             <HorizontalSlide
               key={index}
               progress={scrollYProgress}
               index={index}
+              totalItems={items.length}
+              isActive={activeIndex === index}
             >
               {item}
             </HorizontalSlide>

@@ -23,26 +23,42 @@ const ThemeButton = ({
   const variantClasses = {
     gradient:
       "bg-linear-to-r from-purple-blue via-medium-purple to-purple-blue text-desert-storm",
-    white:
-      "bg-white text-mirage",
+    white: "bg-white text-mirage",
   };
+
+  const showParticles = variant === "gradient";
 
   return (
     <button
       type={type}
       className={`
-        group flex flex-row items-center gap-3 rounded-xl
-       px-3 py-2 md:px-4.5 md:py-3 text-sm md:text-lg font-medium
+        group relative isolate flex flex-row items-center gap-3
+        overflow-hidden rounded-xl
+        px-3 py-2 text-sm font-medium
         transition-opacity duration-200 hover:opacity-90
+        md:px-4.5 md:py-3 md:text-lg
         ${variantClasses[variant]}
         ${className}
       `}
       {...props}
     >
-      <span>{children}</span>
+      {showParticles && (
+        <span
+          aria-hidden="true"
+          className="button-particles"
+        >
+          {Array.from({ length: 10 }).map((_, index) => (
+            <i key={index} className="button-particle" />
+          ))}
+        </span>
+      )}
+
+      <span className="relative z-10">
+        {children}
+      </span>
 
       {icon && (
-        <span className="shrink-0 transition-all duration-300 group-hover:rotate-45">
+        <span className="relative z-10 shrink-0 transition-transform duration-300 group-hover:rotate-45">
           {icon}
         </span>
       )}

@@ -4,9 +4,11 @@ import Image from "next/image";
 import Marquee from "react-fast-marquee";
 
 import {
+  ArrowUpIcon,
   CommandLineIcon,
   DatabaseIcon,
   FlashIcon,
+  HappyClientsIcon,
   SecurityCheckIcon,
   UnilinkIcon,
   WebDesignIcon,
@@ -18,6 +20,9 @@ import ParticleImage from "../ParticleImage";
 import { partnerLogos } from "@/app/constants/constants";
 import ServicePill from "../ServicePill";
 import PulsingLabel from "../PulsingLabel";
+import HorizontalScrollSection from "../HorizontalScrollSection";
+import ThemeButton from "../button/ThemeButton";
+import ImageColumns from "../ImageColumns";
 const pillGroupVariants: Variants = {
   hidden: {},
   visible: {
@@ -62,22 +67,63 @@ const rightPillVariants: Variants = {
   },
 };
 export default function HomeClient() {
-  const capabilities = Array.from({ length: 3 }, (_, index) => ({
-    id: index + 1,
-    title: "Custom Software Development",
-    description:
-      "We build tailored web, mobile and SaaS products with the frontend, backend, integrations and infrastructure engineered to work as one reliable system.",
-    image: Images.landingImages.CustomSoftwareImage,
-  }));
+  const capabilities = [
+    {
+      id: 1,
+      title: "UI/UX & Product Design",
+      description:
+        "Research, flows, information architecture, wireframes, prototypes, high-fidelity UI and scalable design systems.",
+      video: "/videos/CapabilitiesVideo1.mp4",
+    },
+    {
+      id: 2,
+      title: "Custom Software Development",
+      description:
+        "We design and build tailored software solutions that fit your unique business needs. Our developers ensure scalability, security, and seamless integration with your existing systems.",
+      video: "/videos/CapabilitiesVideo2.mp4",
+    },
+    {
+      id: 3,
+      title: "Web & SaaS Development",
+      description:
+        "We build responsive web applications and SaaS platforms with intuitive interfaces, reliable architecture and room to evolve as your product grows.",
+      video: "/videos/CapabilitiesVideo3.mp4",
+    },
+    {
+      id: 4,
+      title: "Mobile App Development",
+      description:
+        "We create polished mobile products for iOS, Android and cross-platform environments, connecting thoughtful UX with dependable engineering that converts.",
+      video: "/videos/CapabilitiesVideo4.mp4",
+    },
+    {
+      id: 5,
+      title: "AI & ML Development",
+      description:
+        "We integrate AI into products and workflows through intelligent features, automation, AI assistants and custom solutions built around practical use cases.",
+      video: "/videos/CapabilitiesVideo5.mp4",
+    },
+    {
+      id: 6,
+      title: "Cloud, APIs & Integrations",
+      description:
+        "We build the systems behind your product from APIs and databases to third-party integrations and backend architecture that keeps everything connected.",
+      video: "/videos/CapabilitiesVideo6.mp4",
+    },
+  ];
   const capabilityCards = capabilities.map((capability) => (
     <article
       key={capability.id}
       className="flex h-screen flex-col justify-center gap-6 border-r border-white/12 px-12 py-8"
     >
-      <Image
-        src={capability.image}
-        alt={capability.title}
+      <video
+        src={capability.video}
         className="h-auto w-full"
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        aria-label={capability.title}
       />
 
       <div className="flex flex-col gap-3.5">
@@ -156,18 +202,30 @@ export default function HomeClient() {
             </div>
             <div className="flex flex-wrap items-center gap-2 md:gap-5">
               <div className="flex flex-row items-center gap-2 py-1">
-                <p className="text-xl md:text-30 text-lavendar-indigo font-bold">15+</p>
-                <p className="text-xs md:text-sm text-gray-300">(Years of Experience)</p>
+                <p className="text-xl md:text-30 text-lavendar-indigo font-bold">
+                  15+
+                </p>
+                <p className="text-xs md:text-sm text-gray-300">
+                  (Years of Experience)
+                </p>
               </div>
               <div className="h-5 md:h-10 w-px shrink-0 bg-linear-to-b from-black/0 via-white to-black/0" />
               <div className="flex flex-row items-center gap-2 py-1">
-                <p className="text-xl md:text-30 text-gray-50 font-bold">1.2k+</p>
-                <p className="text-xs md:text-sm text-gray-300">(Projects Shipped)</p>
+                <p className="text-xl md:text-30 text-gray-50 font-bold">
+                  1.2k+
+                </p>
+                <p className="text-xs md:text-sm text-gray-300">
+                  (Projects Shipped)
+                </p>
               </div>
               <div className="h-5 md:h-10 w-px shrink-0 bg-linear-to-b from-black/0 via-white to-black/0" />
               <div className="flex flex-row items-center gap-2 py-1">
-                <p className="text-xl md:text-30 text-lavendar-indigo font-bold">350+</p>
-                <p className="text-xs md:text-sm text-gray-300">(Brands Worldwide)</p>
+                <p className="text-xl md:text-30 text-lavendar-indigo font-bold">
+                  350+
+                </p>
+                <p className="text-xs md:text-sm text-gray-300">
+                  (Brands Worldwide)
+                </p>
               </div>
             </div>
           </div>
@@ -225,7 +283,7 @@ export default function HomeClient() {
                 />
               </motion.div>
 
-              <motion.div className="w-fit md:mt-7"  variants={leftPillVariants}>
+              <motion.div className="w-fit md:mt-7" variants={leftPillVariants}>
                 <ServicePill
                   title="SaaS Engineering"
                   icon={<WebDesignIcon />}
@@ -275,7 +333,10 @@ export default function HomeClient() {
                 />
               </motion.div>
 
-              <motion.div className="w-fit md:mt-7" variants={rightPillVariants}>
+              <motion.div
+                className="w-fit md:mt-7"
+                variants={rightPillVariants}
+              >
                 <ServicePill
                   title="Mobile App Development"
                   icon={<SecurityCheckIcon />}
@@ -289,33 +350,7 @@ export default function HomeClient() {
           </div>
         </div>
       </section>
-      {/* <section className="border-t border-t-white/12 border-b border-b-white/12 ">
-        <div className="grid grid-cols-2 container max-w-7xl mx-auto">
-          <div className="p-8 border-r border-r-white/12 flex flex-col justify-center items-start gap-7">
-            <div className="flex flex-col gap-4.5">
-              <PulsingLabel text={"Our Capabilities"} />
-              <p className="text-5xl font-bold text-desert-storm leading-[100%]">
-                Built to take your product from bold idea to real-world software
-              </p>
-            </div>
-            <ThemeButton
-              variant="gradient"
-              icon={<ArrowUpIcon />}
-              onClick={() => {}}
-            >
-              Get a Free Consultation
-            </ThemeButton>
-          </div>
-          <div className="py-8 px-12 flex flex-col gap-6 border-r border-r-white/12">
-               <Image src={Images.landingImages.CustomSoftwareImage} alt={"custom software image"}/>
-               <div className="flex flex-col gap-3.5">
-                   <p className="text-[34px] font-bold text-desert-storm">Custom Software Development</p>
-                   <p className="text-xl text-white">We build tailored web, mobile and SaaS products with the frontend, backend, integrations and infrastructure engineered to work as one reliable system.</p>
-               </div>
-          </div>
-        </div>
-      </section> */}
-      {/* <HorizontalScrollSection
+      <HorizontalScrollSection
         leftContent={
           <div className="flex flex-col items-start gap-7">
             <div className="flex flex-col gap-4.5">
@@ -336,7 +371,39 @@ export default function HomeClient() {
           </div>
         }
         items={capabilityCards}
-      /> */}
+      />
+      <div className="bg-mirage px-16 py-16">
+        <div className="relative overflow-hidden rounded-[48px] bg-woodsmoke px-24 py-24">
+          <div className="pointer-events-none absolute inset-y-0 -right-40 z-0 w-[50%]">
+            <ImageColumns />
+          </div>
+          <div className="absolute inset-0 bg-black/25" />
+          <div className="relative z-20 flex max-w-200 flex-col items-start gap-13 px-8 py-16">
+            <div className="flex flex-col items-start gap-4">
+              <PulsingLabel text="Full-cycle product team" />
+
+              <p className="text-5xl font-semibold text-gray-50">
+                Design, development and AI expertise under one roof.
+              </p>
+            </div>
+
+            <ThemeButton
+              variant="white"
+              icon={<ArrowUpIcon fill="#030712" />}
+              onClick={() => {}}
+            >
+              Explore Our Services
+            </ThemeButton>
+          </div>
+        </div>
+      </div>
+      <section className="bg-mirage border-y border-y-white/18">
+        <div className="container max-w-7xl mx-auto px-4 xl:px-8 flex flex-row">
+                <div className="p-9 flex flex-row gap-8 items-center border-r border-r-white/18">
+                      <HappyClientsIcon/>
+                </div>
+        </div>
+      </section>
     </>
   );
 }

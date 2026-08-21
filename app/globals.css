@@ -18,6 +18,7 @@
   --color-dark-jungle-green: #222222;
   --color-light-blue-gray: #CBC7E6;
   --color-smoky-black: #111111;
+  --color-woodsmoke: #151515;
   --text-30: 1.875rem;
   --text-66: 4.125rem;
   
@@ -107,4 +108,216 @@ button:not(:disabled):not([aria-disabled='true']) {
 button:disabled,
 button[aria-disabled='true'] {
   @apply cursor-not-allowed;
+}
+
+
+/* button particles */
+.button-particles {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.button-particle {
+  position: absolute;
+  bottom: -4px;
+  width: 2px;
+  height: 2px;
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.6);
+  pointer-events: none;
+  animation: button-particle-float 2.2s ease-in-out infinite;
+}
+
+@keyframes button-particle-float {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0.7);
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-55px) scale(1);
+  }
+}
+
+.button-particle:nth-child(1) {
+  left: 10%;
+  animation-duration: 2.35s;
+  animation-delay: 0.2s;
+}
+
+.button-particle:nth-child(2) {
+  left: 20%;
+  animation-duration: 2.5s;
+  animation-delay: 0.5s;
+}
+
+.button-particle:nth-child(3) {
+  left: 30%;
+  animation-duration: 2.2s;
+  animation-delay: 0.1s;
+}
+
+.button-particle:nth-child(4) {
+  left: 40%;
+  animation-duration: 2.05s;
+  animation-delay: 0.7s;
+}
+
+.button-particle:nth-child(5) {
+  left: 50%;
+  animation-duration: 1.9s;
+  animation-delay: 0.3s;
+}
+
+.button-particle:nth-child(6) {
+  left: 60%;
+  animation-duration: 2.4s;
+  animation-delay: 1s;
+}
+
+.button-particle:nth-child(7) {
+  left: 70%;
+  animation-duration: 2.2s;
+  animation-delay: 0.2s;
+}
+
+.button-particle:nth-child(8) {
+  left: 80%;
+  animation-duration: 2.25s;
+  animation-delay: 0.6s;
+}
+
+.button-particle:nth-child(9) {
+  left: 90%;
+  animation-duration: 2.6s;
+  animation-delay: 0.1s;
+}
+
+.button-particle:nth-child(10) {
+  left: 96%;
+  animation-duration: 2.5s;
+  animation-delay: 0.8s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button-particle {
+    animation: none;
+    display: none;
+  }
+}
+
+/* image columns */
+
+.image-columns-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  isolation: isolate;
+}
+
+.image-columns-grid {
+  position: absolute;
+  top: 50%;
+  right: -12%;
+  display: grid;
+  width: 130%;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  transform: translateY(-50%) rotate(-20deg) scale(1.16);
+  transform-origin: center;
+}
+
+.image-scroll-column {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.image-scroll-set {
+  display: flex;
+  width: 100%;
+  flex-shrink: 0;
+  flex-direction: column;
+  gap: 12px;
+  padding-bottom: 12px;
+}
+
+.image-scroll-card {
+  position: relative;
+  width: 100%;
+  height: clamp(220px, 20vw, 320px);
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 4px;
+  background-color: #202020;
+  transform: translateZ(0);
+}
+
+.image-scroll-card img {
+  object-fit: cover;
+}
+
+.image-scroll-up {
+  animation: image-column-up 30s linear infinite;
+}
+
+.image-scroll-down {
+  animation: image-column-down 30s linear infinite;
+}
+
+@keyframes image-column-up {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(0, -33.333333%, 0);
+  }
+}
+
+@keyframes image-column-down {
+  from {
+    transform: translate3d(0, -33.333333%, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (max-width: 1024px) {
+  .image-columns-grid {
+    right: -18%;
+    width: 145%;
+    transform: translateY(-50%) rotate(-20deg) scale(1.18);
+  }
+
+  .image-scroll-card {
+    height: clamp(190px, 24vw, 280px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .image-scroll-up,
+  .image-scroll-down {
+    animation-play-state: paused;
+  }
 }
