@@ -6,9 +6,11 @@ import Marquee from "react-fast-marquee";
 import {
   ArrowUpIcon,
   CommandLineIcon,
+  CountriesServedIcon,
   DatabaseIcon,
   FlashIcon,
   HappyClientsIcon,
+  OurClientsIcon,
   SecurityCheckIcon,
   UnilinkIcon,
   WebDesignIcon,
@@ -23,6 +25,8 @@ import PulsingLabel from "../PulsingLabel";
 import HorizontalScrollSection from "../HorizontalScrollSection";
 import ThemeButton from "../button/ThemeButton";
 import ImageColumns from "../ImageColumns";
+import StatsCard from "../cards/StatsCard";
+import PlatformLogo from "../PlatformLogo";
 const pillGroupVariants: Variants = {
   hidden: {},
   visible: {
@@ -372,17 +376,49 @@ export default function HomeClient() {
         }
         items={capabilityCards}
       />
-      <div className="bg-mirage px-16 py-16">
-        <div className="relative overflow-hidden rounded-[48px] bg-woodsmoke px-24 py-24">
-          <div className="pointer-events-none absolute inset-y-0 -right-40 z-0 w-[50%]">
+      <section className="bg-mirage px-4 py-8 md:px-16 md:py-16">
+        <div
+          className="
+      relative overflow-hidden
+      rounded-3xl bg-woodsmoke
+      px-4 py-8
+      md:rounded-[48px] md:px-24 md:py-24
+    "
+        >
+          <div
+            className="
+        pointer-events-none absolute inset-0 z-0
+        w-full
+        md:inset-y-0 md:left-auto
+        md:-right-40 md:w-[50%] brightness-[0.70]  md:brightness-100
+      "
+          >
             <ImageColumns />
           </div>
-          <div className="absolute inset-0 bg-black/25" />
-          <div className="relative z-20 flex max-w-200 flex-col items-start gap-13 px-8 py-16">
-            <div className="flex flex-col items-start gap-4">
+          <div
+            className="
+        pointer-events-none absolute inset-0 z-10
+        bg-black/25
+      "
+          />
+          <div
+            className="
+        relative z-20 flex max-w-200
+        flex-col items-start
+        gap-8 px-2 py-8
+        md:gap-13 md:px-8 md:py-16
+      "
+          >
+            <div className="flex flex-col items-start gap-3 md:gap-4">
               <PulsingLabel text="Full-cycle product team" />
 
-              <p className="text-5xl font-semibold text-gray-50">
+              <p
+                className="
+            text-3xl font-semibold
+            leading-[110%] text-gray-50
+            md:text-5xl md:leading-normal
+          "
+              >
                 Design, development and AI expertise under one roof.
               </p>
             </div>
@@ -396,12 +432,80 @@ export default function HomeClient() {
             </ThemeButton>
           </div>
         </div>
-      </div>
+      </section>
       <section className="bg-mirage border-y border-y-white/18">
-        <div className="container max-w-7xl mx-auto px-4 xl:px-8 flex flex-row">
-                <div className="p-9 flex flex-row gap-8 items-center border-r border-r-white/18">
-                      <HappyClientsIcon/>
-                </div>
+        <div className="container max-w-7xl mx-auto px-4 xl:px-8 flex flex-col md:flex-row">
+          <StatsCard
+            icon={<HappyClientsIcon />}
+            title="1200+"
+            subtitle="Happy Clients"
+          />
+          <StatsCard
+            icon={<OurClientsIcon />}
+            title="500M+"
+            subtitle="Raised by our Clients"
+          />
+          <StatsCard
+            icon={<CountriesServedIcon />}
+            title="50+"
+            subtitle="Countries Served"
+          />
+          <div className="p-9 flex flex-row gap-2 items-center justify-center">
+            <PlatformLogo
+              src={Images.landingImages.UpworkLogoImage}
+              alt="Upwork logo"
+            />
+            <PlatformLogo
+              src={Images.landingImages.FiverrLogoImage}
+              alt="Fiverr logo"
+            />
+            <PlatformLogo
+              src={Images.landingImages.ClutchLogoImage}
+              alt="Clutch logo"
+            />
+            <PlatformLogo
+              src={Images.landingImages.TechBehemothsLogoImage}
+              alt="TechBehemoths logo"
+            />
+          </div>
+        </div>
+      </section>
+      <section className="bg-mirage pt-12 md:pt-24">
+        <div className="container mx-auto max-w-7xl px-4 pt-8 md:px-8 md:pt-16">
+          <div className="flex flex-col items-center gap-12 md:gap-30">
+            <div className="grid w-full grid-cols-1 items-center gap-4 md:grid-cols-12 md:gap-3">
+              <div className=" md:col-start-6 md:col-end-10">
+                <PulsingLabel text="INDUSTRIES WE SERVE" />
+              </div>
+              <div className="md:col-start-3 md:col-end-12">
+                <h2 className="md:text-center text-3xl leading-[105%] font-semibold text-white md:text-5xl md:leading-[100%]">
+                  Digital products shaped around how your industry actually
+                  works
+                </h2>
+              </div>
+              <div className="md:col-span-full md:ml-6">
+                <p className="md:text-center text-base leading-relaxed text-gray-100 md:text-xl">
+                  Different industries bring different users, workflows,
+                  regulations and operational challenges. We combine product
+                  thinking, engineering and AI to build solutions around the
+                  realities of your market.
+                </p>
+              </div>
+            </div>
+
+           
+              <video
+                src="/videos/IndustriesHighQuality.mp4"
+                className="h-full w-full "
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                aria-label="Industries we serve"
+              />
+            
+          </div>
         </div>
       </section>
     </>

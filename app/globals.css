@@ -236,7 +236,7 @@ button[aria-disabled='true'] {
   right: -12%;
   display: grid;
   width: 130%;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 12px;
   transform: translateY(-50%) rotate(-20deg) scale(1.16);
   transform-origin: center;

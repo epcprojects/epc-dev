@@ -6,6 +6,8 @@ import UnilinkIcon from "./UnilinkIcon";
 import DatabaseIcon from "./DatabaseIcon";
 import SecurityCheckIcon from "./SecurityCheckIcon";
 import HappyClientsIcon from "./HappyClientsIcon";
+import OurClientsIcon from "./OurClientsIcon";
+import CountriesServedIcon from "./CountriesServedIcon";
 export {
     ArrowUpIcon,
     CommandLineIcon,
@@ -14,5 +16,7 @@ export {
     UnilinkIcon,
     DatabaseIcon,
     SecurityCheckIcon,
-    HappyClientsIcon
+    HappyClientsIcon,
+    OurClientsIcon,
+    CountriesServedIcon
 }
