@@ -6,6 +6,12 @@ import HorizontalScrollSection from "./HorizontalScrollSection";
 import ImageColumns from "./ImageColumns";
 import StatsCard from "./cards/StatsCard";
 import PlatformLogo from "./PlatformLogo";
+import ProcessCard from "./cards/ProcessCard";
+import DevelopmentProcessSection from "./sections/DevelopmentProcessSection";
+import TestimonialsSection from "./sections/TestimonialSection";
+import FeatureRow from "./cards/FeatureRow";
+import ComparisonCard from "./cards/ComparisonCard";
+import FAQAccordion from "./FaqAccordion";
 export {
     Header,
     ServicePill,
@@ -14,5 +20,11 @@ export {
     HorizontalScrollSection,
     ImageColumns,
     StatsCard,
-    PlatformLogo
+    PlatformLogo,
+    ProcessCard,
+    DevelopmentProcessSection,
+    TestimonialsSection,
+    FeatureRow,
+    ComparisonCard,
+    FAQAccordion
 }

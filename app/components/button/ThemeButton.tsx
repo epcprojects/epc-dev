@@ -2,35 +2,50 @@
 
 import type {
   ButtonHTMLAttributes,
+  MouseEventHandler,
   ReactNode,
 } from "react";
 
+type ThemeButtonVariant =
+  | "gradient"
+  | "white";
+
 type ThemeButtonProps =
-  ButtonHTMLAttributes<HTMLButtonElement> & {
-    variant?: "gradient" | "white";
-    children: ReactNode;
+  Omit<
+    ButtonHTMLAttributes<HTMLButtonElement>,
+    "children" | "onClick"
+  > & {
+    label: string;
+    onClick: MouseEventHandler<HTMLButtonElement>;
+    variant?: ThemeButtonVariant;
     icon?: ReactNode;
   };
 
+const variantClasses: Record<
+  ThemeButtonVariant,
+  string
+> = {
+  gradient:
+    "bg-linear-to-r from-purple-blue via-medium-purple to-purple-blue text-desert-storm",
+  white:
+    "bg-white text-mirage",
+};
+
 const ThemeButton = ({
+  label,
+  onClick,
   variant = "gradient",
-  children,
   icon,
   className = "",
   type = "button",
   ...props
 }: ThemeButtonProps) => {
-  const variantClasses = {
-    gradient:
-      "bg-linear-to-r from-purple-blue via-medium-purple to-purple-blue text-desert-storm",
-    white: "bg-white text-mirage",
-  };
-
   const showParticles = variant === "gradient";
 
   return (
     <button
       type={type}
+      onClick={onClick}
       className={`
         group relative isolate flex flex-row items-center gap-3
         overflow-hidden rounded-xl
@@ -47,14 +62,19 @@ const ThemeButton = ({
           aria-hidden="true"
           className="button-particles"
         >
-          {Array.from({ length: 10 }).map((_, index) => (
-            <i key={index} className="button-particle" />
-          ))}
+          {Array.from({ length: 10 }).map(
+            (_, index) => (
+              <i
+                key={index}
+                className="button-particle"
+              />
+            ),
+          )}
         </span>
       )}
 
       <span className="relative z-10">
-        {children}
+        {label}
       </span>
 
       {icon && (

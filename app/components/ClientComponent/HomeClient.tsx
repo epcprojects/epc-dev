@@ -4,14 +4,21 @@ import Image from "next/image";
 import Marquee from "react-fast-marquee";
 
 import {
+  AlertIcon,
+  ArrowLeftIcon,
   ArrowUpIcon,
+  CheckmarkIcon,
   CommandLineIcon,
   CountriesServedIcon,
   DatabaseIcon,
+  EpcLogoIcon,
   FlashIcon,
   HappyClientsIcon,
+  InvertedCommasIcon,
   OurClientsIcon,
+  ReactIcon,
   SecurityCheckIcon,
+  TraditionalIcon,
   UnilinkIcon,
   WebDesignIcon,
 } from "@/public/icons";
@@ -27,6 +34,21 @@ import ThemeButton from "../button/ThemeButton";
 import ImageColumns from "../ImageColumns";
 import StatsCard from "../cards/StatsCard";
 import PlatformLogo from "../PlatformLogo";
+import ProcessCard from "../cards/ProcessCard";
+import DevelopmentProcessSection from "../sections/DevelopmentProcessSection";
+import TestimonialsSection, {
+  Testimonial,
+} from "../sections/TestimonialSection";
+import { MouseEvent, useEffect, useRef, useState } from "react";
+import FeatureRow from "../cards/FeatureRow";
+import ComparisonCard from "../cards/ComparisonCard";
+import TechnologyPills from "../cards/TechnologyPills";
+import {
+  technologies,
+  TechnologyFilter,
+  technologyOptions,
+} from "@/app/constants/technologyConstants";
+import FAQAccordion, { FAQItem } from "../FaqAccordion";
 const pillGroupVariants: Variants = {
   hidden: {},
   visible: {
@@ -70,6 +92,7 @@ const rightPillVariants: Variants = {
     },
   },
 };
+
 export default function HomeClient() {
   const capabilities = [
     {
@@ -139,6 +162,214 @@ export default function HomeClient() {
       </div>
     </article>
   ));
+  const processSteps = [
+    {
+      number: "/01",
+      image: Images.landingImages.DiscoveryPlanningImage,
+      imageAlt: "Discovery and planning",
+      title: "Discovery & Planning",
+      description:
+        "We begin by understanding your business and goals. In a collaborative session, we define requirements, outline project scope, and plan features.",
+    },
+    {
+      number: "/02",
+      image: Images.landingImages.CalendarImage,
+      imageAlt: "Discovery & Planning",
+      title: "Discovery & Planning",
+      description:
+        "We begin by understanding your business and goals. In a collaborative session, we define requirements, outline project scope, and plan features",
+    },
+    {
+      number: "/03",
+      image: Images.landingImages.DesignPrototypingImage,
+      imageAlt: "Design & Prototyping",
+      title: "Design & Prototyping",
+      description:
+        "Next, we create wireframes or mockups to visualize the solution. You’ll see early designs and give feedback so the final product matches your vision",
+    },
+    {
+      number: "/04",
+      image: Images.landingImages.DevelopmentImage,
+      imageAlt: "Development",
+      title: "Development",
+      description:
+        "Our developers write the code and build the solution in short sprints. We continuously test the software for quality and performance, ensuring each part works before moving on.",
+    },
+    {
+      number: "/05",
+      image: Images.landingImages.TestingImage,
+      imageAlt: "Testing",
+      title: "Testing",
+      description:
+        "Cross-device testing, refinements and production handoff. We continuously test the software for quality and performance, ensuring each part works before moving on.",
+    },
+    {
+      number: "/06",
+      image: Images.landingImages.LaunchImage,
+      imageAlt: "Launch & Support",
+      title: "Launch & Support",
+      description:
+        "Once you’re happy with the product, we deploy it to your preferred platform. We provide documentation and training, and even after launch we offer ongoing maintenance to help your solution evolve as your business grows",
+    },
+  ];
+  const testimonials: Testimonial[] = [
+    {
+      id: 1,
+      text: "Endpoint is one of the most helpful website and mobile app design teams I’ve worked with. Clear communication, thoughtful execution and strong product thinking.",
+      authorName: "Sienna Hewitt",
+      authorDescription: "Sr. Manager Procurement",
+      authorImage: Images.landingImages.TestimonialImage,
+      authorImageAlt: "Sienna Hewitt",
+    },
+    {
+      id: 2,
+      text: "The team understood our product requirements quickly and transformed them into a polished experience that was easy for our customers to use.",
+      authorName: "John Williams",
+      authorDescription: "Product Director",
+      authorImage: Images.landingImages.TestimonialImage,
+      authorImageAlt: "John Williams",
+    },
+    {
+      id: 3,
+      text: "Their communication, design quality and technical understanding helped us move from an early idea to a reliable digital product.",
+      authorName: "Emma Brown",
+      authorDescription: "Chief Operating Officer",
+      authorImage: Images.landingImages.TestimonialImage,
+      authorImageAlt: "Emma Brown",
+    },
+  ];
+  const features = [
+    "Product Direction",
+    "Design + Engineering",
+    "Project Ownership",
+    "Technical Growth",
+    "Communication",
+    "After Launch",
+  ];
+  const traditionalAgencyFeatures = [
+    {
+      label: "Often execution-focused",
+      icon: <AlertIcon />,
+    },
+    {
+      label: "Multiple disconnected teams",
+      icon: <AlertIcon />,
+    },
+    {
+      label: "Can become process-heavy",
+      icon: <AlertIcon />,
+    },
+    {
+      label: "Resources shared across projects",
+      icon: <AlertIcon />,
+    },
+    {
+      label: "Often handled separately",
+      icon: <AlertIcon />,
+    },
+    {
+      label: "Support based on contracts",
+      icon: <AlertIcon />,
+    },
+  ];
+  const epcFeatures = [
+    {
+      label: "Strategy, UX & development aligned",
+      icon: <CheckmarkIcon />,
+    },
+    {
+      label: "Designers and engineers work together",
+      icon: <CheckmarkIcon />,
+    },
+    {
+      label: "One team accountable end to end",
+      icon: <CheckmarkIcon />,
+    },
+    {
+      label: "Built with future growth in mind",
+      icon: <CheckmarkIcon />,
+    },
+    {
+      label: "Direct, collaborative workflow",
+      icon: <CheckmarkIcon />,
+    },
+    {
+      label: "Continuous improvement when needed",
+      icon: <CheckmarkIcon />,
+    },
+  ];
+  const [selectedTechnology, setSelectedTechnology] =
+    useState<TechnologyFilter>("all");
+
+  const buttonRefs = useRef<Array<HTMLButtonElement | null>>([]);
+
+  const activeIndex = technologyOptions.findIndex(
+    (option) => option.value === selectedTechnology,
+  );
+
+  const [indicatorStyle, setIndicatorStyle] = useState({
+    width: 0,
+    transform: "translateX(0px)",
+    opacity: 0,
+  });
+
+  useEffect(() => {
+    const activeButton = buttonRefs.current[activeIndex];
+
+    if (!activeButton) return;
+
+    const updateIndicator = () => {
+      setIndicatorStyle({
+        width: activeButton.offsetWidth,
+        transform: `translateX(${activeButton.offsetLeft}px)`,
+        opacity: 1,
+      });
+    };
+
+    updateIndicator();
+
+    const resizeObserver = new ResizeObserver(updateIndicator);
+
+    resizeObserver.observe(activeButton);
+
+    return () => {
+      resizeObserver.disconnect();
+    };
+  }, [activeIndex]);
+
+  const filteredTechnologies =
+    selectedTechnology === "all"
+      ? technologies
+      : technologies.filter(
+          (technology) => technology.category === selectedTechnology,
+        );
+  const faqItems: FAQItem[] = [
+    {
+      question: "Do Endpoint Clients handle both design and development?",
+      answer:
+        "Yes. Our multidisciplinary team covers product strategy, UI/UX, front-end, back-end, mobile and AI development.",
+    },
+    {
+      question: "Can you work with our existing development team?",
+      answer:
+        "Yes. We can collaborate directly with your internal designers, developers and product stakeholders throughout the project.",
+    },
+    {
+      question: "Do you only work with startups?",
+      answer:
+        "No. We work with startups, growing companies and established businesses across different industries.",
+    },
+    {
+      question: "Can you redesign an existing product?",
+      answer:
+        "Yes. We can review your existing product, identify usability and technical issues and redesign the experience around your current goals.",
+    },
+    {
+      question: "Do you build MVPs?",
+      answer:
+        "Yes. We help define, design and develop focused MVPs that validate the core product idea without unnecessary complexity.",
+    },
+  ];
   return (
     <>
       <section className="-mt-35 md:-mt-28 bg-[url('/images/HeroBgGradient.png')] bg-position-[center_top] bg-size-[100%_auto] bg-no-repeat pt-28 ">
@@ -366,12 +597,11 @@ export default function HomeClient() {
             </div>
 
             <ThemeButton
+              label="Get a Free Consultation"
               variant="gradient"
               icon={<ArrowUpIcon />}
               onClick={() => {}}
-            >
-              Get a Free Consultation
-            </ThemeButton>
+            />
           </div>
         }
         items={capabilityCards}
@@ -424,12 +654,11 @@ export default function HomeClient() {
             </div>
 
             <ThemeButton
+              label="Explore Our Services"
               variant="white"
               icon={<ArrowUpIcon fill="#030712" />}
               onClick={() => {}}
-            >
-              Explore Our Services
-            </ThemeButton>
+            />
           </div>
         </div>
       </section>
@@ -493,18 +722,273 @@ export default function HomeClient() {
               </div>
             </div>
 
-           
+            <video
+              src="/videos/IndustriesHighQuality.mp4"
+              className="h-full"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              aria-label="Industries we serve"
+            />
+          </div>
+        </div>
+      </section>
+      <DevelopmentProcessSection processSteps={processSteps} />
+      <section className="py-16">
+        <div className="container max-w-7xl mx-auto px-8 space-y-4.5">
+          <div className="grid grid-cols-12 gap-4.5 items-stretch">
+            <div className="col-span-8 h-full">
+              <div className="rounded-4xl h-full overflow-hidden grid grid-cols-2 items-center bg-rangoon-green py-4 pl-4 ring ring-inset ring-white-smoke/4 shadow-[inset_2px_4px_16px_0_rgba(248,248,248,0.06)]">
+                <video
+                  src="/videos/BentoCard1new.mp4"
+                  className="h-auto w-full"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  aria-label="Bento card animation"
+                />
+                <div className="px-4 flex flex-col gap-6">
+                  <div className="flex flex-col items-center gap-1.5">
+                    <p className="w-fit bg-linear-to-r from-[#8353D5] to-white bg-clip-text text-xs text-transparent">
+                      Better Digital Experiences
+                    </p>
+                    <p className="text-[32px] leading-[140%] font-bold text-center text-snow-drift/95">
+                      Everything Your Product Needs To Grow.
+                    </p>
+                  </div>
+                  <p className="text-sm text-snow-drift/70 text-center">
+                    From intuitive interfaces to scalable technology, we bring
+                    strategy, design, and development together to create digital
+                    products that perform.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="col-span-4">
               <video
-                src="/videos/IndustriesHighQuality.mp4"
-                className="h-full w-full "
+                src="/videos/BentoCard2.mp4"
+                className="h-auto w-full"
                 autoPlay
                 muted
                 loop
                 playsInline
                 preload="metadata"
-                aria-label="Industries we serve"
+                aria-label="Bento card animation"
               />
-            
+            </div>
+          </div>
+          <div className="grid grid-cols-3 gap-4.5 items-stretch">
+            <video
+              src="/videos/BentoCard3.mp4"
+              className="h-auto w-full"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              aria-label="Bento card animation"
+            />
+            <video
+              src="/videos/BentoCard4.mp4"
+              className="h-auto w-full"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              aria-label="Bento card animation"
+            />
+            <video
+              src="/videos/BentoCard5.mp4"
+              className="h-auto w-full"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              aria-label="Bento card animation"
+            />
+          </div>
+        </div>
+      </section>
+      <TestimonialsSection testimonials={testimonials} />
+      <section className="bg-mirage pt-24 pb-8">
+        <div className="container max-w-7xl mx-auto px-8">
+          <div className="flex flex-col gap-13.5">
+            <div className="flex flex-col gap-8 items-center">
+              <div className=" w-full grid grid-cols-12 space-y-3">
+                <div className="col-start-6 col-end-9">
+                  <PulsingLabel text={"Why Endpoint Clients"} />
+                </div>
+                <div className="col-start-3 col-end-11 ">
+                  <p className="text-5xl text-white font-semibold text-center">
+                    One product team. Fewer handoffs. Better execution.
+                  </p>
+                </div>
+                <div className="col-start-2 col-end-12 ">
+                  <p className="text-xl text-gray-100 text-center">
+                    We connect product thinking, design and engineering from day
+                    one so decisions stay aligned from the first idea through
+                    development, launch and growth.
+                  </p>
+                </div>
+              </div>
+              <ThemeButton
+                label={"Start a Project"}
+                variant="gradient"
+                icon={<ArrowUpIcon />}
+                onClick={() => {
+                  "";
+                }}
+              />
+            </div>
+            <div className="flex flex-col gap-35">
+              <div className="rounded-[48px] bg-dark-jungle-green border border-white/6 shadow-[0_0_150px_0_rgba(131,83,213,0.08)] p-4.5 grid grid-cols-11 gap-5">
+                <div className="col-span-3">
+                  <div className="flex flex-col">
+                    <div className="p-6">
+                      <p className="text-2xl font-semibold text-white">
+                        What Matters
+                      </p>
+                    </div>
+                    <div className="flex flex-col gap-4 p-6">
+                      {features.map((feature, index) => {
+                        const isLastItem = index === features.length - 1;
+                        return (
+                          <FeatureRow
+                            key={feature}
+                            label={feature}
+                            showBorder={!isLastItem}
+                          />
+                        );
+                      })}
+                    </div>
+                  </div>
+                </div>
+                <div className="col-span-4">
+                  <ComparisonCard
+                    title="Traditional Agencies"
+                    titleIcon={<TraditionalIcon />}
+                    features={traditionalAgencyFeatures}
+                  />
+                </div>
+                <div className="col-span-4">
+                  <ComparisonCard
+                    title="Endpointclients"
+                    titleIcon={<EpcLogoIcon />}
+                    features={epcFeatures}
+                    showGlow
+                  />
+                </div>
+              </div>
+              <div className="overflow-hidden">
+                <video
+                  src="/videos/DevMapVideo.mp4"
+                  className="h-full w-full object-cover"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  aria-label="Development map animation"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="bg-mirage">
+        <div className="container max-w-7xl mx-auto pt-16  px-8">
+          <div className="flex flex-col gap-16">
+            <div className="flex flex-col gap-7 items-center">
+              <div className="flex flex-col gap-3 items-center">
+                <PulsingLabel text={"Technology Stack "} />
+                <p className="text-5xl font-semibold text-white leading-[100%]">
+                  The right technology for every layer of your product.
+                </p>
+              </div>
+              <div className="relative flex flex-row rounded-full border border-white/8 bg-heavy-metal p-1.5">
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute top-1.5 bottom-1.5 left-0 rounded-full bg-linear-to-b from-[#8740FF] to-[#512699] transition-all duration-300 ease-out"
+                  style={{
+                    width: indicatorStyle.width,
+                    transform: indicatorStyle.transform,
+                    opacity: indicatorStyle.opacity,
+                  }}
+                />
+                {technologyOptions.map((option, index) => {
+                  const isActive = selectedTechnology === option.value;
+
+                  return (
+                    <button
+                      key={option.value}
+                      ref={(element) => {
+                        buttonRefs.current[index] = element;
+                      }}
+                      type="button"
+                      onClick={() => {
+                        setSelectedTechnology(option.value);
+                      }}
+                      className={`
+            relative z-10 cursor-pointer whitespace-nowrap
+            rounded-full px-5 py-2
+            text-lg font-semibold
+            transition-colors duration-300
+            ${isActive ? "text-white" : "text-white-smoke"}
+          `}
+                    >
+                      {option.label}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+            <TechnologyPills
+              key={selectedTechnology}
+              items={filteredTechnologies}
+            />
+          </div>
+        </div>
+      </section>
+      <section className="bg-mirage py-24">
+        <div className="container max-w-7xl mx-auto px-8 grid grid-cols-10 gap-12">
+          <div className="col-span-4 flex flex-col gap-3 items-start">
+            <PulsingLabel text={"FAQs"} />
+            <h3 className="text-5xl font-semibold text-white leading-[130%]">
+              Questions before we build?
+            </h3>
+          </div>
+          <div className="col-span-6">
+            <FAQAccordion faqs={faqItems} />
+          </div>
+        </div>
+      </section>
+      <section className="bg-mirage pb-20">
+        <div className="container max-w-7xl mx-auto px-8">
+          <div className="bg-woodsmoke border border-white/12 py-16 px-25 rounded-4xl bg-[url('/images/ReadyProjectBgImage.png')] bg-cover bg-center relative overflow-hidden">
+            <div className="flex flex-col gap-10.5 items-center">
+              <div className="flex flex-col gap-3.5 items-center">
+                <p className="text-[56px] font-semibold text-white leading-[120%]">
+                  Ready to start your project?
+                </p>
+                <p className="text-2xl text-white text-center">
+                  Whether you’re launching something new or improving an
+                  existing platform.let’s build something great together.
+                </p>
+              </div>
+              <ThemeButton
+                label="Start Project"
+                variant="gradient"
+                icon={<ArrowUpIcon />}
+                onClick={() => {}}
+              />
+            </div>
+           <Image src={Images.landingImages.ReadyProjectBottomLineImage} alt={"bottom"} className="absolute bottom-0 left-1/2 -translate-x-1/2"/>
           </div>
         </div>
       </section>

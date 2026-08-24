@@ -14,6 +14,14 @@ import UpworkLogoImage from "@/public/images/UpworkLogo.svg"
 import FiverrLogoImage from "@/public/images/FiverrLogoImage.svg"
 import ClutchLogoImage from "@/public/images/ClutchLogoImage.svg"
 import TechBehemothsLogoImage from "@/public/images/TechBehemothsLogoImage.svg"
+import DiscoveryPlanningImage from "@/public/images/Discovery&PlanningImage.svg"
+import CalendarImage from "@/public/images/CalenderImage.svg"
+import DesignPrototypingImage from "@/public/images/DesignPrototypingImage.svg"
+import DevelopmentImage from "@/public/images/DevelopmentImage.svg"
+import TestingImage from "@/public/images/TestingImage.svg"
+import LaunchImage from "@/public/images/LaunchImage.svg"
+import TestimonialImage from "@/public/images/testimonialImage.png"
+import ReadyProjectBottomLineImage from "@/public/images/ReadyProjectBottomImage.svg"
 export const landingImages = { Logo, EndpointPicture, HeroBgGradient ,
     MahanaLogo,
     BoondheshamsLogo,
@@ -27,6 +35,13 @@ export const landingImages = { Logo, EndpointPicture, HeroBgGradient ,
     UpworkLogoImage,
     FiverrLogoImage,
     ClutchLogoImage,
-    TechBehemothsLogoImage
-
+    TechBehemothsLogoImage,
+    DiscoveryPlanningImage,
+    CalendarImage,
+    DesignPrototypingImage,
+    DevelopmentImage,
+    TestingImage,
+    LaunchImage,
+    TestimonialImage,
+    ReadyProjectBottomLineImage
 };

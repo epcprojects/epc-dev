@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Manrope, Playfair_Display} from "next/font/google";
 import "./globals.css";
 import { Header } from "./components";
+import Footer from "./components/Footer";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -29,6 +30,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <main className="flex-1">
           {children}
         </main>
+        <Footer/>
       </body>
     </html>
   );
