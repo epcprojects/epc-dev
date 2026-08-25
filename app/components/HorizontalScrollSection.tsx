@@ -42,7 +42,7 @@ const HorizontalSlide = ({
 
   const isLastTwoCards = index >= totalItems - 2;
 
-  const shouldAnimateEntrance = !isFirstCard && !isLastTwoCards;
+  const shouldAnimateEntrance = !isFirstCard ;
 
   const start = Math.min(index * 0.13, 0.72);
 
@@ -100,16 +100,16 @@ const HorizontalSlide = ({
     //   {children}
     // </motion.div>
     <motion.div
-  ref={slideRef}
-  className="h-full w-[50vw] shrink-0"
-  style={{
-    y: translateY,
-    opacity,
-    scale,
-  }}
->
-  {children}
-</motion.div>
+      ref={slideRef}
+      className="h-full w-[50vw] shrink-0"
+      style={{
+        y: translateY,
+        opacity,
+        scale,
+      }}
+    >
+      {children}
+    </motion.div>
   );
 };
 
