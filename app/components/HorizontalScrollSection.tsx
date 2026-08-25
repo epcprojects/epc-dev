@@ -38,33 +38,58 @@ const HorizontalSlide = ({
 }: HorizontalSlideProps) => {
   const slideRef = useRef<HTMLDivElement>(null);
 
+  // const isFirstCard = index === 0;
+
+  // const isLastTwoCards = index >= totalItems - 2;
+
+  // const shouldAnimateEntrance = !isFirstCard && !isLastTwoCards;
   const isFirstCard = index === 0;
+const isLastTwoCards = index >= totalItems - 2;
 
-  const isLastTwoCards = index >= totalItems - 2;
+const shouldRise = !isFirstCard;
+const shouldFade = !isFirstCard && !isLastTwoCards;
 
-  const shouldAnimateEntrance = !isFirstCard ;
+  // const start = Math.min(index * 0.13, 0.72);
 
+  // const end = Math.min(start + 0.12, 0.84);
+
+  // const translateY = useTransform(
+  //   progress,
+  //   [start, end],
+  //   shouldAnimateEntrance ? [180, 0] : [0, 0],
+  // );
+
+  // const opacity = useTransform(
+  //   progress,
+  //   [start, end],
+  //   shouldAnimateEntrance ? [0, 1] : [1, 1],
+  // );
+
+  // const scale = useTransform(
+  //   progress,
+  //   [start, end],
+  //   shouldAnimateEntrance ? [0.96, 1] : [1, 1],
+  // );
   const start = Math.min(index * 0.13, 0.72);
+const end = Math.min(start + 0.12, 0.84);
 
-  const end = Math.min(start + 0.12, 0.84);
+const translateY = useTransform(
+  progress,
+  [start, end],
+  shouldRise ? [180, 0] : [0, 0],
+);
 
-  const translateY = useTransform(
-    progress,
-    [start, end],
-    shouldAnimateEntrance ? [180, 0] : [0, 0],
-  );
+const opacity = useTransform(
+  progress,
+  [start, end],
+  shouldFade ? [0, 1] : [1, 1],
+);
 
-  const opacity = useTransform(
-    progress,
-    [start, end],
-    shouldAnimateEntrance ? [0, 1] : [1, 1],
-  );
-
-  const scale = useTransform(
-    progress,
-    [start, end],
-    shouldAnimateEntrance ? [0.96, 1] : [1, 1],
-  );
+const scale = useTransform(
+  progress,
+  [start, end],
+  shouldFade ? [0.96, 1] : [1, 1],
+);
 
   useEffect(() => {
     const container = slideRef.current;
