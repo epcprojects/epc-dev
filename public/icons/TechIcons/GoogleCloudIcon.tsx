@@ -1,6 +1,6 @@
 import React from "react";
 
-const GoogleCloudIcon = ({width="30",height="30"}) => {
+const GoogleCloudIcon = ({width="20",height="20"}) => {
   return (
     <svg
       width={width}

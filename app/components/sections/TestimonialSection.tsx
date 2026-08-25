@@ -1,24 +1,16 @@
 "use client";
 
 import { useState, type ReactNode } from "react";
+import { Autoplay } from "swiper/modules";
+import Image, { type StaticImageData } from "next/image";
 
-import Image, {
-  type StaticImageData,
-} from "next/image";
-
-import {
-  Swiper,
-  SwiperSlide,
-} from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 import type { Swiper as SwiperType } from "swiper";
 
 import "swiper/css";
 
-import {
-  ArrowLeftIcon,
-  InvertedCommasIcon,
-} from "@/public/icons";
+import { ArrowLeftIcon, InvertedCommasIcon } from "@/public/icons";
 
 export type Testimonial = {
   id: string | number;
@@ -46,8 +38,7 @@ const NavigationButton = ({
   onClick,
   icon,
 }: NavigationButtonProps) => {
-  const shouldRotateIcon =
-    direction === "next";
+  const shouldRotateIcon = direction === "next";
 
   if (disabled) {
     return (
@@ -55,21 +46,11 @@ const NavigationButton = ({
         type="button"
         disabled
         aria-label={
-          direction === "previous"
-            ? "Previous testimonial"
-            : "Next testimonial"
+          direction === "previous" ? "Previous testimonial" : "Next testimonial"
         }
         className="flex h-11 w-11 cursor-not-allowed items-center justify-center rounded-lg border border-dark-gray opacity-50 xl:h-14 xl:w-14 xl:rounded-xl"
       >
-        <span
-          className={
-            shouldRotateIcon
-              ? "rotate-180"
-              : ""
-          }
-        >
-          {icon}
-        </span>
+        <span className={shouldRotateIcon ? "rotate-180" : ""}>{icon}</span>
       </button>
     );
   }
@@ -79,9 +60,7 @@ const NavigationButton = ({
       type="button"
       onClick={onClick}
       aria-label={
-        direction === "previous"
-          ? "Previous testimonial"
-          : "Next testimonial"
+        direction === "previous" ? "Previous testimonial" : "Next testimonial"
       }
       className="h-11 w-11 overflow-hidden rounded-lg bg-linear-to-r from-medium-teal-blue via-[#A6C8D0] to-[#4434F0] p-px xl:h-14 xl:w-14 xl:rounded-xl"
     >
@@ -90,9 +69,7 @@ const NavigationButton = ({
 
         <span
           className={
-            shouldRotateIcon
-              ? "relative z-10 rotate-180"
-              : "relative z-10"
+            shouldRotateIcon ? "relative z-10 rotate-180" : "relative z-10"
           }
         >
           {icon}
@@ -102,24 +79,14 @@ const NavigationButton = ({
   );
 };
 
-const TestimonialsSection = ({
-  testimonials,
-}: TestimonialsSectionProps) => {
-  const [
-    swiperInstance,
-    setSwiperInstance,
-  ] = useState<SwiperType | null>(null);
+const TestimonialsSection = ({ testimonials }: TestimonialsSectionProps) => {
+  const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
 
-  const [isBeginning, setIsBeginning] =
-    useState(true);
+  const [isBeginning, setIsBeginning] = useState(true);
 
-  const [isEnd, setIsEnd] = useState(
-    testimonials.length <= 1,
-  );
+  const [isEnd, setIsEnd] = useState(testimonials.length <= 1);
 
-  const updateNavigationState = (
-    swiper: SwiperType,
-  ) => {
+  const updateNavigationState = (swiper: SwiperType) => {
     setIsBeginning(swiper.isBeginning);
     setIsEnd(swiper.isEnd);
   };
@@ -127,7 +94,7 @@ const TestimonialsSection = ({
   if (!testimonials.length) return null;
 
   return (
-    <section className="bg-woodsmoke py-8 xl:py-16">
+    <section className="bg-mirage py-8 xl:py-16">
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 xl:px-8">
         <div className="flex flex-col items-start gap-8 xl:gap-13">
           <div className="flex w-full flex-row items-center gap-5 xl:w-auto xl:gap-10.5">
@@ -145,73 +112,61 @@ const TestimonialsSection = ({
 
             <div className="relative min-w-0 flex-1">
               <Swiper
+                modules={[Autoplay]}
                 slidesPerView={1}
                 speed={650}
                 allowTouchMove
+                rewind={testimonials.length > 1}
+                autoplay={{
+                  delay: 4000,
+                  disableOnInteraction: false,
+                  pauseOnMouseEnter: true,
+                }}
                 onSwiper={(swiper) => {
                   setSwiperInstance(swiper);
-                  updateNavigationState(
-                    swiper,
-                  );
+                  updateNavigationState(swiper);
                 }}
-                onSlideChange={
-                  updateNavigationState
-                }
-                onReachBeginning={
-                  updateNavigationState
-                }
-                onReachEnd={
-                  updateNavigationState
-                }
+                onSlideChange={updateNavigationState}
+                onReachBeginning={updateNavigationState}
+                onReachEnd={updateNavigationState}
                 className="w-full [&_.swiper-wrapper]:items-stretch"
               >
-                {testimonials.map(
-                  (testimonial) => (
-                    <SwiperSlide
-                      key={testimonial.id}
-                      className="h-auto!"
-                    >
-                      <div className="flex h-full flex-col justify-between gap-8 xl:gap-30">
-                        <p className="text-2xl leading-[140%] font-medium text-white sm:text-3xl xl:text-42">
-                          {testimonial.text}
-                        </p>
+                {testimonials.map((testimonial) => (
+                  <SwiperSlide key={testimonial.id} className="h-auto!">
+                    <div className="flex h-full flex-col justify-between gap-8 xl:gap-30">
+                      <p className="text-2xl leading-[140%] font-medium text-white sm:text-3xl xl:text-42">
+                        {testimonial.text}
+                      </p>
 
-                        <div className="flex flex-row items-center border-t border-t-white/12 pt-6 pr-0 pb-16 xl:pt-10 xl:pr-36 xl:pb-0">
-                          <div className="flex min-w-0 flex-row items-center gap-4 xl:gap-6">
-                            <div className="shrink-0 overflow-hidden rounded-lg bg-moon-mist">
-                              <Image
-                                src={
-                                  testimonial.authorImage
-                                }
-                                alt={
-                                  testimonial.authorImageAlt ??
-                                  testimonial.authorName
-                                }
-                                width={72}
-                                height={72}
-                                className="h-14 w-14 object-cover xl:h-18 xl:w-18"
-                              />
-                            </div>
+                      <div className="flex flex-row items-center border-t border-t-white/12 pt-6 pr-0 pb-16 xl:pt-10 xl:pr-36 xl:pb-0">
+                        <div className="flex min-w-0 flex-row items-center gap-4 xl:gap-6">
+                          <div className="shrink-0 overflow-hidden rounded-lg bg-moon-mist">
+                            <Image
+                              src={testimonial.authorImage}
+                              alt={
+                                testimonial.authorImageAlt ??
+                                testimonial.authorName
+                              }
+                              width={72}
+                              height={72}
+                              className="h-14 w-14 object-cover xl:h-18 xl:w-18"
+                            />
+                          </div>
 
-                            <div className="flex min-w-0 flex-col gap-1 xl:gap-2">
-                              <p className="text-xl leading-6 font-bold text-white-smoke xl:text-26">
-                                {
-                                  testimonial.authorName
-                                }
-                              </p>
+                          <div className="flex min-w-0 flex-col gap-1 xl:gap-2">
+                            <p className="text-xl leading-6 font-bold text-white-smoke xl:text-26">
+                              {testimonial.authorName}
+                            </p>
 
-                              <p className="text-sm text-iron xl:text-base">
-                                {
-                                  testimonial.authorDescription
-                                }
-                              </p>
-                            </div>
+                            <p className="text-sm text-iron xl:text-base">
+                              {testimonial.authorDescription}
+                            </p>
                           </div>
                         </div>
                       </div>
-                    </SwiperSlide>
-                  ),
-                )}
+                    </div>
+                  </SwiperSlide>
+                ))}
               </Swiper>
 
               <div className="absolute right-0 bottom-0 z-10 flex flex-row gap-2 xl:gap-2.5">

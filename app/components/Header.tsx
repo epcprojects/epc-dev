@@ -74,9 +74,10 @@ const Header = () => {
       `}
     >
       <div className="container mx-auto flex max-w-7xl flex-col items-start justify-between gap-4 px-4 md:flex-row md:items-center md:gap-0 xl:px-8">
-        <Image src={Images.landingImages.Logo} alt="Endpoint clients logo" />
+        <Image src={Images.landingImages.Logo} alt="Endpoint clients logo" className="xl:w-auto xl:h-auto w-30 h-auto" />
+        
 
-        <ThemeButton
+         <ThemeButton
           label="Get a Free Consultation"
           variant="gradient"
           icon={<ArrowUpIcon />}
@@ -88,6 +89,7 @@ const Header = () => {
             );
           }}
         />
+       
       </div>
     </header>
   );

@@ -2,9 +2,10 @@ import type { ReactNode } from "react";
 
 type StatsCardProps = {
   icon: ReactNode;
-  title: string;
+  title: ReactNode;
   subtitle: string;
   className?: string;
+  minwidthClass?: string;
 };
 
 const StatsCard = ({
@@ -12,10 +13,11 @@ const StatsCard = ({
   title,
   subtitle,
   className = "",
+  minwidthClass
 }: StatsCardProps) => {
   return (
     <div
-      className={`flex flex-row items-center gap-3 xl:gap-8 xl:border-r border-b border-b-white/18 xl:border-b-0 xl:border-r-white/18 p-4 md:p-9 ${className}`}
+      className={`flex ${minwidthClass?minwidthClass:"xl:min-w-75.25 "} flex-row items-center gap-3 xl:gap-8 xl:border-r border-b border-b-white/18 xl:border-b-0 xl:border-r-white/18 p-4 md:p-9 ${className}`}
     >
       <div className="shrink-0">
         {icon}

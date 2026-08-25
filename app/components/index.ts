@@ -12,6 +12,7 @@ import TestimonialsSection from "./sections/TestimonialSection";
 import FeatureRow from "./cards/FeatureRow";
 import ComparisonCard from "./cards/ComparisonCard";
 import FAQAccordion from "./FaqAccordion";
+import CountUpNumber from "./CountUpNumber";
 export {
     Header,
     ServicePill,
@@ -26,5 +27,6 @@ export {
     TestimonialsSection,
     FeatureRow,
     ComparisonCard,
-    FAQAccordion
+    FAQAccordion,
+    CountUpNumber
 }

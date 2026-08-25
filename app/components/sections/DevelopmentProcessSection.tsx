@@ -58,7 +58,7 @@ const DevelopmentProcessSection = ({
     (activeIndex + 1) / processSteps.length;
 
   return (
-    <section className="bg-mirage py-8 xl:py-24">
+    <section className="bg-mirage pb-8 xl:pb-24">
       <div className="container mx-auto flex max-w-7xl flex-col gap-10 px-4 sm:px-6 xl:hidden">
         <div className="flex flex-col items-start gap-5">
           <div className="flex flex-col items-start gap-2.5">
@@ -107,7 +107,7 @@ const DevelopmentProcessSection = ({
         <div className="sticky top-0 flex h-screen items-center overflow-hidden bg-mirage">
           <div className="container mx-auto flex max-w-7xl flex-col xl:gap-20 2xl:gap-35 px-8 pt-8 2xl:pt-16">
             <div className="flex flex-col gap-30">
-              <div className="flex flex-col items-start gap-10.5">
+              <div className="flex flex-col items-start gap-6">
                 <div className="flex flex-col items-start gap-3">
                   <PulsingLabel text="Our Development Process" />
 

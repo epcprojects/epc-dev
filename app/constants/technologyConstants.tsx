@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-
+import Image from "next/image";
 import { ReactIcon } from "@/public/icons";
 import {
   AndroidIcon,
@@ -342,7 +342,15 @@ export const technologies: TechnologyPillItem[] = [
   },
   {
     label: "Cloudflare",
-    icon: <CloudflareIcon />,
+     icon: (
+    <Image
+      src="/images/cloudflarimage.svg"
+      alt="Cloudflare"
+      width={20}
+      height={20}
+      className="h-5 w-5 object-contain"
+    />
+  ),
     category: "cloud",
   },
 

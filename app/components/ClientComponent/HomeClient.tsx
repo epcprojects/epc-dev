@@ -50,6 +50,7 @@ import {
 } from "@/app/constants/technologyConstants";
 import FAQAccordion, { FAQItem } from "../FaqAccordion";
 import { useIsMobile } from "@/app/hooks/useIsMobile";
+import CountUpNumber from "../CountUpNumber";
 const pillGroupVariants: Variants = {
   hidden: {},
   visible: {
@@ -146,7 +147,7 @@ export default function HomeClient() {
     >
       <video
         src={capability.video}
-        className="2xl:h-[500px] h-full  w-auto rounded-xl"
+        className="2xl:h-[500px] h-full  w-auto rounded-[42px]"
         autoPlay
         muted
         loop
@@ -394,8 +395,8 @@ export default function HomeClient() {
                     <PulsingBorder
                       width="100%"
                       height="100%"
-                      colors={["#8742ff", "#1a1a1a"]}
-                      colorBack="#00000090"
+                      colors={["#8742ff", "#191919"]}
+                      colorBack="#191919"
                       roundness={0.38}
                       thickness={0.04}
                       softness={0.75}
@@ -479,7 +480,7 @@ export default function HomeClient() {
         aria-label="Our partners"
       >
         <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 md:w-64 bg-linear-to-r from-mirage to-mirage/0" />
-        <Marquee autoFill speed={70} pauseOnHover>
+        <Marquee autoFill speed={50} pauseOnHover>
           {partnerLogos.map((logo) => (
             <div key={logo.alt} className="mr-7 flex  shrink-0 items-center">
               <Image src={logo.src} alt={logo.alt} />
@@ -642,6 +643,7 @@ export default function HomeClient() {
         bg-black/25
       "
           />
+          <div className="absolute top-0 left-140 h-full w-149 bg-[linear-gradient(251deg,rgba(21,21,21,0)_30.42%,#151515_55.36%)]" />
           <div
             className="
         relative z-20 flex max-w-200
@@ -656,7 +658,7 @@ export default function HomeClient() {
               <p
                 className="
             text-2xl font-semibold
-            leading-[110%] text-gray-50
+            leading-[100%] text-gray-50
             md:text-5xl md:leading-normal
           "
               >
@@ -688,7 +690,7 @@ export default function HomeClient() {
                 height={isMobile ? "30" : "68"}
               />
             }
-            title="1200+"
+            title={<CountUpNumber end={1200} suffix="+" />}
             subtitle="Happy Clients"
           />
           <StatsCard
@@ -698,8 +700,9 @@ export default function HomeClient() {
                 height={isMobile ? "30" : "68"}
               />
             }
-            title="500M+"
+            title={<CountUpNumber end={500} suffix="M+" />}
             subtitle="Raised by our Clients"
+            minwidthClass="min-w-[330px]"
           />
           <StatsCard
             icon={
@@ -708,10 +711,10 @@ export default function HomeClient() {
                 height={isMobile ? "30" : "68"}
               />
             }
-            title="50+"
+            title={<CountUpNumber end={50} suffix="+" />}
             subtitle="Countries Served"
           />
-          <div className="p-4 2xl:p-9 flex flex-row gap-1 md:gap-2 items-center justify-center">
+          <div className="p-4 2xl:px-4 2xl:py-9 flex flex-row gap-1 md:gap-2 items-center justify-center">
             <PlatformLogo
               src={Images.landingImages.UpworkLogoImage}
               alt="Upwork logo"
@@ -731,20 +734,20 @@ export default function HomeClient() {
           </div>
         </div>
       </section>
-      <section className="bg-mirage pt-12 md:pt-24">
+      <section className="bg-mirage pt-12 md:pt-24 xl:pb-16">
         <div className="container mx-auto max-w-7xl px-4 pt-8 md:px-8 md:pt-16">
-          <div className="flex flex-col items-center gap-12 md:gap-30">
-            <div className="grid w-full grid-cols-1 items-center gap-4 md:grid-cols-12 md:gap-3">
+          <div className="flex flex-col items-center gap-12 md:gap-20">
+            <div className="grid w-full grid-cols-1 items-center gap-4 md:grid-cols-12 md:gap-4">
               <div className=" md:col-start-6 md:col-end-10">
                 <PulsingLabel text="INDUSTRIES WE SERVE" />
               </div>
               <div className="md:col-start-3 md:col-end-12">
-                <h2 className="md:text-center text-3xl leading-[105%] font-semibold text-white md:text-5xl md:leading-[100%]">
+                <h2 className="md:text-center text-3xl leading-[105%] font-semibold text-white md:text-5xl md:leading-[120%]">
                   Digital products shaped around how your industry actually
                   works
                 </h2>
               </div>
-              <div className="md:col-span-full md:ml-6">
+              <div className="md:col-start-2 md:col-end-12 md:ml-10">
                 <p className="md:text-center text-base leading-relaxed text-gray-100 md:text-xl">
                   Different industries bring different users, workflows,
                   regulations and operational challenges. We combine product
@@ -849,19 +852,19 @@ export default function HomeClient() {
       <TestimonialsSection testimonials={testimonials} />
       <section className="bg-mirage pt-8 md:pt-24 pb-8">
         <div className="container max-w-7xl mx-auto px-4 md:px-8">
-          <div className="flex flex-col gap-6 md:gap-13.5">
+          <div className="flex flex-col gap-6 md:gap-15.5">
             <div className="flex flex-col gap-4 md:gap-8 items-start md:items-center">
               <div className=" w-full grid md:grid-cols-12 space-y-3">
                 <div className="md:col-start-6 md:col-end-9">
                   <PulsingLabel text={"Why Endpoint Clients"} />
                 </div>
                 <div className="md:col-start-3 md:col-end-11 ">
-                  <p className="text-3xl md:text-5xl text-white font-semibold md:text-center">
+                  <p className="text-3xl md:text-5xl text-white font-semibold md:text-center leading-[120%]">
                     One product team. Fewer handoffs. Better execution.
                   </p>
                 </div>
-                <div className="md:col-start-2 md:col-end-12 ">
-                  <p className="text-base md:text-xl text-gray-100 md:text-center">
+                <div className="md:col-start-3 md:col-end-11 ">
+                  <p className="text-base md:text-xl text-gray-100 md:text-center leading-[150%]">
                     We connect product thinking, design and engineering from day
                     one so decisions stay aligned from the first idea through
                     development, launch and growth.
@@ -937,7 +940,7 @@ export default function HomeClient() {
         </div>
       </section>
       <section className="bg-mirage">
-        <div className="container max-w-7xl mx-auto pt-8 md:pt-16  px-4 md:px-8">
+        <div className="container max-w-7xl mx-auto pt-8 md:pt-16  px-4 md:px-8 xl:pb-8">
           <div className="flex flex-col gap-8 md:gap-16">
             <div className="flex flex-col gap-3 md:gap-7 items-start md:items-center">
               <div className="flex flex-col gap-3 items-start md:items-center">
@@ -995,7 +998,7 @@ export default function HomeClient() {
         <div className="container max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-10 gap-4 md:gap-12">
           <div className="md:col-span-4 flex flex-col gap-2 md:gap-3 items-start">
             <PulsingLabel text={"FAQs"} />
-            <h3 className="text-3xl md:text-5xl font-semibold text-white leading-[130%]">
+            <h3 className="text-3xl md:text-5xl font-semibold text-white leading-[110%]">
               Questions before we build?
             </h3>
           </div>
