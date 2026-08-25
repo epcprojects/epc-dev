@@ -51,6 +51,7 @@ import {
 import FAQAccordion, { FAQItem } from "../FaqAccordion";
 import { useIsMobile } from "@/app/hooks/useIsMobile";
 import CountUpNumber from "../CountUpNumber";
+import { div } from "motion/react-client";
 const pillGroupVariants: Variants = {
   hidden: {},
   visible: {
@@ -143,11 +144,12 @@ export default function HomeClient() {
   const capabilityCards = capabilities.map((capability) => (
     <article
       key={capability.id}
-      className="flex h-screen flex-col  items-start gap-6 2xl:border-r 2xl:border-white/12 px-4 xl:px-12 py-8"
+      className="flex items-center justify-center h-full  2xl:border-r 2xl:border-white/12 px-4 xl:px-12 "
     >
-      <video
+      <div className="xl:container xl:max-w-175 xl:mx-auto flex flex-col gap-6 xl:gap-6">
+                  <video
         src={capability.video}
-        className="2xl:h-[500px] h-full  w-auto rounded-[42px]"
+        className="h-auto  w-full rounded-[42px]"
         autoPlay
         muted
         loop
@@ -156,15 +158,17 @@ export default function HomeClient() {
         aria-label={capability.title}
       />
 
-      <div className="flex flex-col gap-3.5">
+      <div className="flex flex-col gap-3">
         <p className="text-xl xl:text-[34px] font-bold text-desert-storm">
           {capability.title}
         </p>
 
-        <p className="text-base xl:text-xl text-white">
+        <p className="text-base xl:text-xl text-white leading-[150%]">
           {capability.description}
         </p>
       </div>
+      </div>
+   
     </article>
   ));
   const processSteps = [
@@ -593,7 +597,8 @@ export default function HomeClient() {
       </section>
       <HorizontalScrollSection
         leftContent={
-          <div className="flex flex-col items-start gap-7">
+         <div className="container max-w-175 mx-auto flex items-center justify-center ">
+           <div className="flex flex-col items-start gap-7">
             <div className="flex flex-col gap-4.5">
               <PulsingLabel text="Our Capabilities" />
 
@@ -603,7 +608,7 @@ export default function HomeClient() {
             </div>
 
             <ThemeButton
-              label="Get a Free Consultation"
+              label="Book a Call"
               variant="gradient"
               icon={<ArrowUpIcon />}
               onClick={() => {
@@ -615,6 +620,7 @@ export default function HomeClient() {
               }}
             />
           </div>
+         </div>
         }
         items={capabilityCards}
       />

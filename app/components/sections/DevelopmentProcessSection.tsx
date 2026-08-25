@@ -76,7 +76,7 @@ const DevelopmentProcessSection = ({
           </div>
 
           <ThemeButton
-            label="Get a Free Consultation"
+            label="Book a Call"
             variant="gradient"
             icon={<ArrowUpIcon />}
             onClick={() => {}}
@@ -123,7 +123,7 @@ const DevelopmentProcessSection = ({
                 </div>
 
                 <ThemeButton
-                  label="Get a Free Consultation"
+                  label="Book a Call"
                   variant="gradient"
                   icon={<ArrowUpIcon />}
                   onClick={() => {

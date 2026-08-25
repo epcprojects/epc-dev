@@ -19,6 +19,7 @@ type ThemeButtonProps =
     onClick: MouseEventHandler<HTMLButtonElement>;
     variant?: ThemeButtonVariant;
     icon?: ReactNode;
+    showIcon?: boolean;
   };
 
 const variantClasses: Record<
@@ -38,6 +39,7 @@ const ThemeButton = ({
   icon,
   className = "",
   type = "button",
+  showIcon=true,
   ...props
 }: ThemeButtonProps) => {
   const showParticles = variant === "gradient";
@@ -77,7 +79,7 @@ const ThemeButton = ({
         {label}
       </span>
 
-      {icon && (
+      {icon && showIcon && (
         <span className="relative z-10 shrink-0 transition-transform duration-300 group-hover:rotate-45">
           {icon}
         </span>

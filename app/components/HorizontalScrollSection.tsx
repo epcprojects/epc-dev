@@ -85,20 +85,31 @@ const HorizontalSlide = ({
   }, [isActive]);
 
   return (
+    // <motion.div
+    //   ref={slideRef}
+    //   className="
+    //    h-full w-screen shrink-0
+    //     md:w-[50vw]
+    //   "
+    //   style={{
+    //     y: translateY,
+    //     opacity,
+    //     scale,
+    //   }}
+    // >
+    //   {children}
+    // </motion.div>
     <motion.div
-      ref={slideRef}
-      className="
-       h-full w-screen shrink-0
-        md:w-[50vw]
-      "
-      style={{
-        y: translateY,
-        opacity,
-        scale,
-      }}
-    >
-      {children}
-    </motion.div>
+  ref={slideRef}
+  className="h-full w-[50vw] shrink-0"
+  style={{
+    y: translateY,
+    opacity,
+    scale,
+  }}
+>
+  {children}
+</motion.div>
   );
 };
 
@@ -265,11 +276,15 @@ const HorizontalScrollSection = ({
       bg-mirage
     "
           style={{
-            top: "calc(var(--header-height, 0px) + 0px)",
-            height: "calc(100svh - var(--header-height, 0px) - 0px)",
+            top: "calc(var(--header-height, 0px) + 16px)",
+            height: "calc(100svh - var(--header-height, 0px) - 32px)",
           }}
+          // style={{
+          //   top: "calc(var(--header-height, 0px) + 0px)",
+          //   height: "calc(100svh - var(--header-height, 0px) - 0px)",
+          // }}
         >
-          <motion.div
+          {/* <motion.div
             ref={trackRef}
             className="
         flex h-full w-max items-center
@@ -289,6 +304,36 @@ const HorizontalScrollSection = ({
           md:w-[50vw]
           md:max-w-160 md:p-8
         "
+            >
+              {leftContent}
+            </div>
+
+            {items.map((item, index) => (
+              <HorizontalSlide
+                key={index}
+                progress={scrollYProgress}
+                index={index}
+                totalItems={items.length}
+                isActive={activeIndex === index}
+              >
+                {item}
+              </HorizontalSlide>
+            ))}
+          </motion.div> */}
+          <motion.div
+            ref={trackRef}
+            className="flex h-full w-max items-center"
+            style={{
+              x: translateX,
+            }}
+          >
+            <div
+              className="
+      flex h-full w-[50vw] shrink-0
+      items-center border-r
+      border-white/12 bg-mirage
+      p-8
+    "
             >
               {leftContent}
             </div>

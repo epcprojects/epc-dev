@@ -8,6 +8,7 @@ import { Images } from "../ui";
 import { ArrowUpIcon } from "@/public/icons";
 import ThemeButton from "./button/ThemeButton";
 import { useRouter } from "next/navigation";
+import { useIsMobile } from "../hooks/useIsMobile";
 
 const Header = () => {
   const headerRef = useRef<HTMLElement>(null);
@@ -60,6 +61,7 @@ const Header = () => {
       document.documentElement.style.removeProperty("--header-height");
     };
   }, []);
+  const isMobile = useIsMobile();
   return (
     <header
       ref={headerRef}
@@ -68,19 +70,20 @@ const Header = () => {
       
         ${
           isScrolled
-            ? "border-b border-white/12 bg-mirage bg-[url('/images/HeroBgGradient.png')] bg-size-[100%_auto] bg-position-[center_top] bg-no-repeat py-4 md:py-7"
+            ? "border-b border-white/12 bg-mirage bg-[url('/images/HeroBgGradient.png')] bg-size-[100%_auto] bg-position-[center_top] bg-no-repeat py-4 md:py-6"
             : "border-b border-transparent pt-4 md:pt-7"
         }
       `}
     >
-      <div className="container mx-auto flex max-w-7xl flex-col items-start justify-between gap-4 px-4 md:flex-row md:items-center md:gap-0 xl:px-8">
+      <div className="container mx-auto flex max-w-7xl flex-wrap items-start justify-between gap-4 px-4 md:flex-row md:items-center md:gap-0 xl:px-8">
         <Image src={Images.landingImages.Logo} alt="Endpoint clients logo" className="xl:w-auto xl:h-auto w-30 h-auto" />
         
 
          <ThemeButton
-          label="Get a Free Consultation"
+          label="Book a Call"
           variant="gradient"
           icon={<ArrowUpIcon />}
+          showIcon={isMobile?false:true}
           onClick={() => {
             window.open(
               "https://calendly.com/endpointclients/30min",
