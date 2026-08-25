@@ -375,7 +375,7 @@ export default function HomeClient() {
   ];
   return (
     <>
-      <section  className="-mt-35 md:-mt-28 bg-[url('/images/HeroBgGradient.png')] bg-position-[center_top] bg-size-[100%_auto] bg-no-repeat pt-28 ">
+      <section  className="-mt-35 md:-mt-28 bg-mirage bg-[url('/images/HeroBgGradient.png')] bg-position-[center_top] bg-size-[100%_auto] bg-no-repeat pt-28 ">
         <div className="pt-15 md:pt-20 pb-10 md:pb-26.5 container max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 xl:grid-cols-10 items-center gap-5">
           <div className="xl:col-span-7 flex flex-col gap-4 md:gap-7.5">
             <div className="flex flex-col gap-2 md:gap-4.5">
@@ -473,7 +473,7 @@ export default function HomeClient() {
         </div>
       </section>
       <section
-        className="overflow-hidden bg-dark-jungle-green py-2.5 relative"
+        className="overflow-hidden bg-[#222222] py-2.5 relative"
         aria-label="Our partners"
       >
         <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 md:w-64 bg-linear-to-r from-mirage to-mirage/0" />

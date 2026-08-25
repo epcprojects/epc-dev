@@ -243,7 +243,7 @@ const HorizontalScrollSection = ({
         </div>
       </section>
 
-      <section
+      {/* <section
         ref={sectionRef}
         className="relative hidden border-y border-white/12 xl:block"
         style={{
@@ -297,7 +297,61 @@ const HorizontalScrollSection = ({
             ))}
           </motion.div>
         </div>
-      </section>
+      </section> */}
+      <section
+  ref={sectionRef}
+  className="relative hidden border-y border-white/12 xl:block"
+  style={{
+    height: sectionHeight,
+  }}
+>
+  <div
+    ref={viewportRef}
+    className="
+      sticky top-[5svh] z-10 flex h-[90svh]
+      items-center overflow-hidden
+      border-y border-white/12
+      bg-mirage
+    "
+  >
+    <motion.div
+      ref={trackRef}
+      className="
+        flex h-full w-max items-center
+        px-4
+        md:px-16
+      "
+      style={{
+        x: translateX,
+      }}
+    >
+      <div
+        className="
+          flex h-full w-screen shrink-0
+          items-center border-r
+          border-white/12 bg-mirage
+          px-6 py-8
+          md:w-[50vw]
+          md:max-w-160 md:p-8
+        "
+      >
+        {leftContent}
+      </div>
+
+      {items.map((item, index) => (
+        <HorizontalSlide
+          key={index}
+          progress={scrollYProgress}
+          index={index}
+          totalItems={items.length}
+          isActive={activeIndex === index}
+        >
+          {item}
+        </HorizontalSlide>
+      ))}
+    </motion.div>
+  </div>
+</section>
     </>
   );
 };
