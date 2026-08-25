@@ -141,15 +141,59 @@ export default function HomeClient() {
       video: "/videos/CapabilitiesVideo6.mp4",
     },
   ];
+  // const capabilityCards = capabilities.map((capability) => (
+  //   <article
+  //     key={capability.id}
+  //     className="flex items-center justify-center h-full  2xl:border-r 2xl:border-white/12 px-4 xl:px-12 py-8"
+  //   >
+  //     <div className="xl:container xl:max-w-200 xl:mx-auto flex flex-col gap-6 xl:gap-6">
+  //                 <video
+  //       src={capability.video}
+  //       className="h-auto  w-full rounded-[42px]"
+  //       autoPlay
+  //       muted
+  //       loop
+  //       playsInline
+  //       preload="metadata"
+  //       aria-label={capability.title}
+  //     />
+
+  //     <div className="flex flex-col gap-3">
+  //       <p className="text-xl xl:text-[34px] font-bold text-desert-storm">
+  //         {capability.title}
+  //       </p>
+
+  //       <p className="text-base xl:text-xl text-white leading-[150%]">
+  //         {capability.description}
+  //       </p>
+  //     </div>
+  //     </div>
+   
+  //   </article>
+  // ));
   const capabilityCards = capabilities.map((capability) => (
-    <article
-      key={capability.id}
-      className="flex items-center justify-center h-full  2xl:border-r 2xl:border-white/12 px-4 xl:px-12 "
+  <article
+    key={capability.id}
+    className="
+      flex h-full items-center justify-center
+      px-4 py-8
+      2xl:border-r 2xl:border-white/12
+      xl:px-12
+    "
+  >
+    <div
+      className="
+        flex h-full min-h-0 w-full flex-col
+        gap-6
+        xl:container xl:mx-auto xl:max-w-225
+      "
     >
-      <div className="xl:container xl:max-w-175 xl:mx-auto flex flex-col gap-6 xl:gap-6">
-                  <video
+      <video
         src={capability.video}
-        className="h-auto  w-full rounded-[42px]"
+        className="
+          min-h-0 w-full flex-1
+          rounded-[42px] object-contain
+        "
         autoPlay
         muted
         loop
@@ -158,19 +202,18 @@ export default function HomeClient() {
         aria-label={capability.title}
       />
 
-      <div className="flex flex-col gap-3">
-        <p className="text-xl xl:text-[34px] font-bold text-desert-storm">
+      <div className="flex shrink-0 flex-col gap-3">
+        <p className="text-xl font-bold text-desert-storm xl:text-[34px]">
           {capability.title}
         </p>
 
-        <p className="text-base xl:text-xl text-white leading-[150%]">
+        <p className="text-base leading-[150%] text-white xl:text-xl">
           {capability.description}
         </p>
       </div>
-      </div>
-   
-    </article>
-  ));
+    </div>
+  </article>
+));
   const processSteps = [
     {
       number: "/01",
