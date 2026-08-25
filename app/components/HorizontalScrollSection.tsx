@@ -171,10 +171,7 @@ const HorizontalScrollSection = ({
   });
 
   // const sectionHeight = `${Math.max(400, items.length * 80)}vh`;
-  const sectionHeight = `${Math.max(
-  400,
-  items.length * 80,
-)}vh`;
+  const sectionHeight = `${Math.max(400, items.length * 80)}vh`;
 
   return (
     <>
@@ -253,39 +250,38 @@ const HorizontalScrollSection = ({
         </div>
       </section> */}
       <section
-  ref={sectionRef}
-  className="relative hidden bg-mirage py-4 2xl:block"
-  style={{
-    height: sectionHeight,
-  }}
->
-  <div
-    ref={viewportRef}
-    className="
+        ref={sectionRef}
+        className="relative hidden bg-mirage py-4 2xl:block"
+        style={{
+          height: sectionHeight,
+        }}
+      >
+        <div
+          ref={viewportRef}
+          className="
       sticky z-10 flex
       items-center overflow-hidden
       border-y border-white/12
       bg-mirage
     "
-    style={{
-      top: "calc(var(--header-height, 0px) + 16px)",
-      height:
-        "calc(100svh - var(--header-height, 0px) - 32px)",
-    }}
-  >
-    <motion.div
-      ref={trackRef}
-      className="
+          style={{
+            top: "calc(var(--header-height, 0px) + 0px)",
+            height: "calc(100svh - var(--header-height, 0px) - 0px)",
+          }}
+        >
+          <motion.div
+            ref={trackRef}
+            className="
         flex h-full w-max items-center
         px-4 xl:px-0
         sm:pl-16 md:pl-60
       "
-      style={{
-        x: translateX,
-      }}
-    >
-      <div
-        className="
+            style={{
+              x: translateX,
+            }}
+          >
+            <div
+              className="
           flex h-full w-screen shrink-0
           items-center border-r
           border-white/12 bg-mirage
@@ -293,24 +289,24 @@ const HorizontalScrollSection = ({
           md:w-[50vw]
           md:max-w-160 md:p-8
         "
-      >
-        {leftContent}
-      </div>
+            >
+              {leftContent}
+            </div>
 
-      {items.map((item, index) => (
-        <HorizontalSlide
-          key={index}
-          progress={scrollYProgress}
-          index={index}
-          totalItems={items.length}
-          isActive={activeIndex === index}
-        >
-          {item}
-        </HorizontalSlide>
-      ))}
-    </motion.div>
-  </div>
-</section>
+            {items.map((item, index) => (
+              <HorizontalSlide
+                key={index}
+                progress={scrollYProgress}
+                index={index}
+                totalItems={items.length}
+                isActive={activeIndex === index}
+              >
+                {item}
+              </HorizontalSlide>
+            ))}
+          </motion.div>
+        </div>
+      </section>
     </>
   );
 };

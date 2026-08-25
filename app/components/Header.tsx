@@ -91,7 +91,7 @@ const Header = () => {
       
         ${
           isScrolled
-            ? "border-b border-white/12 bg-mirage bg-[url('/images/HeroBgGradient.png')] bg-size-[100%_auto] bg-position-[center_top] bg-no-repeat py-7"
+            ? "border-b border-white/12 bg-mirage bg-[url('/images/HeroBgGradient.png')] bg-size-[100%_auto] bg-position-[center_top] bg-no-repeat py-4 md:py-7"
             : "border-b border-transparent pt-4 md:pt-7"
         }
       `}

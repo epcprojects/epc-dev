@@ -49,6 +49,7 @@ import {
   technologyOptions,
 } from "@/app/constants/technologyConstants";
 import FAQAccordion, { FAQItem } from "../FaqAccordion";
+import { useIsMobile } from "@/app/hooks/useIsMobile";
 const pillGroupVariants: Variants = {
   hidden: {},
   visible: {
@@ -145,7 +146,7 @@ export default function HomeClient() {
     >
       <video
         src={capability.video}
-        className="h-[500px] w-auto rounded-xl"
+        className="xl:h-[500px] h-full w-auto rounded-xl"
         autoPlay
         muted
         loop
@@ -373,6 +374,7 @@ export default function HomeClient() {
         "Yes. We help define, design and develop focused MVPs that validate the core product idea without unnecessary complexity.",
     },
   ];
+  const isMobile = useIsMobile();
   return (
     <>
       <section  className="-mt-35 md:-mt-28 bg-mirage bg-[url('/images/HeroBgGradient.png')] bg-position-[center_top] bg-size-[100%_auto] bg-no-repeat pt-28 ">
@@ -638,7 +640,7 @@ export default function HomeClient() {
             className="
         relative z-20 flex max-w-200
         flex-col items-start
-        gap-8 px-2 py-8
+        gap-4 px-2 py-8
         md:gap-13 md:px-8 md:py-16
       "
           >
@@ -647,7 +649,7 @@ export default function HomeClient() {
 
               <p
                 className="
-            text-3xl font-semibold
+            text-2xl font-semibold
             leading-[110%] text-gray-50
             md:text-5xl md:leading-normal
           "
@@ -668,21 +670,21 @@ export default function HomeClient() {
       <section className="bg-mirage border-y border-y-white/18">
         <div className="container max-w-7xl mx-auto px-4 xl:px-8 flex flex-col md:flex-row">
           <StatsCard
-            icon={<HappyClientsIcon />}
+            icon={<HappyClientsIcon width={isMobile?"30":"68"} height={isMobile?"30":"68"} />}
             title="1200+"
             subtitle="Happy Clients"
           />
           <StatsCard
-            icon={<OurClientsIcon />}
+            icon={<OurClientsIcon  width={isMobile?"30":"68"} height={isMobile?"30":"68"} />}
             title="500M+"
             subtitle="Raised by our Clients"
           />
           <StatsCard
-            icon={<CountriesServedIcon />}
+            icon={<CountriesServedIcon width={isMobile?"30":"68"} height={isMobile?"30":"68"} />}
             title="50+"
             subtitle="Countries Served"
           />
-          <div className="p-9 flex flex-row gap-2 items-center justify-center">
+          <div className="p-4 md:p-9 flex flex-row gap-1 md:gap-2 items-center justify-center">
             <PlatformLogo
               src={Images.landingImages.UpworkLogoImage}
               alt="Upwork logo"

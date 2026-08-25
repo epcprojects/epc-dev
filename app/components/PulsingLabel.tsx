@@ -31,7 +31,7 @@ const PulsingLabel = ({ text }: PulsingLabelProps) => {
       </div>
 
       <div className="relative z-20 rounded-[7px] bg-mirage px-3.5 py-1.5">
-        <p className="w-fit text-xl font-medium text-light-blue-gray">
+        <p className="w-fit text-base md:text-xl font-medium text-light-blue-gray">
           {text}
         </p>
       </div>
