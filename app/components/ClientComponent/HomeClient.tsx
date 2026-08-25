@@ -184,14 +184,14 @@ export default function HomeClient() {
     <div
       className="
         flex h-full min-h-0 w-full flex-col
-        gap-6
+        gap-6 justify-center
         xl:container xl:mx-auto xl:max-w-225
       "
     >
       <video
         src={capability.video}
         className="
-          min-h-0 w-full flex-1
+            w-full 
           rounded-[42px] object-contain
         "
         autoPlay
@@ -202,7 +202,7 @@ export default function HomeClient() {
         aria-label={capability.title}
       />
 
-      <div className="flex shrink-0 flex-col gap-3">
+      <div className="flex shrink-0 flex-col gap-3 px-8">
         <p className="text-xl font-bold text-desert-storm xl:text-[34px]">
           {capability.title}
         </p>
