@@ -1,23 +1,18 @@
 "use client";
 
-import React, {
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 import Image from "next/image";
 
 import { Images } from "../ui";
 import { ArrowUpIcon } from "@/public/icons";
 import ThemeButton from "./button/ThemeButton";
+import { useRouter } from "next/navigation";
 
 const Header = () => {
   const headerRef = useRef<HTMLElement>(null);
 
-  const [isScrolled, setIsScrolled] =
-    useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,19 +21,12 @@ const Header = () => {
 
     handleScroll();
 
-    window.addEventListener(
-      "scroll",
-      handleScroll,
-      {
-        passive: true,
-      },
-    );
+    window.addEventListener("scroll", handleScroll, {
+      passive: true,
+    });
 
     return () => {
-      window.removeEventListener(
-        "scroll",
-        handleScroll,
-      );
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -48,8 +36,7 @@ const Header = () => {
     if (!header) return;
 
     const updateHeaderHeight = () => {
-      const headerHeight =
-        header.getBoundingClientRect().height;
+      const headerHeight = header.getBoundingClientRect().height;
 
       document.documentElement.style.setProperty(
         "--header-height",
@@ -59,30 +46,20 @@ const Header = () => {
 
     updateHeaderHeight();
 
-    const resizeObserver =
-      new ResizeObserver(updateHeaderHeight);
+    const resizeObserver = new ResizeObserver(updateHeaderHeight);
 
     resizeObserver.observe(header);
 
-    window.addEventListener(
-      "resize",
-      updateHeaderHeight,
-    );
+    window.addEventListener("resize", updateHeaderHeight);
 
     return () => {
       resizeObserver.disconnect();
 
-      window.removeEventListener(
-        "resize",
-        updateHeaderHeight,
-      );
+      window.removeEventListener("resize", updateHeaderHeight);
 
-      document.documentElement.style.removeProperty(
-        "--header-height",
-      );
+      document.documentElement.style.removeProperty("--header-height");
     };
   }, []);
-
   return (
     <header
       ref={headerRef}
@@ -97,16 +74,19 @@ const Header = () => {
       `}
     >
       <div className="container mx-auto flex max-w-7xl flex-col items-start justify-between gap-4 px-4 md:flex-row md:items-center md:gap-0 xl:px-8">
-        <Image
-          src={Images.landingImages.Logo}
-          alt="Endpoint clients logo"
-        />
+        <Image src={Images.landingImages.Logo} alt="Endpoint clients logo" />
 
         <ThemeButton
           label="Get a Free Consultation"
           variant="gradient"
           icon={<ArrowUpIcon />}
-          onClick={() => {}}
+          onClick={() => {
+            window.open(
+              "https://calendly.com/endpointclients/30min",
+              "_blank",
+              "noopener,noreferrer",
+            );
+          }}
         />
       </div>
     </header>

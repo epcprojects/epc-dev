@@ -146,7 +146,7 @@ export default function HomeClient() {
     >
       <video
         src={capability.video}
-        className="xl:h-[500px] h-full w-auto rounded-xl"
+        className="2xl:h-[500px] h-full  w-auto rounded-xl"
         autoPlay
         muted
         loop
@@ -377,9 +377,9 @@ export default function HomeClient() {
   const isMobile = useIsMobile();
   return (
     <>
-      <section  className="-mt-35 md:-mt-28 bg-mirage bg-[url('/images/HeroBgGradient.png')] bg-position-[center_top] bg-size-[100%_auto] bg-no-repeat pt-28 ">
-        <div className="pt-15 md:pt-20 pb-10 md:pb-26.5 container max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 xl:grid-cols-10 items-center gap-5">
-          <div className="xl:col-span-7 flex flex-col gap-4 md:gap-7.5">
+      <section className="-mt-35 md:-mt-28 bg-mirage bg-[url('/images/HeroBgGradient.png')] bg-position-[center_top] bg-size-[100%_auto] bg-no-repeat pt-28 ">
+        <div className="pt-15 xl:pt-20 pb-10 xl:pb-26.5 container max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-10 items-center gap-5">
+          <div className="lg:col-span-7 flex flex-col gap-4 md:gap-7.5">
             <div className="flex flex-col gap-2 md:gap-4.5">
               <div className="flex flex-col gap-3">
                 {/* <div className="w-fit rounded-lg bg-[linear-gradient(90deg,#8740FF_0%,#66666600_60%)] p-px">
@@ -428,12 +428,12 @@ export default function HomeClient() {
                   </div>
                 </div>
 
-                <h1 className="text-3xl md:text-66 font-semibold text-white leading-[120%] md:leading-21.5 tracking-[-1px]">
+                <h1 className="text-3xl xl:text-66 font-semibold text-white leading-[120%] xl:leading-21.5 tracking-[-1px]">
                   Empower Your Business with Custom Software & Web & App
                   Solutions
                 </h1>
               </div>
-              <p className="text-base md:text-xl text-white">
+              <p className="text-base xl:text-xl text-white">
                 We combine product design expertise with full-cycle software
                 engineering to build web platforms, mobile apps, SaaS products
                 and AI-powered solutions that are intuitive to use and ready to
@@ -442,7 +442,7 @@ export default function HomeClient() {
             </div>
             <div className="flex flex-wrap items-center gap-2 md:gap-5">
               <div className="flex flex-row items-center gap-2 py-1">
-                <p className="text-xl md:text-30 text-lavendar-indigo font-bold">
+                <p className="text-xl xl:text-30 text-lavendar-indigo font-bold">
                   15+
                 </p>
                 <p className="text-xs md:text-sm text-gray-300">
@@ -451,7 +451,7 @@ export default function HomeClient() {
               </div>
               <div className="h-5 md:h-10 w-px shrink-0 bg-linear-to-b from-black/0 via-white to-black/0" />
               <div className="flex flex-row items-center gap-2 py-1">
-                <p className="text-xl md:text-30 text-gray-50 font-bold">
+                <p className="text-xl xl:text-30 text-gray-50 font-bold">
                   1.2k+
                 </p>
                 <p className="text-xs md:text-sm text-gray-300">
@@ -460,7 +460,7 @@ export default function HomeClient() {
               </div>
               <div className="h-5 md:h-10 w-px shrink-0 bg-linear-to-b from-black/0 via-white to-black/0" />
               <div className="flex flex-row items-center gap-2 py-1">
-                <p className="text-xl md:text-30 text-lavendar-indigo font-bold">
+                <p className="text-xl xl:text-30 text-lavendar-indigo font-bold">
                   350+
                 </p>
                 <p className="text-xs md:text-sm text-gray-300">
@@ -469,7 +469,7 @@ export default function HomeClient() {
               </div>
             </div>
           </div>
-          <div className="xl:col-span-3   w-full">
+          <div className="lg:col-span-3   w-full">
             <ParticleImage />
           </div>
         </div>
@@ -488,11 +488,11 @@ export default function HomeClient() {
         </Marquee>
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 md:w-64 bg-linear-to-r from-mirage/0 to-mirage" />
       </section>
-      <section className="bg-mirage py-8 md:py-24">
+      <section className="bg-mirage py-8 xl:py-24">
         <div className="container max-w-7xl mx-auto py-4 md:py-16 px-4 md:px-8 overflow-visible">
-          <div className="grid grid-cols-1 xl:grid-cols-14 xl:gap-3 gap-8 xl:-translate-x-3 2xl:translate-x-0 overflow-visible">
+          <div className="grid grid-cols-1 lg:grid-cols-14 xl:gap-3 gap-8 xl:-translate-x-3 2xl:translate-x-0 overflow-visible">
             <motion.div
-              className="relative xl:left-0 2xl:-left-20 xl:col-span-3 flex flex-col xl:items-start items-center justify-between gap-12 overflow-visible"
+              className="relative xl:left-0 2xl:-left-20 lg:col-span-3 flex flex-col xl:items-start items-center justify-between gap-12 overflow-visible"
               variants={pillGroupVariants}
               initial="hidden"
               whileInView="visible"
@@ -534,15 +534,15 @@ export default function HomeClient() {
                 />
               </motion.div>
             </motion.div>
-            <div className="xl:col-span-8 flex flex-col gap-4 items-center ">
+            <div className="lg:col-span-8 flex flex-col gap-4 items-center ">
               <PulsingLabel text="What We Build" />
-              <p className="text-2xl md:text-5xl font-playfair text-center text-white leading-[120%]">
+              <p className="text-2xl  xl:text-5xl font-playfair text-center text-white leading-[120%]">
                 We design and engineer digital products across web, mobile, SaaS
                 and AI from the user experience to the technology behind it.
               </p>
             </div>
             <motion.div
-              className="relative xl:-right-5 2xl:-right-20 xl:col-span-3 flex flex-col items-center xl:items-end justify-between gap-12 overflow-visible"
+              className="relative lg:right-5 xl:-right-5 2xl:-right-20 lg:col-span-3 flex flex-col items-center xl:items-end justify-between gap-12 overflow-visible"
               variants={pillGroupVariants}
               initial="hidden"
               whileInView="visible"
@@ -605,7 +605,13 @@ export default function HomeClient() {
               label="Get a Free Consultation"
               variant="gradient"
               icon={<ArrowUpIcon />}
-              onClick={() => {}}
+              onClick={() => {
+                window.open(
+                  "https://calendly.com/endpointclients/30min",
+                  "_blank",
+                  "noopener,noreferrer",
+                );
+              }}
             />
           </div>
         }
@@ -662,29 +668,50 @@ export default function HomeClient() {
               label="Explore Our Services"
               variant="white"
               icon={<ArrowUpIcon fill="#030712" />}
-              onClick={() => {}}
+              onClick={() => {
+                window.open(
+                  "https://endpointclients.com/services",
+                  "_blank",
+                  "noopener,noreferrer",
+                );
+              }}
             />
           </div>
         </div>
       </section>
       <section className="bg-mirage border-y border-y-white/18">
-        <div className="container max-w-7xl mx-auto px-4 xl:px-8 flex flex-col md:flex-row">
+        <div className="container max-w-7xl mx-auto px-4 xl:px-8 flex flex-col xl:flex-row">
           <StatsCard
-            icon={<HappyClientsIcon width={isMobile?"30":"68"} height={isMobile?"30":"68"} />}
+            icon={
+              <HappyClientsIcon
+                width={isMobile ? "30" : "68"}
+                height={isMobile ? "30" : "68"}
+              />
+            }
             title="1200+"
             subtitle="Happy Clients"
           />
           <StatsCard
-            icon={<OurClientsIcon  width={isMobile?"30":"68"} height={isMobile?"30":"68"} />}
+            icon={
+              <OurClientsIcon
+                width={isMobile ? "30" : "68"}
+                height={isMobile ? "30" : "68"}
+              />
+            }
             title="500M+"
             subtitle="Raised by our Clients"
           />
           <StatsCard
-            icon={<CountriesServedIcon width={isMobile?"30":"68"} height={isMobile?"30":"68"} />}
+            icon={
+              <CountriesServedIcon
+                width={isMobile ? "30" : "68"}
+                height={isMobile ? "30" : "68"}
+              />
+            }
             title="50+"
             subtitle="Countries Served"
           />
-          <div className="p-4 md:p-9 flex flex-row gap-1 md:gap-2 items-center justify-center">
+          <div className="p-4 2xl:p-9 flex flex-row gap-1 md:gap-2 items-center justify-center">
             <PlatformLogo
               src={Images.landingImages.UpworkLogoImage}
               alt="Upwork logo"
@@ -742,9 +769,9 @@ export default function HomeClient() {
       <DevelopmentProcessSection processSteps={processSteps} />
       <section className="bg-mirage py-8 md:py-16">
         <div className="container max-w-7xl mx-auto px-4 md:px-8 space-y-3 md:space-y-4.5">
-          <div className="grid grid-cols-1 xl:grid-cols-12 gap-3 md:gap-4.5 items-stretch">
-            <div className="xl:col-span-8 h-full">
-              <div className="rounded-4xl h-full overflow-hidden grid grid-cols-1 xl:grid-cols-2 items-center bg-rangoon-green py-4 px-4 md:pl-4 ring ring-inset ring-white-smoke/4 shadow-[inset_2px_4px_16px_0_rgba(248,248,248,0.06)]">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 md:gap-4.5 items-stretch">
+            <div className="lg:col-span-8 h-full">
+              <div className="rounded-4xl h-full overflow-hidden grid grid-cols-1 lg:grid-cols-2 items-center bg-rangoon-green py-4 px-4 md:pl-4 ring ring-inset ring-white-smoke/4 shadow-[inset_2px_4px_16px_0_rgba(248,248,248,0.06)]">
                 <video
                   src="/videos/BentoCard1new.mp4"
                   className="h-auto w-full"
@@ -772,7 +799,7 @@ export default function HomeClient() {
                 </div>
               </div>
             </div>
-            <div className="xl:col-span-4">
+            <div className="lg:col-span-4">
               <video
                 src="/videos/BentoCard2.mp4"
                 className="h-auto w-full"
@@ -785,7 +812,7 @@ export default function HomeClient() {
               />
             </div>
           </div>
-          <div className="grid grid-cols-1 xl:grid-cols-3 gap-4.5 items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4.5 items-stretch">
             <video
               src="/videos/BentoCard3.mp4"
               className="h-auto w-full"
@@ -846,7 +873,11 @@ export default function HomeClient() {
                 variant="gradient"
                 icon={<ArrowUpIcon />}
                 onClick={() => {
-                  "";
+                  window.open(
+                    "https://calendly.com/endpointclients/30min",
+                    "_blank",
+                    "noopener,noreferrer",
+                  );
                 }}
               />
             </div>
@@ -990,10 +1021,20 @@ export default function HomeClient() {
                 label="Start Project"
                 variant="gradient"
                 icon={<ArrowUpIcon />}
-                onClick={() => {}}
+                onClick={() => {
+                  window.open(
+                    "https://calendly.com/endpointclients/30min",
+                    "_blank",
+                    "noopener,noreferrer",
+                  );
+                }}
               />
             </div>
-           <Image src={Images.landingImages.ReadyProjectBottomLineImage} alt={"bottom"} className="absolute bottom-0 left-1/2 -translate-x-1/2"/>
+            <Image
+              src={Images.landingImages.ReadyProjectBottomLineImage}
+              alt={"bottom"}
+              className="absolute bottom-0 left-1/2 -translate-x-1/2"
+            />
           </div>
         </div>
       </section>

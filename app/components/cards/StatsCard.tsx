@@ -15,7 +15,7 @@ const StatsCard = ({
 }: StatsCardProps) => {
   return (
     <div
-      className={`flex flex-row items-center gap-3 md:gap-8 md:border-r border-b border-b-white/18 md:border-b-0 md:border-r-white/18 p-4 md:p-9 ${className}`}
+      className={`flex flex-row items-center gap-3 xl:gap-8 xl:border-r border-b border-b-white/18 xl:border-b-0 xl:border-r-white/18 p-4 md:p-9 ${className}`}
     >
       <div className="shrink-0">
         {icon}
@@ -26,7 +26,7 @@ const StatsCard = ({
           {title}
         </p>
 
-        <p className="text-sm md:text-base text-gray-100 text-nowrap">
+        <p className="text-sm 2xl:text-base text-gray-100 text-nowrap">
           {subtitle}
         </p>
       </div>

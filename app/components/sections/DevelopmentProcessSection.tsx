@@ -105,7 +105,7 @@ const DevelopmentProcessSection = ({
         }}
       >
         <div className="sticky top-0 flex h-screen items-center overflow-hidden bg-mirage">
-          <div className="container mx-auto flex max-w-7xl flex-col gap-35 px-8 pt-16">
+          <div className="container mx-auto flex max-w-7xl flex-col xl:gap-20 2xl:gap-35 px-8 pt-8 2xl:pt-16">
             <div className="flex flex-col gap-30">
               <div className="flex flex-col items-start gap-10.5">
                 <div className="flex flex-col items-start gap-3">
@@ -126,7 +126,13 @@ const DevelopmentProcessSection = ({
                   label="Get a Free Consultation"
                   variant="gradient"
                   icon={<ArrowUpIcon />}
-                  onClick={() => {}}
+                  onClick={() => {
+                     window.open(
+              "https://calendly.com/endpointclients/30min",
+              "_blank",
+              "noopener,noreferrer",
+            );
+                  }}
                 />
               </div>
 
