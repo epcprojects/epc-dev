@@ -127,15 +127,15 @@ const ServicePill = ({
       />
 
       {/* Actual pill content */}
-      <div className="relative z-10 flex flex-row flex-wrap xl:flex-nowrap items-center gap-2.5 rounded-full bg-smoky-black py-1 pr-5 pl-1 shadow-[0_0_12px_0_rgba(0,0,0,0.08)]">
+      <div className="relative z-10 flex flex-wrap items-center gap-1.5 md:gap-2.5 rounded-full bg-smoky-black py-0.5 md:py-1 pr-3 md:pr-5 pl-0.5 md:pl-1 shadow-[0_0_12px_0_rgba(0,0,0,0.08)]">
         <div
-          className="flex xl:h-14 h-10 w-10 xl:w-14 shrink-0 items-center justify-center rounded-full"
+          className="flex xl:h-14 h-7 w-7 xl:w-14 shrink-0 items-center justify-center rounded-full"
           style={iconStyle}
         >
           {icon}
         </div>
 
-        <p className="text-base xl:text-xl font-medium text-gray-50 ">
+        <p className="text-xs xl:text-xl font-medium text-gray-50 ">
           {title}
         </p>
       </div>

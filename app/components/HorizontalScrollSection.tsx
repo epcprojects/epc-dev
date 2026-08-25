@@ -211,8 +211,8 @@ const HorizontalScrollSection = ({
 
   return (
     <>
-      <section className=" bg-mirage 2xl:hidden px-4 ">
-        <div className="border-b border-white/12 px-6 py-12">{leftContent}</div>
+      <section className=" bg-mirage 2xl:hidden  ">
+        <div className="border-b border-white/12 px-4 md:px-6 py-7 md:py-12">{leftContent}</div>
 
         <div className="flex flex-col">
           {items.map((item, index) => (

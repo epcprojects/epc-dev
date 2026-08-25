@@ -168,52 +168,52 @@ export default function HomeClient() {
   //       </p>
   //     </div>
   //     </div>
-   
+
   //   </article>
   // ));
   const capabilityCards = capabilities.map((capability) => (
-  <article
-    key={capability.id}
-    className="
+    <article
+      key={capability.id}
+      className="
       flex h-full items-center justify-center
-      px-4 py-8
+      px-4 py-6 md:py-8
       2xl:border-r 2xl:border-white/12
       xl:px-12
     "
-  >
-    <div
-      className="
+    >
+      <div
+        className="
         flex h-full min-h-0 w-full flex-col
-        gap-6 justify-center
+        gap-4 md:gap-6 justify-center
         xl:container xl:mx-auto xl:max-w-225
       "
-    >
-      <video
-        src={capability.video}
-        className="
+      >
+        <video
+          src={capability.video}
+          className="
             w-full 
-          rounded-[42px] object-contain
+          xl:rounded-[42px] object-contain
         "
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="metadata"
-        aria-label={capability.title}
-      />
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-label={capability.title}
+        />
 
-      <div className="flex shrink-0 flex-col gap-3 px-8">
-        <p className="text-xl font-bold text-desert-storm xl:text-[34px]">
-          {capability.title}
-        </p>
+        <div className="flex shrink-0 flex-col gap-1.5 md:gap-3 px-4 md:px-8">
+          <p className="text-lg font-bold text-desert-storm xl:text-[34px]">
+            {capability.title}
+          </p>
 
-        <p className="text-base leading-[150%] text-white xl:text-xl">
-          {capability.description}
-        </p>
+          <p className="text-sm leading-[150%] text-neutral-400 xl:text-xl">
+            {capability.description}
+          </p>
+        </div>
       </div>
-    </div>
-  </article>
-));
+    </article>
+  ));
   const processSteps = [
     {
       number: "/01",
@@ -425,7 +425,7 @@ export default function HomeClient() {
   const isMobile = useIsMobile();
   return (
     <>
-      <section className="-mt-35 md:-mt-28 bg-mirage bg-[url('/images/HeroBgGradient.png')] bg-position-[center_top] bg-size-[100%_auto] bg-no-repeat pt-28 ">
+      <section className="-mt-13 md:-mt-28 bg-mirage bg-[url('/images/HeroBgGradient.png')] bg-position-[center_top] bg-size-[100%_auto] bg-no-repeat pt-5 xl:pt-28 ">
         <div className="pt-15 xl:pt-20 pb-10 xl:pb-26.5 container max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-10 items-center gap-5">
           <div className="lg:col-span-7 flex flex-col gap-4 md:gap-7.5">
             <div className="flex flex-col gap-2 md:gap-4.5">
@@ -466,7 +466,7 @@ export default function HomeClient() {
     bg-[linear-gradient(90deg,#8740FF_0%,#FFFFFF_40%,#8740FF_100%)]
     bg-[length:200%_100%]
     bg-clip-text
-    text-base md:text-lg
+    text-sm xl:text-lg
     text-transparent
     animate-text-gradient
   "
@@ -476,7 +476,7 @@ export default function HomeClient() {
                   </div>
                 </div>
 
-                <h1 className="text-3xl xl:text-66 font-semibold text-white leading-[120%] xl:leading-21.5 tracking-[-1px]">
+                <h1 className="text-[32px] xl:text-66 font-semibold text-white leading-[120%] xl:leading-21.5 tracking-[-1px]">
                   Empower Your Business with Custom Software & Web & App
                   Solutions
                 </h1>
@@ -488,27 +488,27 @@ export default function HomeClient() {
                 grow with your business.
               </p>
             </div>
-            <div className="flex flex-wrap items-center gap-2 md:gap-5">
-              <div className="flex flex-row items-center gap-2 py-1">
-                <p className="text-xl xl:text-30 text-lavendar-indigo font-bold">
+            <div className="flex flex-wrap items-center gap-1.5 md:gap-5">
+              <div className="flex flex-row items-center gap-1.5 py-1">
+                <p className="text-2xl xl:text-30 text-lavendar-indigo font-bold">
                   15+
                 </p>
                 <p className="text-xs md:text-sm text-gray-300">
                   (Years of Experience)
                 </p>
               </div>
-              <div className="h-5 md:h-10 w-px shrink-0 bg-linear-to-b from-black/0 via-white to-black/0" />
-              <div className="flex flex-row items-center gap-2 py-1">
-                <p className="text-xl xl:text-30 text-gray-50 font-bold">
+              <div className="h-5 md:h-10 w-px shrink-0 bg-linear-to-b from-black/0 via-white to-black/0 hidden md:block" />
+              <div className="flex flex-row items-center gap-1.5 py-1">
+                <p className="text-2xl xl:text-30 text-gray-50 font-bold">
                   1.2k+
                 </p>
                 <p className="text-xs md:text-sm text-gray-300">
                   (Projects Shipped)
                 </p>
               </div>
-              <div className="h-5 md:h-10 w-px shrink-0 bg-linear-to-b from-black/0 via-white to-black/0" />
-              <div className="flex flex-row items-center gap-2 py-1">
-                <p className="text-xl xl:text-30 text-lavendar-indigo font-bold">
+              <div className="h-5 md:h-10 w-px shrink-0 bg-linear-to-b from-black/0 via-white to-black/0 hidden md:block" />
+              <div className="flex flex-row items-center gap-1.5 py-1">
+                <p className="text-2xl xl:text-30 text-lavendar-indigo font-bold">
                   350+
                 </p>
                 <p className="text-xs md:text-sm text-gray-300">
@@ -517,20 +517,24 @@ export default function HomeClient() {
               </div>
             </div>
           </div>
-          <div className="lg:col-span-3   w-full">
+          <div className="lg:col-span-3 flex items-center justify-center  w-full">
             <ParticleImage />
           </div>
         </div>
       </section>
       <section
-        className="overflow-hidden bg-[#222222] py-2.5 relative"
+        className="overflow-hidden bg-[#222222] py-1.5 md:py-2.5 relative"
         aria-label="Our partners"
       >
         <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 md:w-64 bg-linear-to-r from-mirage to-mirage/0" />
         <Marquee autoFill speed={50} pauseOnHover>
           {partnerLogos.map((logo) => (
             <div key={logo.alt} className="mr-7 flex  shrink-0 items-center">
-              <Image src={logo.src} alt={logo.alt} />
+              <Image
+                src={logo.src}
+                alt={logo.alt}
+                className="md:w-fit md:h-fit w-25 h-auto"
+              />
             </div>
           ))}
         </Marquee>
@@ -538,141 +542,361 @@ export default function HomeClient() {
       </section>
       <section className="bg-mirage py-8 xl:py-24">
         <div className="container max-w-7xl mx-auto py-4 md:py-16 px-4 md:px-8 overflow-visible">
-          <div className="grid grid-cols-1 lg:grid-cols-14 xl:gap-3 gap-8 xl:-translate-x-3 2xl:translate-x-0 overflow-visible">
-            <motion.div
-              className="relative xl:left-0 2xl:-left-20 lg:col-span-3 flex flex-col xl:items-start items-center justify-between gap-12 overflow-visible"
-              variants={pillGroupVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{
-                once: true,
-                amount: 0.35,
-              }}
-            >
-              <motion.div className="w-fit" variants={leftPillVariants}>
-                <ServicePill
-                  title="AI Solutions"
-                  icon={<CommandLineIcon />}
-                  borderColor="#E86127"
-                  iconGradientFrom="#F16529"
-                  iconGradientTo="#8B3A18"
-                  rotation={9}
-                />
-              </motion.div>
+          <div className="grid grid-cols-1 gap-8 overflow-visible lg:grid-cols-14 xl:-translate-x-3 xl:gap-3 2xl:translate-x-0">
+  {/* Desktop left pills */}
+  <motion.div
+    className="
+      relative hidden flex-col items-center justify-between
+      gap-12 overflow-visible
+      xl:order-1 xl:col-span-3 xl:left-0 xl:flex xl:items-start
+      2xl:-left-20
+    "
+    variants={pillGroupVariants}
+    initial="hidden"
+    whileInView="visible"
+    viewport={{
+      once: true,
+      amount: 0.35,
+    }}
+  >
+    <motion.div
+      className="w-fit"
+      variants={leftPillVariants}
+    >
+      <ServicePill
+        title="AI Solutions"
+        icon={
+          <CommandLineIcon
+            width={isMobile ? "24" : "33"}
+            height={isMobile ? "24" : "33"}
+          />
+        }
+        borderColor="#E86127"
+        iconGradientFrom="#F16529"
+        iconGradientTo="#8B3A18"
+        rotation={9}
+      />
+    </motion.div>
 
-              <motion.div className="w-fit" variants={leftPillVariants}>
-                <ServicePill
-                  title="Web Applications"
-                  icon={<FlashIcon />}
-                  borderColor="#30C65F"
-                  iconGradientFrom="#31CD62"
-                  iconGradientTo="#196731"
-                  rotation={-2.5}
-                />
-              </motion.div>
+    <motion.div
+      className="w-fit"
+      variants={leftPillVariants}
+    >
+      <ServicePill
+        title="Web Applications"
+        icon={
+          <FlashIcon
+            width={isMobile ? "24" : "33"}
+            height={isMobile ? "24" : "33"}
+          />
+        }
+        borderColor="#30C65F"
+        iconGradientFrom="#31CD62"
+        iconGradientTo="#196731"
+        rotation={-2.5}
+      />
+    </motion.div>
 
-              <motion.div className="w-fit md:mt-7" variants={leftPillVariants}>
-                <ServicePill
-                  title="SaaS Engineering"
-                  icon={<WebDesignIcon />}
-                  borderColor="#7F26DE"
-                  iconGradientFrom="#8A29F1"
-                  iconGradientTo="#4F188B"
-                  rotation={7}
-                />
-              </motion.div>
-            </motion.div>
-            <div className="lg:col-span-8 flex flex-col gap-4 items-center ">
-              <PulsingLabel text="What We Build" />
-              <p className="text-2xl  xl:text-5xl font-playfair text-center text-white leading-[120%]">
-                We design and engineer digital products across web, mobile, SaaS
-                and AI from the user experience to the technology behind it.
-              </p>
-            </div>
-            <motion.div
-              className="relative lg:right-5 xl:-right-5 2xl:-right-20 lg:col-span-3 flex flex-col items-center xl:items-end justify-between gap-12 overflow-visible"
-              variants={pillGroupVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{
-                once: true,
-                amount: 0.35,
-              }}
-            >
-              <motion.div className="w-fit" variants={rightPillVariants}>
-                <ServicePill
-                  title="Backend & APIs"
-                  icon={<UnilinkIcon />}
-                  borderColor="#3C4CE4"
-                  iconGradientFrom="#222E97"
-                  iconGradientTo="#0B0F31"
-                  rotation={-12}
-                />
-              </motion.div>
+    <motion.div
+      className="w-fit md:mt-7"
+      variants={leftPillVariants}
+    >
+      <ServicePill
+        title="SaaS Engineering"
+        icon={
+          <WebDesignIcon
+            width={isMobile ? "24" : "33"}
+            height={isMobile ? "24" : "33"}
+          />
+        }
+        borderColor="#7F26DE"
+        iconGradientFrom="#8A29F1"
+        iconGradientTo="#4F188B"
+        rotation={7}
+      />
+    </motion.div>
+  </motion.div>
 
-              <motion.div className="w-fit" variants={rightPillVariants}>
-                <ServicePill
-                  title="Frontend Engineering"
-                  icon={<DatabaseIcon />}
-                  borderColor="#06B4FF"
-                  iconGradientFrom="#29B5F1"
-                  iconGradientTo="#18688B"
-                  rotation={3}
-                />
-              </motion.div>
+  {/* Text: mobile aur desktop dono par */}
+  <div
+    className="
+      order-1 flex flex-col items-center gap-4
+      xl:order-2 xl:col-span-8
+    "
+  >
+    <PulsingLabel text="What We Build" />
 
-              <motion.div
-                className="w-fit md:mt-7"
-                variants={rightPillVariants}
-              >
-                <ServicePill
-                  title="Mobile App Development"
-                  icon={<SecurityCheckIcon />}
-                  borderColor="#12C0AC"
-                  iconGradientFrom="#13CCB6"
-                  iconGradientTo="#09665B"
-                  rotation={-7}
-                />
-              </motion.div>
-            </motion.div>
-          </div>
+    <p className="text-center font-playfair text-2xl leading-[120%] text-white xl:text-5xl">
+      We design and engineer digital products across web, mobile, SaaS and AI
+      from the user experience to the technology behind it.
+    </p>
+  </div>
+
+  {/* Desktop right pills */}
+  <motion.div
+    className="
+      relative hidden flex-col items-center justify-between
+      gap-12 overflow-visible
+      xl:order-3 xl:col-span-3 xl:-right-5 xl:flex xl:items-end
+      2xl:-right-20
+    "
+    variants={pillGroupVariants}
+    initial="hidden"
+    whileInView="visible"
+    viewport={{
+      once: true,
+      amount: 0.35,
+    }}
+  >
+    <motion.div
+      className="w-fit"
+      variants={rightPillVariants}
+    >
+      <ServicePill
+        title="Backend & APIs"
+        icon={
+          <UnilinkIcon
+            width={isMobile ? "24" : "33"}
+            height={isMobile ? "24" : "33"}
+          />
+        }
+        borderColor="#3C4CE4"
+        iconGradientFrom="#222E97"
+        iconGradientTo="#0B0F31"
+        rotation={-12}
+      />
+    </motion.div>
+
+    <motion.div
+      className="w-fit"
+      variants={rightPillVariants}
+    >
+      <ServicePill
+        title="Frontend Engineering"
+        icon={
+          <DatabaseIcon
+            width={isMobile ? "24" : "33"}
+            height={isMobile ? "24" : "33"}
+          />
+        }
+        borderColor="#06B4FF"
+        iconGradientFrom="#29B5F1"
+        iconGradientTo="#18688B"
+        rotation={3}
+      />
+    </motion.div>
+
+    <motion.div
+      className="w-fit md:mt-7"
+      variants={rightPillVariants}
+    >
+      <ServicePill
+        title="Mobile App Development"
+        icon={
+          <SecurityCheckIcon
+            width={isMobile ? "24" : "33"}
+            height={isMobile ? "24" : "33"}
+          />
+        }
+        borderColor="#12C0AC"
+        iconGradientFrom="#13CCB6"
+        iconGradientTo="#09665B"
+        rotation={-7}
+      />
+    </motion.div>
+  </motion.div>
+
+  {/* Mobile/tablet pills: text ke baad left aur right columns */}
+  <div className="order-2 flex w-full flex-row items-stretch justify-between gap-3 overflow-visible xl:hidden">
+    {/* Mobile left column */}
+    <motion.div
+      className="
+        relative flex min-w-0 flex-1
+        flex-col items-start justify-between
+        gap-8 overflow-visible
+      "
+      variants={pillGroupVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{
+        once: true,
+        amount: 0.2,
+      }}
+    >
+      <motion.div
+        className="w-fit"
+        variants={leftPillVariants}
+      >
+        <ServicePill
+          title="AI Solutions"
+          icon={
+            <CommandLineIcon
+              width="20"
+              height="20"
+            />
+          }
+          borderColor="#E86127"
+          iconGradientFrom="#F16529"
+          iconGradientTo="#8B3A18"
+          rotation={9}
+        />
+      </motion.div>
+
+      <motion.div
+        className="w-fit"
+        variants={leftPillVariants}
+      >
+        <ServicePill
+          title={
+            isMobile?"Web App":"Web Applications"
+          }
+          icon={
+            <FlashIcon
+              width="20"
+              height="20"
+            />
+          }
+          borderColor="#30C65F"
+          iconGradientFrom="#31CD62"
+          iconGradientTo="#196731"
+          rotation={-2.5}
+        />
+      </motion.div>
+
+      <motion.div
+        className="w-fit"
+        variants={leftPillVariants}
+      >
+        <ServicePill
+          title="SaaS Engineering"
+          icon={
+            <WebDesignIcon
+              width="20"
+              height="20"
+            />
+          }
+          borderColor="#7F26DE"
+          iconGradientFrom="#8A29F1"
+          iconGradientTo="#4F188B"
+          rotation={7}
+        />
+      </motion.div>
+    </motion.div>
+
+    {/* Mobile right column */}
+    <motion.div
+      className="
+        relative flex min-w-0 flex-1
+        flex-col items-end justify-between
+        gap-8 overflow-visible
+      "
+      variants={pillGroupVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{
+        once: true,
+        amount: 0.2,
+      }}
+    >
+      <motion.div
+        className="w-fit"
+        variants={rightPillVariants}
+      >
+        <ServicePill
+          title="Backend & APIs"
+          icon={
+            <UnilinkIcon
+              width="20"
+              height="20"
+            />
+          }
+          borderColor="#3C4CE4"
+          iconGradientFrom="#222E97"
+          iconGradientTo="#0B0F31"
+          rotation={-12}
+        />
+      </motion.div>
+
+      <motion.div
+        className="w-fit"
+        variants={rightPillVariants}
+      >
+        <ServicePill
+          title="Frontend Engineering"
+          icon={
+            <DatabaseIcon
+              width="20"
+              height="20"
+            />
+          }
+          borderColor="#06B4FF"
+          iconGradientFrom="#29B5F1"
+          iconGradientTo="#18688B"
+          rotation={3}
+        />
+      </motion.div>
+
+      <motion.div
+        className="w-fit"
+        variants={rightPillVariants}
+      >
+        <ServicePill
+          title={
+            isMobile?"Mobile App Dev":"Mobile App Development"
+          }
+          icon={
+            <SecurityCheckIcon
+              width="20"
+              height="20"
+            />
+          }
+          borderColor="#12C0AC"
+          iconGradientFrom="#13CCB6"
+          iconGradientTo="#09665B"
+          rotation={-7}
+        />
+      </motion.div>
+    </motion.div>
+  </div>
+</div>
         </div>
       </section>
       <HorizontalScrollSection
         leftContent={
-         <div className="container max-w-175 mx-auto flex items-center justify-center ">
-           <div className="flex flex-col items-start gap-7">
-            <div className="flex flex-col gap-4.5">
-              <PulsingLabel text="Our Capabilities" />
+          <div className="container max-w-175 mx-auto flex items-center justify-center ">
+            <div className="flex flex-col items-start gap-7">
+              <div className="flex flex-col gap-4 md:gap-4.5">
+                <PulsingLabel text="Our Capabilities" />
 
-              <p className="text-3xl md:text-5xl font-bold leading-[100%] text-desert-storm">
-                Built to take your product from bold idea to real-world software
-              </p>
+                <p className="text-2xl md:text-5xl font-bold leading-[130%] md:leading-[100%] text-desert-storm">
+                  Built to take your product from bold idea to real-world
+                  software
+                </p>
+              </div>
+
+              <ThemeButton
+                label="Book a Call"
+                variant="gradient"
+                icon={<ArrowUpIcon />}
+                onClick={() => {
+                  window.open(
+                    "https://calendly.com/endpointclients/30min",
+                    "_blank",
+                    "noopener,noreferrer",
+                  );
+                }}
+              />
             </div>
-
-            <ThemeButton
-              label="Book a Call"
-              variant="gradient"
-              icon={<ArrowUpIcon />}
-              onClick={() => {
-                window.open(
-                  "https://calendly.com/endpointclients/30min",
-                  "_blank",
-                  "noopener,noreferrer",
-                );
-              }}
-            />
           </div>
-         </div>
         }
         items={capabilityCards}
       />
-      <section className="bg-mirage px-4 py-8 md:px-16 md:py-16">
+      <section className="bg-mirage px-4 py-4 md:px-16 md:py-16">
         <div
           className="
       relative overflow-hidden
-      rounded-3xl bg-woodsmoke
-      px-4 py-8
+      rounded-[18px] bg-woodsmoke
+      px-1.5 py-4
       md:rounded-[48px] md:px-24 md:py-24
     "
         >
@@ -689,7 +913,7 @@ export default function HomeClient() {
           <div
             className="
         pointer-events-none absolute inset-0 z-10
-        bg-black/25
+        md:bg-black/25 bg-black/60
       "
           />
           <div className="absolute top-0 left-140 h-full w-149 bg-[linear-gradient(251deg,rgba(21,21,21,0)_30.42%,#151515_55.36%)]" />
@@ -706,8 +930,8 @@ export default function HomeClient() {
 
               <p
                 className="
-            text-2xl font-semibold
-            leading-[100%] text-gray-50
+            text-xl font-semibold
+            leading-[130%] text-gray-50
             md:text-5xl md:leading-normal
           "
               >
@@ -731,7 +955,7 @@ export default function HomeClient() {
         </div>
       </section>
       <section className="bg-mirage border-y border-y-white/18">
-        <div className="container max-w-7xl mx-auto px-4 xl:px-8 flex flex-col xl:flex-row">
+        <div className="container max-w-7xl mx-auto px-0 xl:px-8 flex flex-col  xl:flex-row">
           <StatsCard
             icon={
               <HappyClientsIcon
@@ -751,7 +975,7 @@ export default function HomeClient() {
             }
             title={<CountUpNumber end={500} suffix="M+" />}
             subtitle="Raised by our Clients"
-            minwidthClass="min-w-[330px]"
+            minwidthClass="xl:min-w-[330px]"
           />
           <StatsCard
             icon={
@@ -763,7 +987,7 @@ export default function HomeClient() {
             title={<CountUpNumber end={50} suffix="+" />}
             subtitle="Countries Served"
           />
-          <div className="p-4 2xl:px-4 2xl:py-9 flex flex-row gap-1 md:gap-2 items-center justify-center">
+          <div className="px-8 2xl:px-4 2xl:py-9 py-4 flex flex-row gap-1 md:gap-2 items-center justify-start md:justify-center">
             <PlatformLogo
               src={Images.landingImages.UpworkLogoImage}
               alt="Upwork logo"
@@ -806,8 +1030,8 @@ export default function HomeClient() {
               </div>
             </div>
             <video
-              src="/videos/IndustriesNewTwo.mp4"
-              className="h-full rounded-[14px]"
+              src="/videos/IndustriesNewThree.mp4"
+              className="h-full rounded-[28px]"
               autoPlay
               muted
               loop

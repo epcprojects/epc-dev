@@ -83,7 +83,7 @@ const Header = () => {
           label="Book a Call"
           variant="gradient"
           icon={<ArrowUpIcon />}
-          showIcon={isMobile?false:true}
+          
           onClick={() => {
             window.open(
               "https://calendly.com/endpointclients/30min",
