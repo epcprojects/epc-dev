@@ -26,7 +26,7 @@ const ComparisonCard = ({
   return (
     <div
       className={`
-        relative flex flex-col overflow-hidden rounded-4xl
+        relative flex flex-col overflow-hidden rounded-2xl md:rounded-4xl
         border border-white-smoke/4 bg-rangoon-green
         shadow-[inset_2px_4px_16px_0_#F8F8F80F]
         ${className}
@@ -46,12 +46,12 @@ const ComparisonCard = ({
         </>
       )}
 
-      <div className="relative z-10 flex flex-row items-center gap-2.5 border-b border-b-white/12 bg-[#252525] p-6">
+      <div className="relative z-10 flex flex-row items-center gap-2.5 border-b border-b-white/12 bg-[#252525] p-4 md:p-6">
         <span className="inline-flex shrink-0 items-center justify-center">
           {titleIcon}
         </span>
 
-        <p className="text-2xl font-semibold text-white">
+        <p className="text-xl md:text-2xl font-semibold text-white">
           {title}
         </p>
       </div>

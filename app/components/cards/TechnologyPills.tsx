@@ -67,7 +67,7 @@ const TechnologyPills = ({
     hoveredIndex ?? autoActiveIndex;
 
   return (
-    <div className="flex flex-wrap gap-4.5">
+    <div className="flex flex-wrap gap-2 md:gap-4.5">
       {items.map((item, index) => {
         const isActive =
           visibleActiveIndex === index;

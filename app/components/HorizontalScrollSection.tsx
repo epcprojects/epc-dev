@@ -36,8 +36,7 @@ const HorizontalSlide = ({
   totalItems,
   isActive,
 }: HorizontalSlideProps) => {
-  const slideRef =
-    useRef<HTMLDivElement>(null);
+  const slideRef = useRef<HTMLDivElement>(null);
 
   const isFirstCard = index === 0;
 
@@ -138,11 +137,6 @@ const HorizontalScrollSection = ({
   const [activeIndex, setActiveIndex] =
     useState(0);
 
-  const [isMobile, setIsMobile] =
-    useState(false);
-const [mobileSectionHeight, setMobileSectionHeight] =
-  useState(0);
-  
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end end"],
@@ -157,30 +151,6 @@ const [mobileSectionHeight, setMobileSectionHeight] =
       -scrollDistance,
     ],
   );
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia(
-      "(max-width: 767px)",
-    );
-
-    const updateDeviceType = () => {
-      setIsMobile(mediaQuery.matches);
-    };
-
-    updateDeviceType();
-
-    mediaQuery.addEventListener(
-      "change",
-      updateDeviceType,
-    );
-
-    return () => {
-      mediaQuery.removeEventListener(
-        "change",
-        updateDeviceType,
-      );
-    };
-  }, []);
 
   useLayoutEffect(() => {
     const viewport = viewportRef.current;
@@ -245,72 +215,90 @@ const [mobileSectionHeight, setMobileSectionHeight] =
     },
   );
 
-  const sectionHeight = isMobile
-    ? `${Math.max(
-        500,
-        items.length * 100,
-      )}svh`
-    : `${Math.max(
-        400,
-        items.length * 80,
-      )}vh`;
+  const sectionHeight = `${Math.max(
+    400,
+    items.length * 80,
+  )}vh`;
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative border-y border-white/12"
-      style={{
-        height: sectionHeight,
-      }}
-    >
-      <div
-        ref={viewportRef}
-        className="
-          sticky top-0 z-10 flex h-svh
-          items-center overflow-hidden
-          md:h-screen md:bg-mirage
-        "
-      >
-        <motion.div
-          ref={trackRef}
-          className="
-            flex w-max items-start md:items-center
-            px-4
-            md:px-16
-          "
-          style={{
-            x: translateX,
-          }}
-        >
-          <div
-            className="
-              flex h-svh w-screen shrink-0
-              items-center border-r
-              border-white/12 bg-mirage
-              px-6 py-8
-              md:h-screen md:w-[50vw]
-              md:max-w-160 md:p-8
-            "
-          >
-            {leftContent}
-          </div>
+    <>
+      <section className="border-y border-white/12 bg-mirage xl:hidden">
+        <div className="border-b border-white/12 px-6 py-12">
+          {leftContent}
+        </div>
 
+        <div className="flex flex-col">
           {items.map((item, index) => (
-            <HorizontalSlide
+            <div
               key={index}
-              progress={scrollYProgress}
-              index={index}
-              totalItems={items.length}
-              isActive={
-                activeIndex === index
-              }
+              className="
+                border-b border-white/12
+                [&>*]:h-auto!
+                [&>*]:w-full!
+              "
             >
               {item}
-            </HorizontalSlide>
+            </div>
           ))}
-        </motion.div>
-      </div>
-    </section>
+        </div>
+      </section>
+
+      <section
+        ref={sectionRef}
+        className="relative hidden border-y border-white/12 xl:block"
+        style={{
+          height: sectionHeight,
+        }}
+      >
+        <div
+          ref={viewportRef}
+          className="
+            sticky top-0 z-10 flex h-svh
+            items-center overflow-hidden
+            md:h-screen md:bg-mirage
+          "
+        >
+          <motion.div
+            ref={trackRef}
+            className="
+              flex w-max items-start md:items-center
+              px-4
+              md:px-16
+            "
+            style={{
+              x: translateX,
+            }}
+          >
+            <div
+              className="
+                flex h-svh w-screen shrink-0
+                items-center border-r
+                border-white/12 bg-mirage
+                px-6 py-8
+                md:h-screen md:w-[50vw]
+                md:max-w-160 md:p-8
+              "
+            >
+              {leftContent}
+            </div>
+
+            {items.map((item, index) => (
+              <HorizontalSlide
+                key={index}
+                progress={scrollYProgress}
+                index={index}
+                totalItems={items.length}
+                isActive={
+                  activeIndex === index
+                }
+              >
+                {item}
+              </HorizontalSlide>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+    </>
   );
 };
 

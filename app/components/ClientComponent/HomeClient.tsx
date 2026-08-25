@@ -141,11 +141,12 @@ export default function HomeClient() {
   const capabilityCards = capabilities.map((capability) => (
     <article
       key={capability.id}
-      className="flex h-screen flex-col justify-center gap-6 border-r border-white/12 px-12 py-8"
+      className="flex h-screen flex-col justify-center gap-6 border-r border-white/12 px-4 xl:px-12 py-8"
     >
       <video
         src={capability.video}
-        className="h-auto w-full"
+        className="h-auto w-full rounded-xl"
+        autoPlay
         muted
         loop
         playsInline
@@ -154,11 +155,13 @@ export default function HomeClient() {
       />
 
       <div className="flex flex-col gap-3.5">
-        <p className="text-[34px] font-bold text-desert-storm">
+        <p className="text-xl xl:text-[34px] font-bold text-desert-storm">
           {capability.title}
         </p>
 
-        <p className="text-xl text-white">{capability.description}</p>
+        <p className="text-base xl:text-xl text-white">
+          {capability.description}
+        </p>
       </div>
     </article>
   ));
@@ -372,7 +375,7 @@ export default function HomeClient() {
   ];
   return (
     <>
-      <section className="-mt-35 md:-mt-28 bg-[url('/images/HeroBgGradient.png')] bg-position-[center_top] bg-size-[100%_auto] bg-no-repeat pt-28 ">
+      <section  className="-mt-35 md:-mt-28 bg-[url('/images/HeroBgGradient.png')] bg-position-[center_top] bg-size-[100%_auto] bg-no-repeat pt-28 ">
         <div className="pt-15 md:pt-20 pb-10 md:pb-26.5 container max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 xl:grid-cols-10 items-center gap-5">
           <div className="xl:col-span-7 flex flex-col gap-4 md:gap-7.5">
             <div className="flex flex-col gap-2 md:gap-4.5">
@@ -483,7 +486,7 @@ export default function HomeClient() {
         </Marquee>
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 md:w-64 bg-linear-to-r from-mirage/0 to-mirage" />
       </section>
-      <section className="py-8 md:py-24">
+      <section className="bg-mirage py-8 md:py-24">
         <div className="container max-w-7xl mx-auto py-4 md:py-16 px-4 md:px-8 overflow-visible">
           <div className="grid grid-cols-1 xl:grid-cols-14 xl:gap-3 gap-8 xl:-translate-x-3 2xl:translate-x-0 overflow-visible">
             <motion.div
@@ -591,7 +594,7 @@ export default function HomeClient() {
             <div className="flex flex-col gap-4.5">
               <PulsingLabel text="Our Capabilities" />
 
-              <p className="text-5xl font-bold leading-[100%] text-desert-storm">
+              <p className="text-3xl md:text-5xl font-bold leading-[100%] text-desert-storm">
                 Built to take your product from bold idea to real-world software
               </p>
             </div>
@@ -721,10 +724,9 @@ export default function HomeClient() {
                 </p>
               </div>
             </div>
-
             <video
-              src="/videos/IndustriesHighQuality.mp4"
-              className="h-full"
+              src="/videos/IndustriesNewTwo.mp4"
+              className="h-full rounded-[14px]"
               autoPlay
               muted
               loop
@@ -736,11 +738,11 @@ export default function HomeClient() {
         </div>
       </section>
       <DevelopmentProcessSection processSteps={processSteps} />
-      <section className="py-16">
-        <div className="container max-w-7xl mx-auto px-8 space-y-4.5">
-          <div className="grid grid-cols-12 gap-4.5 items-stretch">
-            <div className="col-span-8 h-full">
-              <div className="rounded-4xl h-full overflow-hidden grid grid-cols-2 items-center bg-rangoon-green py-4 pl-4 ring ring-inset ring-white-smoke/4 shadow-[inset_2px_4px_16px_0_rgba(248,248,248,0.06)]">
+      <section className="bg-mirage py-8 md:py-16">
+        <div className="container max-w-7xl mx-auto px-4 md:px-8 space-y-3 md:space-y-4.5">
+          <div className="grid grid-cols-1 xl:grid-cols-12 gap-3 md:gap-4.5 items-stretch">
+            <div className="xl:col-span-8 h-full">
+              <div className="rounded-4xl h-full overflow-hidden grid grid-cols-1 xl:grid-cols-2 items-center bg-rangoon-green py-4 px-4 md:pl-4 ring ring-inset ring-white-smoke/4 shadow-[inset_2px_4px_16px_0_rgba(248,248,248,0.06)]">
                 <video
                   src="/videos/BentoCard1new.mp4"
                   className="h-auto w-full"
@@ -756,7 +758,7 @@ export default function HomeClient() {
                     <p className="w-fit bg-linear-to-r from-[#8353D5] to-white bg-clip-text text-xs text-transparent">
                       Better Digital Experiences
                     </p>
-                    <p className="text-[32px] leading-[140%] font-bold text-center text-snow-drift/95">
+                    <p className="text-2xl md:text-[32px] leading-[140%] font-bold text-center text-snow-drift/95">
                       Everything Your Product Needs To Grow.
                     </p>
                   </div>
@@ -768,7 +770,7 @@ export default function HomeClient() {
                 </div>
               </div>
             </div>
-            <div className="col-span-4">
+            <div className="xl:col-span-4">
               <video
                 src="/videos/BentoCard2.mp4"
                 className="h-auto w-full"
@@ -781,7 +783,7 @@ export default function HomeClient() {
               />
             </div>
           </div>
-          <div className="grid grid-cols-3 gap-4.5 items-stretch">
+          <div className="grid grid-cols-1 xl:grid-cols-3 gap-4.5 items-stretch">
             <video
               src="/videos/BentoCard3.mp4"
               className="h-auto w-full"
@@ -816,21 +818,21 @@ export default function HomeClient() {
         </div>
       </section>
       <TestimonialsSection testimonials={testimonials} />
-      <section className="bg-mirage pt-24 pb-8">
-        <div className="container max-w-7xl mx-auto px-8">
-          <div className="flex flex-col gap-13.5">
-            <div className="flex flex-col gap-8 items-center">
-              <div className=" w-full grid grid-cols-12 space-y-3">
-                <div className="col-start-6 col-end-9">
+      <section className="bg-mirage pt-8 md:pt-24 pb-8">
+        <div className="container max-w-7xl mx-auto px-4 md:px-8">
+          <div className="flex flex-col gap-6 md:gap-13.5">
+            <div className="flex flex-col gap-4 md:gap-8 items-start md:items-center">
+              <div className=" w-full grid md:grid-cols-12 space-y-3">
+                <div className="md:col-start-6 md:col-end-9">
                   <PulsingLabel text={"Why Endpoint Clients"} />
                 </div>
-                <div className="col-start-3 col-end-11 ">
-                  <p className="text-5xl text-white font-semibold text-center">
+                <div className="md:col-start-3 md:col-end-11 ">
+                  <p className="text-3xl md:text-5xl text-white font-semibold md:text-center">
                     One product team. Fewer handoffs. Better execution.
                   </p>
                 </div>
-                <div className="col-start-2 col-end-12 ">
-                  <p className="text-xl text-gray-100 text-center">
+                <div className="md:col-start-2 md:col-end-12 ">
+                  <p className="text-base md:text-xl text-gray-100 md:text-center">
                     We connect product thinking, design and engineering from day
                     one so decisions stay aligned from the first idea through
                     development, launch and growth.
@@ -846,16 +848,16 @@ export default function HomeClient() {
                 }}
               />
             </div>
-            <div className="flex flex-col gap-35">
-              <div className="rounded-[48px] bg-dark-jungle-green border border-white/6 shadow-[0_0_150px_0_rgba(131,83,213,0.08)] p-4.5 grid grid-cols-11 gap-5">
-                <div className="col-span-3">
+            <div className="flex flex-col gap-10 md:gap-35">
+              <div className="rounded-3xl md:rounded-[48px] bg-dark-jungle-green border border-white/6 shadow-[0_0_150px_0_rgba(131,83,213,0.08)] p-4 md:p-4.5 grid grid-cols-1 lg:grid-cols-11 gap-3 md:gap-5">
+                <div className="lg:col-span-3">
                   <div className="flex flex-col">
-                    <div className="p-6">
-                      <p className="text-2xl font-semibold text-white">
+                    <div className="p-4 md:p-6">
+                      <p className="text-xl md:text-2xl font-semibold text-white">
                         What Matters
                       </p>
                     </div>
-                    <div className="flex flex-col gap-4 p-6">
+                    <div className="flex flex-col gap-4 p-4 md:p-6">
                       {features.map((feature, index) => {
                         const isLastItem = index === features.length - 1;
                         return (
@@ -869,14 +871,14 @@ export default function HomeClient() {
                     </div>
                   </div>
                 </div>
-                <div className="col-span-4">
+                <div className="lg:col-span-4">
                   <ComparisonCard
                     title="Traditional Agencies"
                     titleIcon={<TraditionalIcon />}
                     features={traditionalAgencyFeatures}
                   />
                 </div>
-                <div className="col-span-4">
+                <div className="lg:col-span-4">
                   <ComparisonCard
                     title="Endpointclients"
                     titleIcon={<EpcLogoIcon />}
@@ -902,16 +904,16 @@ export default function HomeClient() {
         </div>
       </section>
       <section className="bg-mirage">
-        <div className="container max-w-7xl mx-auto pt-16  px-8">
-          <div className="flex flex-col gap-16">
-            <div className="flex flex-col gap-7 items-center">
-              <div className="flex flex-col gap-3 items-center">
+        <div className="container max-w-7xl mx-auto pt-8 md:pt-16  px-4 md:px-8">
+          <div className="flex flex-col gap-8 md:gap-16">
+            <div className="flex flex-col gap-3 md:gap-7 items-start md:items-center">
+              <div className="flex flex-col gap-3 items-start md:items-center">
                 <PulsingLabel text={"Technology Stack "} />
-                <p className="text-5xl font-semibold text-white leading-[100%]">
+                <p className="text-3xl md:text-5xl font-semibold text-white leading-[100%]">
                   The right technology for every layer of your product.
                 </p>
               </div>
-              <div className="relative flex flex-row rounded-full border border-white/8 bg-heavy-metal p-1.5">
+              <div className="relative flex w-full max-w-full flex-row overflow-x-auto rounded-full border border-white/8 bg-heavy-metal p-1.5 [scrollbar-width:none] xl:w-fit [&::-webkit-scrollbar]:hidden">
                 <div
                   aria-hidden="true"
                   className="pointer-events-none absolute top-1.5 bottom-1.5 left-0 rounded-full bg-linear-to-b from-[#8740FF] to-[#512699] transition-all duration-300 ease-out"
@@ -921,6 +923,7 @@ export default function HomeClient() {
                     opacity: indicatorStyle.opacity,
                   }}
                 />
+
                 {technologyOptions.map((option, index) => {
                   const isActive = selectedTechnology === option.value;
 
@@ -935,12 +938,12 @@ export default function HomeClient() {
                         setSelectedTechnology(option.value);
                       }}
                       className={`
-            relative z-10 cursor-pointer whitespace-nowrap
-            rounded-full px-5 py-2
-            text-lg font-semibold
-            transition-colors duration-300
-            ${isActive ? "text-white" : "text-white-smoke"}
-          `}
+          relative z-10 shrink-0 cursor-pointer whitespace-nowrap
+          rounded-full px-5 py-2
+          text-lg font-semibold
+          transition-colors duration-300
+          ${isActive ? "text-white" : "text-white-smoke"}
+        `}
                     >
                       {option.label}
                     </button>
@@ -955,28 +958,28 @@ export default function HomeClient() {
           </div>
         </div>
       </section>
-      <section className="bg-mirage py-24">
-        <div className="container max-w-7xl mx-auto px-8 grid grid-cols-10 gap-12">
-          <div className="col-span-4 flex flex-col gap-3 items-start">
+      <section className="bg-mirage py-8 md:py-24">
+        <div className="container max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-10 gap-4 md:gap-12">
+          <div className="md:col-span-4 flex flex-col gap-2 md:gap-3 items-start">
             <PulsingLabel text={"FAQs"} />
-            <h3 className="text-5xl font-semibold text-white leading-[130%]">
+            <h3 className="text-3xl md:text-5xl font-semibold text-white leading-[130%]">
               Questions before we build?
             </h3>
           </div>
-          <div className="col-span-6">
+          <div className="md:col-span-6">
             <FAQAccordion faqs={faqItems} />
           </div>
         </div>
       </section>
-      <section className="bg-mirage pb-20">
-        <div className="container max-w-7xl mx-auto px-8">
-          <div className="bg-woodsmoke border border-white/12 py-16 px-25 rounded-4xl bg-[url('/images/ReadyProjectBgImage.png')] bg-cover bg-center relative overflow-hidden">
-            <div className="flex flex-col gap-10.5 items-center">
+      <section className="bg-mirage pb-8 md:pb-20">
+        <div className="container max-w-7xl mx-auto px-4 md:px-8">
+          <div className="bg-woodsmoke border border-white/12 py-8 md:py-16 px-4 md:px-25 rounded-2xl md:rounded-4xl bg-[url('/images/ReadyProjectBgImage.png')] bg-cover bg-center relative overflow-hidden">
+            <div className="flex flex-col gap-4 md:gap-10.5 items-center">
               <div className="flex flex-col gap-3.5 items-center">
-                <p className="text-[56px] font-semibold text-white leading-[120%]">
+                <p className="text-2xl md:text-[56px] text-center font-semibold text-white leading-[120%]">
                   Ready to start your project?
                 </p>
-                <p className="text-2xl text-white text-center">
+                <p className="text-lg md:text-2xl text-white text-center">
                   Whether you’re launching something new or improving an
                   existing platform.let’s build something great together.
                 </p>

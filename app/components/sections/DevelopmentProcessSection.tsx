@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef, useState } from "react";
-
 import type { StaticImageData } from "next/image";
 
 import {
@@ -55,13 +54,52 @@ const DevelopmentProcessSection = ({
   if (!processSteps.length) return null;
 
   const activeProcess = processSteps[activeIndex];
-  const progressValue = (activeIndex + 1) / processSteps.length;
+  const progressValue =
+    (activeIndex + 1) / processSteps.length;
 
   return (
-    <section className="bg-mirage py-24">
+    <section className="bg-mirage py-8 xl:py-24">
+      <div className="container mx-auto flex max-w-7xl flex-col gap-10 px-4 sm:px-6 xl:hidden">
+        <div className="flex flex-col items-start gap-5">
+          <div className="flex flex-col items-start gap-2.5">
+            <PulsingLabel text="Our Development Process" />
+
+            <h3 className="text-3xl font-semibold leading-[100%] text-white md:text-4xl">
+              From Idea To Execution
+            </h3>
+
+            <p className="text-base leading-relaxed text-gray-100 md:text-lg">
+              We have become experts in creating top-notch digital products. We
+              design beautifully and develop excellently. And we care deeply
+              about what we do.
+            </p>
+          </div>
+
+          <ThemeButton
+            label="Get a Free Consultation"
+            variant="gradient"
+            icon={<ArrowUpIcon />}
+            onClick={() => {}}
+          />
+        </div>
+
+        <div className="flex flex-col gap-12">
+          {processSteps.map((processStep) => (
+            <ProcessCard
+              key={processStep.number}
+              number={processStep.number}
+              image={processStep.image}
+              imageAlt={processStep.imageAlt}
+              title={processStep.title}
+              description={processStep.description}
+            />
+          ))}
+        </div>
+      </div>
+
       <div
         ref={scrollSectionRef}
-        className="relative"
+        className="relative hidden xl:block"
         style={{
           height: `${100 + processSteps.length * 40}vh`,
         }}
@@ -83,6 +121,7 @@ const DevelopmentProcessSection = ({
                     we care deeply about what we do.
                   </p>
                 </div>
+
                 <ThemeButton
                   label="Get a Free Consultation"
                   variant="gradient"
@@ -92,7 +131,10 @@ const DevelopmentProcessSection = ({
               </div>
 
               <div className="grid">
-                <AnimatePresence initial={false} mode="popLayout">
+                <AnimatePresence
+                  initial={false}
+                  mode="popLayout"
+                >
                   <motion.div
                     key={activeProcess.number}
                     className="col-start-1 row-start-1"

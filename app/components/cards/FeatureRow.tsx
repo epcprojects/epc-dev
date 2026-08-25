@@ -28,7 +28,7 @@ const FeatureRow = ({
 
       <p
         className={`
-          text-base font-semibold
+          text-sm md:text-base font-semibold
           ${labelColor}
         `}
       >

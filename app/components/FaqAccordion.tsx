@@ -60,15 +60,15 @@ export default function FAQAccordion({ faqs }: FAQAccordionProps) {
                 <Accordion.Trigger
                   className="group flex w-full transition-[padding,border-radius]
 duration-300
-ease-[cubic-bezier(0.22,1,0.36,1)]  cursor-pointer items-center gap-1 justify-between text-start rounded-2xl data-[state=open]:rounded-b-none  xl:pt-4   pb-4 xl:data-[state=open]:pb-2  px-4.75  outline-none text-neutral-200"
+ease-[cubic-bezier(0.22,1,0.36,1)]  cursor-pointer items-center gap-1 justify-between text-start rounded-2xl data-[state=open]:rounded-b-none  pt-4   pb-4 data-[state=open]:pb-2  px-4.75  outline-none text-neutral-200"
                 >
-                  <span className="text-[22px] font-medium">
+                  <span className="text-base md:text-[22px] font-medium">
                     {faq.question}
                   </span>
 
                   <span
                     className="
-  inline-flex h-10.5 w-10.5
+  inline-flex h-8 md:h-10.5 w-8 md:w-10.5
   shrink-0 items-center justify-center
   rounded-full border border-white/10
   text-white
@@ -80,13 +80,13 @@ ease-[cubic-bezier(0.22,1,0.36,1)]  cursor-pointer items-center gap-1 justify-be
   group-data-[state=open]:to-white/0
  "
                   >
-                    <ArrowUpIcon />
+                    <ArrowUpIcon width={isMobile?"20":"24"} height={isMobile?"20":"24"}/>
                   </span>
                 </Accordion.Trigger>
               </Accordion.Header>
 
               <Accordion.Content className=" overflow-hidden accordion-content  px-4.75">
-                <p className="text-lg  text-neutral-400  pb-4">{faq.answer}</p>
+                <p className="text-sm md:text-lg  text-neutral-400  pb-4">{faq.answer}</p>
               </Accordion.Content>
             </div>
           </Accordion.Item>
