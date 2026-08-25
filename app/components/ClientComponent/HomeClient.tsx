@@ -773,8 +773,8 @@ export default function HomeClient() {
             <div className="lg:col-span-8 h-full">
               <div className="rounded-4xl h-full overflow-hidden grid grid-cols-1 lg:grid-cols-2 items-center bg-rangoon-green py-4 px-4 md:pl-4 ring ring-inset ring-white-smoke/4 shadow-[inset_2px_4px_16px_0_rgba(248,248,248,0.06)]">
                 <video
-                  src="/videos/BentoCard1new.mp4"
-                  className="h-auto w-full"
+                  src="/videos/BentoCard1New.mp4"
+                  className="h-full w-full"
                   autoPlay
                   muted
                   loop
