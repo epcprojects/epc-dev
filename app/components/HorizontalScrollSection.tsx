@@ -40,44 +40,30 @@ const HorizontalSlide = ({
 
   const isFirstCard = index === 0;
 
-  const isLastTwoCards =
-    index >= totalItems - 2;
+  const isLastTwoCards = index >= totalItems - 2;
 
-  const shouldAnimateEntrance =
-    !isFirstCard && !isLastTwoCards;
+  const shouldAnimateEntrance = !isFirstCard && !isLastTwoCards;
 
-  const start = Math.min(
-    index * 0.13,
-    0.72,
-  );
+  const start = Math.min(index * 0.13, 0.72);
 
-  const end = Math.min(
-    start + 0.12,
-    0.84,
-  );
+  const end = Math.min(start + 0.12, 0.84);
 
   const translateY = useTransform(
     progress,
     [start, end],
-    shouldAnimateEntrance
-      ? [180, 0]
-      : [0, 0],
+    shouldAnimateEntrance ? [180, 0] : [0, 0],
   );
 
   const opacity = useTransform(
     progress,
     [start, end],
-    shouldAnimateEntrance
-      ? [0, 1]
-      : [1, 1],
+    shouldAnimateEntrance ? [0, 1] : [1, 1],
   );
 
   const scale = useTransform(
     progress,
     [start, end],
-    shouldAnimateEntrance
-      ? [0.96, 1]
-      : [1, 1],
+    shouldAnimateEntrance ? [0.96, 1] : [1, 1],
   );
 
   useEffect(() => {
@@ -86,9 +72,7 @@ const HorizontalSlide = ({
     if (!container) return;
 
     const videos = Array.from(
-      container.querySelectorAll<HTMLVideoElement>(
-        "video",
-      ),
+      container.querySelectorAll<HTMLVideoElement>("video"),
     );
 
     videos.forEach((video) => {
@@ -104,7 +88,7 @@ const HorizontalSlide = ({
     <motion.div
       ref={slideRef}
       className="
-        w-screen shrink-0
+       h-full w-screen shrink-0
         md:w-[50vw]
       "
       style={{
@@ -122,20 +106,15 @@ const HorizontalScrollSection = ({
   leftContent,
   items,
 }: HorizontalScrollSectionProps) => {
-  const sectionRef =
-    useRef<HTMLElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
 
-  const viewportRef =
-    useRef<HTMLDivElement>(null);
+  const viewportRef = useRef<HTMLDivElement>(null);
 
-  const trackRef =
-    useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
 
-  const [scrollDistance, setScrollDistance] =
-    useState(0);
+  const [scrollDistance, setScrollDistance] = useState(0);
 
-  const [activeIndex, setActiveIndex] =
-    useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -145,11 +124,7 @@ const HorizontalScrollSection = ({
   const translateX = useTransform(
     scrollYProgress,
     [0, 0.9, 1],
-    [
-      0,
-      -scrollDistance,
-      -scrollDistance,
-    ],
+    [0, -scrollDistance, -scrollDistance],
   );
 
   useLayoutEffect(() => {
@@ -159,28 +134,18 @@ const HorizontalScrollSection = ({
     if (!viewport || !track) return;
 
     const calculateDistance = () => {
-      const trackStyles =
-        window.getComputedStyle(track);
+      const trackStyles = window.getComputedStyle(track);
 
-      const rightPadding =
-        Number.parseFloat(
-          trackStyles.paddingRight,
-        ) || 0;
+      const rightPadding = Number.parseFloat(trackStyles.paddingRight) || 0;
 
-      const distance =
-        track.scrollWidth -
-        viewport.clientWidth -
-        rightPadding;
+      const distance = track.scrollWidth - viewport.clientWidth - rightPadding;
 
-      setScrollDistance(
-        Math.max(0, distance),
-      );
+      setScrollDistance(Math.max(0, distance));
     };
 
     calculateDistance();
 
-    const resizeObserver =
-      new ResizeObserver(calculateDistance);
+    const resizeObserver = new ResizeObserver(calculateDistance);
 
     resizeObserver.observe(viewport);
     resizeObserver.observe(track);
@@ -190,42 +155,31 @@ const HorizontalScrollSection = ({
     };
   }, [items.length]);
 
-  useMotionValueEvent(
-    scrollYProgress,
-    "change",
-    (progress) => {
-      if (!items.length) return;
+  useMotionValueEvent(scrollYProgress, "change", (progress) => {
+    if (!items.length) return;
 
-      const horizontalProgress =
-        Math.min(progress / 0.9, 1);
+    const horizontalProgress = Math.min(progress / 0.9, 1);
 
-      const nextIndex = Math.min(
-        Math.floor(
-          horizontalProgress *
-            items.length,
-        ),
-        items.length - 1,
-      );
+    const nextIndex = Math.min(
+      Math.floor(horizontalProgress * items.length),
+      items.length - 1,
+    );
 
-      setActiveIndex((currentIndex) =>
-        currentIndex === nextIndex
-          ? currentIndex
-          : nextIndex,
-      );
-    },
-  );
+    setActiveIndex((currentIndex) =>
+      currentIndex === nextIndex ? currentIndex : nextIndex,
+    );
+  });
 
+  // const sectionHeight = `${Math.max(400, items.length * 80)}vh`;
   const sectionHeight = `${Math.max(
-    400,
-    items.length * 80,
-  )}vh`;
+  400,
+  items.length * 80,
+)}vh`;
 
   return (
     <>
-      <section className="border-y border-white/12 bg-mirage xl:hidden">
-        <div className="border-b border-white/12 px-6 py-12">
-          {leftContent}
-        </div>
+      <section className=" bg-mirage 2xl:hidden px-4 ">
+        <div className="border-b border-white/12 px-6 py-12">{leftContent}</div>
 
         <div className="flex flex-col">
           {items.map((item, index) => (
@@ -300,7 +254,7 @@ const HorizontalScrollSection = ({
       </section> */}
       <section
   ref={sectionRef}
-  className="relative hidden border-y border-white/12 xl:block"
+  className="relative hidden bg-mirage py-4 2xl:block"
   style={{
     height: sectionHeight,
   }}
@@ -308,18 +262,23 @@ const HorizontalScrollSection = ({
   <div
     ref={viewportRef}
     className="
-      sticky top-[5svh] z-10 flex h-[90svh]
+      sticky z-10 flex
       items-center overflow-hidden
       border-y border-white/12
       bg-mirage
     "
+    style={{
+      top: "calc(var(--header-height, 0px) + 16px)",
+      height:
+        "calc(100svh - var(--header-height, 0px) - 32px)",
+    }}
   >
     <motion.div
       ref={trackRef}
       className="
         flex h-full w-max items-center
-        px-4
-        md:px-16
+        px-4 xl:px-0
+        sm:pl-16 md:pl-60
       "
       style={{
         x: translateX,

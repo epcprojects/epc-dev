@@ -141,11 +141,11 @@ export default function HomeClient() {
   const capabilityCards = capabilities.map((capability) => (
     <article
       key={capability.id}
-      className="flex h-screen flex-col justify-center gap-6 border-r border-white/12 px-4 xl:px-12 py-8"
+      className="flex h-screen flex-col  items-start gap-6 2xl:border-r 2xl:border-white/12 px-4 xl:px-12 py-8"
     >
       <video
         src={capability.video}
-        className="h-auto w-full rounded-xl"
+        className="h-[500px] w-auto rounded-xl"
         autoPlay
         muted
         loop
