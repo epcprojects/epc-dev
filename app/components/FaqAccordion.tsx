@@ -25,7 +25,7 @@ export default function FAQAccordion({ faqs }: FAQAccordionProps) {
         type="single"
         collapsible
         defaultValue="item-0"
-        className="flex flex-col gap-2 lg:gap-5.5"
+        className="flex flex-col gap-3 lg:gap-5.5"
       >
         {faqs.map((faq, index) => (
           <Accordion.Item
@@ -60,7 +60,7 @@ export default function FAQAccordion({ faqs }: FAQAccordionProps) {
                 <Accordion.Trigger
                   className="group flex w-full transition-[padding,border-radius]
 duration-300
-ease-[cubic-bezier(0.22,1,0.36,1)]  cursor-pointer items-center gap-1 justify-between text-start rounded-2xl data-[state=open]:rounded-b-none  pt-4   pb-4 data-[state=open]:pb-2  px-4.75  outline-none text-neutral-200"
+ease-[cubic-bezier(0.22,1,0.36,1)]  cursor-pointer items-center gap-1 justify-between text-start rounded-2xl data-[state=open]:rounded-b-none  pt-4   pb-4 data-[state=open]:pb-2 px-4  md:px-4.75  outline-none text-neutral-200"
                 >
                   <span className="text-base md:text-[22px] font-medium">
                     {faq.question}
@@ -85,7 +85,7 @@ ease-[cubic-bezier(0.22,1,0.36,1)]  cursor-pointer items-center gap-1 justify-be
                 </Accordion.Trigger>
               </Accordion.Header>
 
-              <Accordion.Content className=" overflow-hidden accordion-content  px-4.75">
+              <Accordion.Content className=" overflow-hidden accordion-content  px-4 md:px-4.75">
                 <p className="text-sm md:text-lg  text-neutral-400  pb-4">{faq.answer}</p>
               </Accordion.Content>
             </div>

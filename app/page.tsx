@@ -4,7 +4,7 @@ import HomeClient from "./components/ClientComponent/HomeClient";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ||
-  "https://epc-dev.vercel.app/";
+  "https://endpointclients.dev/";
 
 const ogImagePath =
   "/images/OgImage.png";
@@ -13,13 +13,13 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
 
   title:
-    "Empower Your Business",
+    "Product Design & Development Company | 15+ Years Experience | Endpoint Clients",
 
   description:
-    "We combine product design expertise with full-cycle software engineering to build web platforms, mobile apps, SaaS products and AI-powered solutions that are intuitive to use  and ready to grow with your business.",
+    "Build and scale digital products with Endpoint Clients. Get UI/UX design, custom software, web, mobile, SaaS, AI development, APIs and product engineering.",
 
   alternates: {
-    canonical: "/",
+    canonical: "https://endpointclients.dev/",
   },
 
   robots: {
@@ -60,10 +60,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
 
     title:
-      "Empower Your Business",
+      "Product Design & Development Agency | 15+ Years Experience | Endpoint Clients",
 
     description:
-      "We combine product design expertise with full-cycle software engineering to build web platforms, mobile apps, SaaS products and AI-powered solutions that are intuitive to use  and ready to grow with your business.",
+      "Build and scale digital products with Endpoint Clients. Get UI/UX design, custom software, web, mobile, SaaS, AI development, APIs and product engineering.",
 
     images: [ogImagePath],
   },

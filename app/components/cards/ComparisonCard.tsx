@@ -46,7 +46,7 @@ const ComparisonCard = ({
         </>
       )}
 
-      <div className="relative z-10 flex flex-row items-center gap-2.5 border-b border-b-white/12 bg-[#252525] p-4 md:p-6">
+      <div className="relative z-10 flex flex-row items-center gap-2.5 border-b border-b-white/12 bg-[#252525] py-3 px-3 md:py-6 md:px-6">
         <span className="inline-flex shrink-0 items-center justify-center">
           {titleIcon}
         </span>
@@ -56,7 +56,7 @@ const ComparisonCard = ({
         </p>
       </div>
 
-      <div className="relative z-10 flex flex-col gap-4 p-7">
+      <div className="relative z-10 flex flex-col gap-4 p-4.5 md:p-7">
         {features.map((feature, index) => {
           const isLastItem =
             index === features.length - 1;

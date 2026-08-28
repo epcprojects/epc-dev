@@ -94,19 +94,19 @@ const TestimonialsSection = ({ testimonials }: TestimonialsSectionProps) => {
   if (!testimonials.length) return null;
 
   return (
-    <section className="bg-mirage py-8 xl:py-16">
+    <section className="bg-mirage pt-4 pb-8 xl:py-16">
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 xl:px-8">
-        <div className="flex flex-col items-start gap-8 xl:gap-13">
+        <div className="flex flex-col items-start gap-5 xl:gap-13">
           <div className="flex w-full flex-row items-center gap-5 xl:w-auto xl:gap-10.5">
-            <p className="shrink-0 text-xl text-gray-50 xl:text-2xl">
+            <p className="shrink-0 text-base text-gray-50 xl:text-2xl">
               Testimonials
             </p>
 
             <div className="h-px flex-1 bg-white/12 xl:w-46 xl:flex-none" />
           </div>
 
-          <div className="flex w-full flex-col gap-6 xl:flex-row xl:gap-30">
-            <div className="shrink-0 origin-left scale-75 xl:scale-100">
+          <div className="flex w-full flex-col gap-3 xl:flex-row xl:gap-30">
+            <div className="shrink-0 origin-left scale-60 xl:scale-100">
               <InvertedCommasIcon />
             </div>
 
@@ -133,8 +133,8 @@ const TestimonialsSection = ({ testimonials }: TestimonialsSectionProps) => {
               >
                 {testimonials.map((testimonial) => (
                   <SwiperSlide key={testimonial.id} className="h-auto!">
-                    <div className="flex h-full flex-col justify-between gap-8 xl:gap-30">
-                      <p className="text-2xl leading-[140%] font-medium text-white sm:text-3xl xl:text-42">
+                    <div className="flex h-full flex-col justify-between gap-3 xl:gap-30">
+                      <p className="text-xl leading-[140%] font-medium text-white sm:text-3xl xl:text-42">
                         {testimonial.text}
                       </p>
 
@@ -149,12 +149,12 @@ const TestimonialsSection = ({ testimonials }: TestimonialsSectionProps) => {
                               }
                               width={72}
                               height={72}
-                              className="h-14 w-14 object-cover xl:h-18 xl:w-18"
+                              className="h-12 w-12 object-cover xl:h-18 xl:w-18"
                             />
                           </div>
 
                           <div className="flex min-w-0 flex-col gap-1 xl:gap-2">
-                            <p className="text-xl leading-6 font-bold text-white-smoke xl:text-26">
+                            <p className="text-lg leading-6 font-bold text-white-smoke xl:text-26">
                               {testimonial.authorName}
                             </p>
 
@@ -169,7 +169,12 @@ const TestimonialsSection = ({ testimonials }: TestimonialsSectionProps) => {
                 ))}
               </Swiper>
 
-              <div className="absolute right-0 bottom-0 z-10 flex flex-row gap-2 xl:gap-2.5">
+              <div   className="
+    absolute bottom-0 z-10
+    flex flex-row gap-2
+    right-0 
+    xl:gap-2.5
+  ">
                 <NavigationButton
                   direction="previous"
                   disabled={isBeginning}

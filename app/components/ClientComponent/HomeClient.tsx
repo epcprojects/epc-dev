@@ -2,10 +2,8 @@
 import { PulsingBorder } from "@paper-design/shaders-react";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
-
 import {
   AlertIcon,
-  ArrowLeftIcon,
   ArrowUpIcon,
   CheckmarkIcon,
   CommandLineIcon,
@@ -14,9 +12,7 @@ import {
   EpcLogoIcon,
   FlashIcon,
   HappyClientsIcon,
-  InvertedCommasIcon,
   OurClientsIcon,
-  ReactIcon,
   SecurityCheckIcon,
   TraditionalIcon,
   UnilinkIcon,
@@ -34,12 +30,11 @@ import ThemeButton from "../button/ThemeButton";
 import ImageColumns from "../ImageColumns";
 import StatsCard from "../cards/StatsCard";
 import PlatformLogo from "../PlatformLogo";
-import ProcessCard from "../cards/ProcessCard";
 import DevelopmentProcessSection from "../sections/DevelopmentProcessSection";
 import TestimonialsSection, {
   Testimonial,
 } from "../sections/TestimonialSection";
-import { MouseEvent, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import FeatureRow from "../cards/FeatureRow";
 import ComparisonCard from "../cards/ComparisonCard";
 import TechnologyPills from "../cards/TechnologyPills";
@@ -51,7 +46,6 @@ import {
 import FAQAccordion, { FAQItem } from "../FaqAccordion";
 import { useIsMobile } from "@/app/hooks/useIsMobile";
 import CountUpNumber from "../CountUpNumber";
-import { div } from "motion/react-client";
 const pillGroupVariants: Variants = {
   hidden: {},
   visible: {
@@ -232,7 +226,7 @@ export default function HomeClient() {
                 px-3 py-2
                 text-xs text-gray-50
                 shadow-[0_0_10px_0_#00000014]
-                md:px-3.5 md:py-3 md:text-base
+                md:px-4 md:py-2 md:text-sm
               "
               >
                 {pill}
@@ -454,9 +448,9 @@ export default function HomeClient() {
   const isMobile = useIsMobile();
   return (
     <>
-      <section className="-mt-13 md:-mt-28 bg-mirage bg-[url('/images/HeroBgGradient.png')] bg-position-[center_top] bg-size-[100%_auto] bg-no-repeat pt-5 xl:pt-28 ">
-        <div className="pt-15 xl:pt-20 pb-10 xl:pb-26.5 container max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-10 items-center gap-5">
-          <div className="lg:col-span-7 flex flex-col gap-4 md:gap-7.5">
+      <section className="-mt-13 md:-mt-28 bg-mirage bg-[url('/images/HeroBgGradient.png')] bg-position-[center_top] bg-size-[100%_auto] bg-no-repeat pt-5  md:pt-28 ">
+        <div className="pt-15 xl:pt-20 pb-10 xl:pb-26.5 container max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-10 items-center gap-5">
+          <div className="md:col-span-7 flex flex-col gap-4 md:gap-7.5">
             <div className="flex flex-col gap-2 md:gap-4.5">
               <div className="flex flex-col gap-3">
                 {/* <div className="w-fit rounded-lg bg-[linear-gradient(90deg,#8740FF_0%,#66666600_60%)] p-px">
@@ -546,7 +540,7 @@ export default function HomeClient() {
               </div>
             </div>
           </div>
-          <div className="lg:col-span-3 flex items-center justify-center  w-full">
+          <div className="md:col-span-3 flex items-center justify-center  w-full">
             <ParticleImage />
           </div>
         </div>
@@ -571,7 +565,7 @@ export default function HomeClient() {
       </section>
       <section className="bg-mirage py-8 xl:py-24">
         <div className="container max-w-7xl mx-auto py-4 md:py-16 px-4 md:px-8 overflow-visible">
-          <div className="grid grid-cols-1 gap-8 overflow-visible lg:grid-cols-14 xl:-translate-x-3 xl:gap-3 2xl:translate-x-0">
+          <div className="grid grid-cols-1 gap-8 overflow-visible xl:grid-cols-14 xl:-translate-x-3 xl:gap-3 2xl:translate-x-0">
             {/* Desktop left pills */}
             <motion.div
               className="
@@ -862,7 +856,7 @@ export default function HomeClient() {
         }
         items={capabilityCards}
       />
-      <section className="bg-mirage px-4 py-4 md:px-16 md:py-16">
+      <section className="bg-mirage px-4 py-4 xl:px-16 md:py-16">
         <div
           className="
       relative overflow-hidden
@@ -875,8 +869,8 @@ export default function HomeClient() {
             className="
         pointer-events-none absolute inset-0 z-0
         w-full
-        md:inset-y-0 md:left-auto
-        md:-right-40 md:w-[50%] brightness-[0.70]  md:brightness-100
+        xl:inset-y-0 xl:left-auto
+        xl:-right-40 xl:w-[50%] brightness-[0.70]  xl:brightness-100
       "
           >
             <ImageColumns />
@@ -887,7 +881,7 @@ export default function HomeClient() {
         md:bg-black/25 bg-black/60
       "
           />
-          <div className="absolute top-0 left-140 h-full w-149 bg-[linear-gradient(251deg,rgba(21,21,21,0)_30.42%,#151515_55.36%)]" />
+          <div className="absolute top-0 left-140 h-full w-149 bg-[linear-gradient(251deg,rgba(21,21,21,0)_30.42%,#151515_55.36%)] hidden 2xl:block" />
           <div
             className="
         relative z-20 flex max-w-200
@@ -926,7 +920,7 @@ export default function HomeClient() {
         </div>
       </section>
       <section className="bg-mirage border-y border-y-white/18">
-        <div className="container max-w-7xl mx-auto px-0 xl:px-8 flex flex-col  xl:flex-row">
+        <div className="container max-w-7xl mx-auto px-0 2xl:px-8 flex flex-col  2xl:flex-row">
           <StatsCard
             icon={
               <HappyClientsIcon
@@ -978,21 +972,21 @@ export default function HomeClient() {
           </div>
         </div>
       </section>
-      <section className="bg-mirage pt-12 md:pt-24 xl:pb-16">
+      <section className="bg-mirage  md:pt-24 xl:pb-16">
         <div className="container mx-auto max-w-7xl px-4 pt-8 md:px-8 md:pt-16">
-          <div className="flex flex-col items-center gap-12 md:gap-20">
-            <div className="grid w-full grid-cols-1 items-center gap-4 md:grid-cols-12 md:gap-4">
+          <div className="flex flex-col items-center gap-10 md:gap-20">
+            <div className="grid w-full grid-cols-1 items-center gap-3 md:grid-cols-12 md:gap-4">
               <div className=" md:col-start-6 md:col-end-10">
                 <PulsingLabel text="INDUSTRIES WE SERVE" />
               </div>
               <div className="md:col-start-3 md:col-end-12">
-                <h2 className="md:text-center text-3xl leading-[105%] font-semibold text-white md:text-5xl md:leading-[120%]">
+                <h2 className="md:text-center text-2xl leading-[130%] font-semibold text-white md:text-5xl md:leading-[120%]">
                   Digital products shaped around how your industry actually
                   works
                 </h2>
               </div>
               <div className="md:col-start-2 md:col-end-12 md:ml-10">
-                <p className="md:text-center text-base leading-relaxed text-gray-100 md:text-xl">
+                <p className="md:text-center text-base leading-relaxed text-neutral-400 md:text-xl">
                   Different industries bring different users, workflows,
                   regulations and operational challenges. We combine product
                   thinking, engineering and AI to build solutions around the
@@ -1016,9 +1010,9 @@ export default function HomeClient() {
       <DevelopmentProcessSection processSteps={processSteps} />
       <section className="bg-mirage py-8 md:py-16">
         <div className="container max-w-7xl mx-auto px-4 md:px-8 space-y-3 md:space-y-4.5">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 md:gap-4.5 items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 md:gap-4.5 items-stretch">
             <div className="lg:col-span-8 h-full">
-              <div className="rounded-4xl h-full overflow-hidden grid grid-cols-1 lg:grid-cols-2 items-center bg-rangoon-green py-4 px-4 md:pl-4 ring ring-inset ring-white-smoke/4 shadow-[inset_2px_4px_16px_0_rgba(248,248,248,0.06)]">
+              <div className="rounded-4xl h-full overflow-hidden grid grid-cols-1 lg:grid-cols-2 items-center bg-rangoon-green pb-5 pt-4 px-4 md:pl-4 ring ring-inset ring-white-smoke/4 shadow-[inset_2px_4px_16px_0_rgba(248,248,248,0.06)]">
                 <video
                   src="/videos/BentoCard1New.mp4"
                   className="h-full w-full"
@@ -1029,12 +1023,12 @@ export default function HomeClient() {
                   preload="metadata"
                   aria-label="Bento card animation"
                 />
-                <div className="px-4 flex flex-col gap-6">
+                <div className="xl:px-4 flex flex-col gap-3.5 md:gap-6">
                   <div className="flex flex-col items-center gap-1.5">
                     <p className="w-fit bg-linear-to-r from-[#8353D5] to-white bg-clip-text text-xs text-transparent">
                       Better Digital Experiences
                     </p>
-                    <p className="text-2xl md:text-[32px] leading-[140%] font-bold text-center text-snow-drift/95">
+                    <p className="text-xl md:text-[32px] leading-[140%] font-bold text-center text-snow-drift/95">
                       Everything Your Product Needs To Grow.
                     </p>
                   </div>
@@ -1059,7 +1053,7 @@ export default function HomeClient() {
               />
             </div>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4.5 items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-4.5 items-stretch">
             <video
               src="/videos/BentoCard3.mp4"
               className="h-auto w-full"
@@ -1097,18 +1091,18 @@ export default function HomeClient() {
       <section className="bg-mirage pt-8 md:pt-24 pb-8">
         <div className="container max-w-7xl mx-auto px-4 md:px-8">
           <div className="flex flex-col gap-6 md:gap-15.5">
-            <div className="flex flex-col gap-4 md:gap-8 items-start md:items-center">
+            <div className="flex flex-col gap-8 md:gap-8 items-start md:items-center">
               <div className=" w-full grid md:grid-cols-12 space-y-3">
                 <div className="md:col-start-6 md:col-end-9">
                   <PulsingLabel text={"Why Endpoint Clients"} />
                 </div>
                 <div className="md:col-start-3 md:col-end-11 ">
-                  <p className="text-3xl md:text-5xl text-white font-semibold md:text-center leading-[120%]">
+                  <p className="text-2xl md:text-5xl text-white font-semibold md:text-center leading-[130%] xl:leading-[120%]">
                     One product team. Fewer handoffs. Better execution.
                   </p>
                 </div>
                 <div className="md:col-start-3 md:col-end-11 ">
-                  <p className="text-base md:text-xl text-gray-100 md:text-center leading-[150%]">
+                  <p className="text-base md:text-xl text-neutral-400 md:text-center leading-[150%]">
                     We connect product thinking, design and engineering from day
                     one so decisions stay aligned from the first idea through
                     development, launch and growth.
@@ -1128,16 +1122,16 @@ export default function HomeClient() {
                 }}
               />
             </div>
-            <div className="flex flex-col gap-10 md:gap-35">
-              <div className="rounded-3xl md:rounded-[48px] bg-dark-jungle-green border border-white/6 shadow-[0_0_150px_0_rgba(131,83,213,0.08)] p-4 md:p-4.5 grid grid-cols-1 lg:grid-cols-11 gap-3 md:gap-5">
+            <div className="flex flex-col gap-7 md:gap-35">
+              <div className="rounded-3xl md:rounded-[48px] bg-dark-jungle-green border border-white/6 shadow-[0_0_150px_0_rgba(131,83,213,0.08)] p-3 md:p-4.5 grid grid-cols-1 lg:grid-cols-11 gap-4 md:gap-5">
                 <div className="lg:col-span-3">
                   <div className="flex flex-col">
-                    <div className="p-4 md:p-6">
+                    <div className="px-2 py-3 md:px-6 md:py-6">
                       <p className="text-xl md:text-2xl font-semibold text-white">
                         What Matters
                       </p>
                     </div>
-                    <div className="flex flex-col gap-4 p-4 md:p-6">
+                    <div className="flex flex-col gap-4 px-2 py-4 md:px-6 md:py-6">
                       {features.map((feature, index) => {
                         const isLastItem = index === features.length - 1;
                         return (
@@ -1154,14 +1148,14 @@ export default function HomeClient() {
                 <div className="lg:col-span-4">
                   <ComparisonCard
                     title="Traditional Agencies"
-                    titleIcon={<TraditionalIcon />}
+                    titleIcon={<TraditionalIcon width={isMobile?"24":"28"} height={isMobile?"24":"28"} />}
                     features={traditionalAgencyFeatures}
                   />
                 </div>
                 <div className="lg:col-span-4">
                   <ComparisonCard
                     title="Endpointclients"
-                    titleIcon={<EpcLogoIcon />}
+                    titleIcon={<EpcLogoIcon width={isMobile?"24":"31"} height={isMobile?"24":"31"}/>}
                     features={epcFeatures}
                     showGlow
                   />
@@ -1186,14 +1180,14 @@ export default function HomeClient() {
       <section className="bg-mirage">
         <div className="container max-w-7xl mx-auto pt-8 md:pt-16  px-4 md:px-8 xl:pb-8">
           <div className="flex flex-col gap-8 md:gap-16">
-            <div className="flex flex-col gap-3 md:gap-7 items-start md:items-center">
+            <div className="flex flex-col gap-6 md:gap-7 items-start md:items-center">
               <div className="flex flex-col gap-3 items-start md:items-center">
                 <PulsingLabel text={"Technology Stack "} />
-                <p className="text-3xl md:text-5xl font-semibold text-white leading-[100%]">
+                <p className="text-2xl md:text-5xl font-semibold text-white leading-[130%] md:leading-[100%]">
                   The right technology for every layer of your product.
                 </p>
               </div>
-              <div className="relative flex w-full max-w-full flex-row overflow-x-auto rounded-full border border-white/8 bg-heavy-metal p-1.5 [scrollbar-width:none] xl:w-fit [&::-webkit-scrollbar]:hidden">
+              <div className="relative flex w-full max-w-full flex-row overflow-x-auto rounded-full border border-white/8 bg-heavy-metal p-1  md:p-1.5 [scrollbar-width:none] xl:w-fit [&::-webkit-scrollbar]:hidden">
                 <div
                   aria-hidden="true"
                   className="pointer-events-none absolute top-1.5 bottom-1.5 left-0 rounded-full bg-linear-to-b from-[#8740FF] to-[#512699] transition-all duration-300 ease-out"
@@ -1219,8 +1213,8 @@ export default function HomeClient() {
                       }}
                       className={`
           relative z-10 shrink-0 cursor-pointer whitespace-nowrap
-          rounded-full px-5 py-2
-          text-lg font-semibold
+          rounded-full px-4 md:px-5 py-1.5 md:py-2
+          text-base md:text-lg font-semibold
           transition-colors duration-300
           ${isActive ? "text-white" : "text-white-smoke"}
         `}
@@ -1239,10 +1233,10 @@ export default function HomeClient() {
         </div>
       </section>
       <section className="bg-mirage py-8 md:py-24">
-        <div className="container max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-10 gap-4 md:gap-12">
+        <div className="container max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-10 gap-6 md:gap-12">
           <div className="md:col-span-4 flex flex-col gap-2 md:gap-3 items-start">
             <PulsingLabel text={"FAQs"} />
-            <h3 className="text-3xl md:text-5xl font-semibold text-white leading-[110%]">
+            <h3 className="text-2xl md:text-5xl font-semibold text-white leading-[130%] md:leading-[110%]">
               Questions before we build?
             </h3>
           </div>
@@ -1254,12 +1248,12 @@ export default function HomeClient() {
       <section className="bg-mirage pb-8 md:pb-20">
         <div className="container max-w-7xl mx-auto px-4 md:px-8">
           <div className="bg-woodsmoke border border-white/12 py-8 md:py-16 px-4 md:px-25 rounded-2xl md:rounded-4xl bg-[url('/images/ReadyProjectBgImage.png')] bg-cover bg-center relative overflow-hidden">
-            <div className="flex flex-col gap-4 md:gap-10.5 items-center">
-              <div className="flex flex-col gap-3.5 items-center">
-                <p className="text-2xl md:text-[56px] text-center font-semibold text-white leading-[120%]">
+            <div className="flex flex-col gap-5 md:gap-10.5 items-center">
+              <div className="flex flex-col gap-3 md:gap-3.5 items-center">
+                <p className="text-2xl md:text-[56px] text-center font-semibold text-white leading-[130%] md:leading-[120%]">
                   Ready to start your project?
                 </p>
-                <p className="text-lg md:text-2xl text-white text-center">
+                <p className="text-base md:text-2xl text-neutral-400 text-center">
                   Whether you’re launching something new or improving an
                   existing platform.let’s build something great together.
                 </p>

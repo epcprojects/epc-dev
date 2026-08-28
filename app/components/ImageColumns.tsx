@@ -68,18 +68,27 @@
 
 import Image from "next/image";
 
+// const images = Array.from(
+//   { length: 13 },
+//   (_, index) => `/images/${index + 1}.jpg`,
+// );
 const images = Array.from(
-  { length: 13 },
-  (_, index) => `/images/${index + 1}.jpg`,
+  { length: 6 },
+  (_, index) => `/images/${index + 1}.png`,
 );
 
+// const columns = [
+//   [images[0], images[4], images[8], images[12]],
+//   [images[1], images[5], images[9], images[0]],
+//   [images[2], images[6], images[10], images[1]],
+//   [images[3], images[7], images[11], images[2]],
+// ];
 const columns = [
-  [images[0], images[4], images[8], images[12]],
-  [images[1], images[5], images[9], images[0]],
-  [images[2], images[6], images[10], images[1]],
-  [images[3], images[7], images[11], images[2]],
+  [images[0], images[1], images[2], images[3]],
+  [images[4], images[5], images[0], images[1]],
+  [images[2], images[3], images[4], images[5]],
+  [images[1], images[4], images[2], images[5]],
 ];
-
 const duplicatedSets = [0, 1, 2];
 
 const ImageColumns = () => {

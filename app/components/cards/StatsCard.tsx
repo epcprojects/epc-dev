@@ -17,7 +17,7 @@ const StatsCard = ({
 }: StatsCardProps) => {
   return (
     <div
-      className={`flex ${minwidthClass?minwidthClass:"xl:min-w-75.25 "} flex-row  items-center gap-4 xl:gap-8 xl:border-r border-b border-b-white/18 xl:border-b-0 xl:border-r-white/18 px-8 md:px-9 md:py-9 py-4 ${className}`}
+      className={`flex ${minwidthClass?minwidthClass:"2xl:min-w-75.25 "} flex-row  items-center gap-4 2xl:gap-8 2xl:border-r border-b border-b-white/18 2xl:border-b-0 xl:border-r-white/18 px-8 md:px-9 md:py-9 py-4 ${className}`}
     >
       <div className="shrink-0">
         {icon}

@@ -19,7 +19,7 @@ const FeatureRow = ({
         flex flex-row items-center gap-3
         ${
           showBorder
-            ? "border-b border-b-white/12 pb-4"
+            ? "border-b border-b-white/12 pb-2 md:pb-4"
             : ""
         }
       `}

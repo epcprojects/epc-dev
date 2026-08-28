@@ -116,22 +116,22 @@ export default function Footer() {
               <p className="font-manrope font-normal text-sm sm:text-base text-gray-50">
                 Call Us
               </p>
-              <div className=" flex items-center gap-3">
-                <a
-                  href="https://wa.me/447598981921"
+              <a href="https://wa.me/447598981921"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer" className=" flex items-center gap-3">
+                <span
+                  
                   className="font-manrope font-normal text-2xl sm:text-[28px] text-gray-50 hover:text-gray-300 transition-colors relative
                   duration-400  after:absolute after:left-0 after:-bottom-1 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-white after:transition-transform after:duration-300 after:ease-out hover:after:scale-x-100"
                 >
                   +44 7598 981921
-                </a>
+                </span>
                 <Image
                   src={Images.footerimages.WatsappIcon}
                   alt="whatsapp icon"
                   className="w-7 h-7"
                 />
-              </div>
+              </a>
             </div>
           </div>
           {/* address */}

@@ -58,8 +58,8 @@ const DevelopmentProcessSection = ({
     (activeIndex + 1) / processSteps.length;
 
   return (
-    <section className="bg-mirage pb-8 xl:pb-24">
-      <div className="container mx-auto flex max-w-7xl flex-col gap-10 px-4 sm:px-6 xl:hidden">
+    <section className="bg-mirage pt-8 xl:pt-0 pb-8 xl:pb-24">
+      <div className="container mx-auto flex max-w-7xl flex-col gap-16 md:gap-10 px-4 sm:px-6 xl:hidden">
         <div className="flex flex-col items-start gap-5">
           <div className="flex flex-col items-start gap-2.5">
             <PulsingLabel text="Our Development Process" />
@@ -68,7 +68,7 @@ const DevelopmentProcessSection = ({
               From Idea To Execution
             </h3>
 
-            <p className="text-base leading-relaxed text-gray-100 md:text-lg">
+            <p className="text-base leading-relaxed text-neutral-400 md:text-lg">
               We have become experts in creating top-notch digital products. We
               design beautifully and develop excellently. And we care deeply
               about what we do.
@@ -83,7 +83,7 @@ const DevelopmentProcessSection = ({
           />
         </div>
 
-        <div className="flex flex-col gap-12">
+        <div className="flex flex-col gap-16 xl:gap-12">
           {processSteps.map((processStep) => (
             <ProcessCard
               key={processStep.number}
@@ -105,13 +105,13 @@ const DevelopmentProcessSection = ({
         }}
       >
         <div className="sticky top-0 flex h-screen items-center overflow-hidden bg-mirage">
-          <div className="container mx-auto flex max-w-7xl flex-col xl:gap-20 2xl:gap-35 px-8 pt-8 2xl:pt-16">
+          <div className="container mx-auto flex max-w-7xl flex-col  xl:gap-20 2xl:gap-35 px-8 pt-8 2xl:pt-16">
             <div className="flex flex-col gap-30">
               <div className="flex flex-col items-start gap-6">
                 <div className="flex flex-col items-start gap-3">
                   <PulsingLabel text="Our Development Process" />
 
-                  <h3 className="text-5xl font-semibold leading-[100%] text-white">
+                  <h3 className="text-2xl md:text-5xl font-semibold leading-[130%] md:leading-[100%] text-white">
                     From Idea To Execution
                   </h3>
 
