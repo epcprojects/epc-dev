@@ -104,6 +104,7 @@ export default function HomeClient() {
       description:
         "Research, flows, information architecture, wireframes, prototypes, high-fidelity UI and scalable design systems.",
       video: "/videos/CapabilitiesVideo1.mp4",
+      pills: ["Enterprise Software", "Web Applications", "Custom Solutions"],
     },
     {
       id: 2,
@@ -111,6 +112,7 @@ export default function HomeClient() {
       description:
         "We design and build tailored software solutions that fit your unique business needs. Our developers ensure scalability, security, and seamless integration with your existing systems.",
       video: "/videos/CapabilitiesVideo2.mp4",
+      pills: ["Enterprise Software", "Web Applications", "Custom Solutions"],
     },
     {
       id: 3,
@@ -118,6 +120,7 @@ export default function HomeClient() {
       description:
         "We build responsive web applications and SaaS platforms with intuitive interfaces, reliable architecture and room to evolve as your product grows.",
       video: "/videos/CapabilitiesVideo3.mp4",
+      pills: ["SaaS Platforms", "Cloud Applications", " Dashboard Development"],
     },
     {
       id: 4,
@@ -125,6 +128,7 @@ export default function HomeClient() {
       description:
         "We create polished mobile products for iOS, Android and cross-platform environments, connecting thoughtful UX with dependable engineering that converts.",
       video: "/videos/CapabilitiesVideo4.mp4",
+      pills: ["iOS Apps", "Android Apps", "Cross Platform", "Mobile UI"],
     },
     {
       id: 5,
@@ -132,6 +136,12 @@ export default function HomeClient() {
       description:
         "We integrate AI into products and workflows through intelligent features, automation, AI assistants and custom solutions built around practical use cases.",
       video: "/videos/CapabilitiesVideo5.mp4",
+      pills: [
+        "AI Automation",
+        "Machine Learning",
+        "AI Assistants",
+        "Data Solutions",
+      ],
     },
     {
       id: 6,
@@ -139,6 +149,7 @@ export default function HomeClient() {
       description:
         "We build the systems behind your product from APIs and databases to third-party integrations and backend architecture that keeps everything connected.",
       video: "/videos/CapabilitiesVideo6.mp4",
+      pills: ["Cloud Architecture", "API Integration", "Backend Development"],
     },
   ];
   // const capabilityCards = capabilities.map((capability) => (
@@ -176,31 +187,33 @@ export default function HomeClient() {
       key={capability.id}
       className="
       flex h-full items-center justify-center
-      px-4 py-6 md:py-8
+      px-4 py-6 md:py-12
       2xl:border-r 2xl:border-white/12
       xl:px-12
     "
     >
       <div
         className="
-        flex h-full min-h-0 w-full flex-col
+        flex h-full  w-full flex-col
         gap-4 md:gap-6 justify-center
         xl:container xl:mx-auto xl:max-w-225
       "
       >
-        <video
-          src={capability.video}
-          className="
-            w-full 
-          xl:rounded-[42px] object-contain
-        "
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          aria-label={capability.title}
-        />
+        <div className="min-h-0 flex-1">
+          <video
+            src={capability.video}
+            className="
+            h-full w-full object-contain
+            xl:rounded-[42px]
+          "
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            aria-label={capability.title}
+          />
+        </div>
 
         <div className="flex shrink-0 flex-col gap-1.5 md:gap-3 px-4 md:px-8">
           <p className="text-lg font-bold text-desert-storm xl:text-[34px]">
@@ -210,6 +223,22 @@ export default function HomeClient() {
           <p className="text-sm leading-[150%] text-neutral-400 xl:text-xl">
             {capability.description}
           </p>
+          <div className="flex flex-wrap gap-2 md:gap-2.5">
+            {capability.pills.map((pill) => (
+              <div
+                key={pill}
+                className="
+                rounded-full bg-[#303030]
+                px-3 py-2
+                text-xs text-gray-50
+                shadow-[0_0_10px_0_#00000014]
+                md:px-3.5 md:py-3 md:text-base
+              "
+              >
+                {pill}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </article>
@@ -543,322 +572,257 @@ export default function HomeClient() {
       <section className="bg-mirage py-8 xl:py-24">
         <div className="container max-w-7xl mx-auto py-4 md:py-16 px-4 md:px-8 overflow-visible">
           <div className="grid grid-cols-1 gap-8 overflow-visible lg:grid-cols-14 xl:-translate-x-3 xl:gap-3 2xl:translate-x-0">
-  {/* Desktop left pills */}
-  <motion.div
-    className="
+            {/* Desktop left pills */}
+            <motion.div
+              className="
       relative hidden flex-col items-center justify-between
       gap-12 overflow-visible
       xl:order-1 xl:col-span-3 xl:left-0 xl:flex xl:items-start
       2xl:-left-20
     "
-    variants={pillGroupVariants}
-    initial="hidden"
-    whileInView="visible"
-    viewport={{
-      once: true,
-      amount: 0.35,
-    }}
-  >
-    <motion.div
-      className="w-fit"
-      variants={leftPillVariants}
-    >
-      <ServicePill
-        title="AI Solutions"
-        icon={
-          <CommandLineIcon
-            width={isMobile ? "24" : "33"}
-            height={isMobile ? "24" : "33"}
-          />
-        }
-        borderColor="#E86127"
-        iconGradientFrom="#F16529"
-        iconGradientTo="#8B3A18"
-        rotation={9}
-      />
-    </motion.div>
+              variants={pillGroupVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{
+                once: true,
+                amount: 0.35,
+              }}
+            >
+              <motion.div className="w-fit" variants={leftPillVariants}>
+                <ServicePill
+                  title="AI Solutions"
+                  icon={
+                    <CommandLineIcon
+                      width={isMobile ? "24" : "33"}
+                      height={isMobile ? "24" : "33"}
+                    />
+                  }
+                  borderColor="#E86127"
+                  iconGradientFrom="#F16529"
+                  iconGradientTo="#8B3A18"
+                  rotation={9}
+                />
+              </motion.div>
 
-    <motion.div
-      className="w-fit"
-      variants={leftPillVariants}
-    >
-      <ServicePill
-        title="Web Applications"
-        icon={
-          <FlashIcon
-            width={isMobile ? "24" : "33"}
-            height={isMobile ? "24" : "33"}
-          />
-        }
-        borderColor="#30C65F"
-        iconGradientFrom="#31CD62"
-        iconGradientTo="#196731"
-        rotation={-2.5}
-      />
-    </motion.div>
+              <motion.div className="w-fit" variants={leftPillVariants}>
+                <ServicePill
+                  title="Web Applications"
+                  icon={
+                    <FlashIcon
+                      width={isMobile ? "24" : "33"}
+                      height={isMobile ? "24" : "33"}
+                    />
+                  }
+                  borderColor="#30C65F"
+                  iconGradientFrom="#31CD62"
+                  iconGradientTo="#196731"
+                  rotation={-2.5}
+                />
+              </motion.div>
 
-    <motion.div
-      className="w-fit md:mt-7"
-      variants={leftPillVariants}
-    >
-      <ServicePill
-        title="SaaS Engineering"
-        icon={
-          <WebDesignIcon
-            width={isMobile ? "24" : "33"}
-            height={isMobile ? "24" : "33"}
-          />
-        }
-        borderColor="#7F26DE"
-        iconGradientFrom="#8A29F1"
-        iconGradientTo="#4F188B"
-        rotation={7}
-      />
-    </motion.div>
-  </motion.div>
+              <motion.div className="w-fit md:mt-7" variants={leftPillVariants}>
+                <ServicePill
+                  title="SaaS Engineering"
+                  icon={
+                    <WebDesignIcon
+                      width={isMobile ? "24" : "33"}
+                      height={isMobile ? "24" : "33"}
+                    />
+                  }
+                  borderColor="#7F26DE"
+                  iconGradientFrom="#8A29F1"
+                  iconGradientTo="#4F188B"
+                  rotation={7}
+                />
+              </motion.div>
+            </motion.div>
 
-  {/* Text: mobile aur desktop dono par */}
-  <div
-    className="
+            {/* Text: mobile aur desktop dono par */}
+            <div
+              className="
       order-1 flex flex-col items-center gap-4
       xl:order-2 xl:col-span-8
     "
-  >
-    <PulsingLabel text="What We Build" />
+            >
+              <PulsingLabel text="What We Build" />
 
-    <p className="text-center font-playfair text-2xl leading-[120%] text-white xl:text-5xl">
-      We design and engineer digital products across web, mobile, SaaS and AI
-      from the user experience to the technology behind it.
-    </p>
-  </div>
+              <p className="text-center font-playfair text-2xl leading-[120%] text-white xl:text-5xl">
+                We design and engineer digital products across web, mobile, SaaS
+                and AI from the user experience to the technology behind it.
+              </p>
+            </div>
 
-  {/* Desktop right pills */}
-  <motion.div
-    className="
+            {/* Desktop right pills */}
+            <motion.div
+              className="
       relative hidden flex-col items-center justify-between
       gap-12 overflow-visible
       xl:order-3 xl:col-span-3 xl:-right-5 xl:flex xl:items-end
       2xl:-right-20
     "
-    variants={pillGroupVariants}
-    initial="hidden"
-    whileInView="visible"
-    viewport={{
-      once: true,
-      amount: 0.35,
-    }}
-  >
-    <motion.div
-      className="w-fit"
-      variants={rightPillVariants}
-    >
-      <ServicePill
-        title="Backend & APIs"
-        icon={
-          <UnilinkIcon
-            width={isMobile ? "24" : "33"}
-            height={isMobile ? "24" : "33"}
-          />
-        }
-        borderColor="#3C4CE4"
-        iconGradientFrom="#222E97"
-        iconGradientTo="#0B0F31"
-        rotation={-12}
-      />
-    </motion.div>
+              variants={pillGroupVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{
+                once: true,
+                amount: 0.35,
+              }}
+            >
+              <motion.div className="w-fit" variants={rightPillVariants}>
+                <ServicePill
+                  title="Backend & APIs"
+                  icon={
+                    <UnilinkIcon
+                      width={isMobile ? "24" : "33"}
+                      height={isMobile ? "24" : "33"}
+                    />
+                  }
+                  borderColor="#3C4CE4"
+                  iconGradientFrom="#222E97"
+                  iconGradientTo="#0B0F31"
+                  rotation={-12}
+                />
+              </motion.div>
 
-    <motion.div
-      className="w-fit"
-      variants={rightPillVariants}
-    >
-      <ServicePill
-        title="Frontend Engineering"
-        icon={
-          <DatabaseIcon
-            width={isMobile ? "24" : "33"}
-            height={isMobile ? "24" : "33"}
-          />
-        }
-        borderColor="#06B4FF"
-        iconGradientFrom="#29B5F1"
-        iconGradientTo="#18688B"
-        rotation={3}
-      />
-    </motion.div>
+              <motion.div className="w-fit" variants={rightPillVariants}>
+                <ServicePill
+                  title="Frontend Engineering"
+                  icon={
+                    <DatabaseIcon
+                      width={isMobile ? "24" : "33"}
+                      height={isMobile ? "24" : "33"}
+                    />
+                  }
+                  borderColor="#06B4FF"
+                  iconGradientFrom="#29B5F1"
+                  iconGradientTo="#18688B"
+                  rotation={3}
+                />
+              </motion.div>
 
-    <motion.div
-      className="w-fit md:mt-7"
-      variants={rightPillVariants}
-    >
-      <ServicePill
-        title="Mobile App Development"
-        icon={
-          <SecurityCheckIcon
-            width={isMobile ? "24" : "33"}
-            height={isMobile ? "24" : "33"}
-          />
-        }
-        borderColor="#12C0AC"
-        iconGradientFrom="#13CCB6"
-        iconGradientTo="#09665B"
-        rotation={-7}
-      />
-    </motion.div>
-  </motion.div>
+              <motion.div
+                className="w-fit md:mt-7"
+                variants={rightPillVariants}
+              >
+                <ServicePill
+                  title="Mobile App Development"
+                  icon={
+                    <SecurityCheckIcon
+                      width={isMobile ? "24" : "33"}
+                      height={isMobile ? "24" : "33"}
+                    />
+                  }
+                  borderColor="#12C0AC"
+                  iconGradientFrom="#13CCB6"
+                  iconGradientTo="#09665B"
+                  rotation={-7}
+                />
+              </motion.div>
+            </motion.div>
 
-  {/* Mobile/tablet pills: text ke baad left aur right columns */}
-  <div className="order-2 flex w-full flex-row items-stretch justify-between gap-3 overflow-visible xl:hidden">
-    {/* Mobile left column */}
-    <motion.div
-      className="
+            {/* Mobile/tablet pills: text ke baad left aur right columns */}
+            <div className="order-2 flex w-full flex-row items-stretch justify-between gap-3 overflow-visible xl:hidden">
+              {/* Mobile left column */}
+              <motion.div
+                className="
         relative flex min-w-0 flex-1
         flex-col items-start justify-between
         gap-8 overflow-visible
       "
-      variants={pillGroupVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{
-        once: true,
-        amount: 0.2,
-      }}
-    >
-      <motion.div
-        className="w-fit"
-        variants={leftPillVariants}
-      >
-        <ServicePill
-          title="AI Solutions"
-          icon={
-            <CommandLineIcon
-              width="20"
-              height="20"
-            />
-          }
-          borderColor="#E86127"
-          iconGradientFrom="#F16529"
-          iconGradientTo="#8B3A18"
-          rotation={9}
-        />
-      </motion.div>
+                variants={pillGroupVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{
+                  once: true,
+                  amount: 0.2,
+                }}
+              >
+                <motion.div className="w-fit" variants={leftPillVariants}>
+                  <ServicePill
+                    title="AI Solutions"
+                    icon={<CommandLineIcon width="20" height="20" />}
+                    borderColor="#E86127"
+                    iconGradientFrom="#F16529"
+                    iconGradientTo="#8B3A18"
+                    rotation={9}
+                  />
+                </motion.div>
 
-      <motion.div
-        className="w-fit"
-        variants={leftPillVariants}
-      >
-        <ServicePill
-          title={
-            isMobile?"Web App":"Web Applications"
-          }
-          icon={
-            <FlashIcon
-              width="20"
-              height="20"
-            />
-          }
-          borderColor="#30C65F"
-          iconGradientFrom="#31CD62"
-          iconGradientTo="#196731"
-          rotation={-2.5}
-        />
-      </motion.div>
+                <motion.div className="w-fit" variants={leftPillVariants}>
+                  <ServicePill
+                    title={isMobile ? "Web App" : "Web Applications"}
+                    icon={<FlashIcon width="20" height="20" />}
+                    borderColor="#30C65F"
+                    iconGradientFrom="#31CD62"
+                    iconGradientTo="#196731"
+                    rotation={-2.5}
+                  />
+                </motion.div>
 
-      <motion.div
-        className="w-fit"
-        variants={leftPillVariants}
-      >
-        <ServicePill
-          title="SaaS Engineering"
-          icon={
-            <WebDesignIcon
-              width="20"
-              height="20"
-            />
-          }
-          borderColor="#7F26DE"
-          iconGradientFrom="#8A29F1"
-          iconGradientTo="#4F188B"
-          rotation={7}
-        />
-      </motion.div>
-    </motion.div>
+                <motion.div className="w-fit" variants={leftPillVariants}>
+                  <ServicePill
+                    title="SaaS Engineering"
+                    icon={<WebDesignIcon width="20" height="20" />}
+                    borderColor="#7F26DE"
+                    iconGradientFrom="#8A29F1"
+                    iconGradientTo="#4F188B"
+                    rotation={7}
+                  />
+                </motion.div>
+              </motion.div>
 
-    {/* Mobile right column */}
-    <motion.div
-      className="
+              {/* Mobile right column */}
+              <motion.div
+                className="
         relative flex min-w-0 flex-1
         flex-col items-end justify-between
         gap-8 overflow-visible
       "
-      variants={pillGroupVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{
-        once: true,
-        amount: 0.2,
-      }}
-    >
-      <motion.div
-        className="w-fit"
-        variants={rightPillVariants}
-      >
-        <ServicePill
-          title="Backend & APIs"
-          icon={
-            <UnilinkIcon
-              width="20"
-              height="20"
-            />
-          }
-          borderColor="#3C4CE4"
-          iconGradientFrom="#222E97"
-          iconGradientTo="#0B0F31"
-          rotation={-12}
-        />
-      </motion.div>
+                variants={pillGroupVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{
+                  once: true,
+                  amount: 0.2,
+                }}
+              >
+                <motion.div className="w-fit" variants={rightPillVariants}>
+                  <ServicePill
+                    title="Backend & APIs"
+                    icon={<UnilinkIcon width="20" height="20" />}
+                    borderColor="#3C4CE4"
+                    iconGradientFrom="#222E97"
+                    iconGradientTo="#0B0F31"
+                    rotation={-12}
+                  />
+                </motion.div>
 
-      <motion.div
-        className="w-fit"
-        variants={rightPillVariants}
-      >
-        <ServicePill
-          title="Frontend Engineering"
-          icon={
-            <DatabaseIcon
-              width="20"
-              height="20"
-            />
-          }
-          borderColor="#06B4FF"
-          iconGradientFrom="#29B5F1"
-          iconGradientTo="#18688B"
-          rotation={3}
-        />
-      </motion.div>
+                <motion.div className="w-fit" variants={rightPillVariants}>
+                  <ServicePill
+                    title="Frontend Engineering"
+                    icon={<DatabaseIcon width="20" height="20" />}
+                    borderColor="#06B4FF"
+                    iconGradientFrom="#29B5F1"
+                    iconGradientTo="#18688B"
+                    rotation={3}
+                  />
+                </motion.div>
 
-      <motion.div
-        className="w-fit"
-        variants={rightPillVariants}
-      >
-        <ServicePill
-          title={
-            isMobile?"Mobile App Dev":"Mobile App Development"
-          }
-          icon={
-            <SecurityCheckIcon
-              width="20"
-              height="20"
-            />
-          }
-          borderColor="#12C0AC"
-          iconGradientFrom="#13CCB6"
-          iconGradientTo="#09665B"
-          rotation={-7}
-        />
-      </motion.div>
-    </motion.div>
-  </div>
-</div>
+                <motion.div className="w-fit" variants={rightPillVariants}>
+                  <ServicePill
+                    title={
+                      isMobile ? "Mobile App Dev" : "Mobile App Development"
+                    }
+                    icon={<SecurityCheckIcon width="20" height="20" />}
+                    borderColor="#12C0AC"
+                    iconGradientFrom="#13CCB6"
+                    iconGradientTo="#09665B"
+                    rotation={-7}
+                  />
+                </motion.div>
+              </motion.div>
+            </div>
+          </div>
         </div>
       </section>
       <HorizontalScrollSection
@@ -868,10 +832,17 @@ export default function HomeClient() {
               <div className="flex flex-col gap-4 md:gap-4.5">
                 <PulsingLabel text="Our Capabilities" />
 
-                <p className="text-2xl md:text-5xl font-bold leading-[130%] md:leading-[100%] text-desert-storm">
-                  Built to take your product from bold idea to real-world
-                  software
-                </p>
+                <div className="flex flex-col gap-3">
+                  <p className="text-2xl md:text-5xl font-bold leading-[130%] md:leading-[100%] text-desert-storm">
+                    Built to take your product from bold idea to real-world
+                    software
+                  </p>
+                  <p className="text-xl text-white">
+                    End-to-end digital solutions designed to help businesses
+                    build, launch, and scale modern software products with
+                    confidence.
+                  </p>
+                </div>
               </div>
 
               <ThemeButton
