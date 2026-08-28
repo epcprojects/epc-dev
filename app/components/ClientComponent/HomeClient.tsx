@@ -425,24 +425,24 @@ export default function HomeClient() {
         "Yes. Our multidisciplinary team covers product strategy, UI/UX, front-end, back-end, mobile and AI development.",
     },
     {
-      question: "Can you work with our existing development team?",
+      question: "How much does custom software development cost?",
       answer:
-        "Yes. We can collaborate directly with your internal designers, developers and product stakeholders throughout the project.",
+        "Costs depend on your scope, features, complexity, integrations, and timeline. We provide tailored project estimates.",
     },
     {
-      question: "Do you only work with startups?",
+      question: "How long does product development take?",
       answer:
-        "No. We work with startups, growing companies and established businesses across different industries.",
+        "Timelines vary by project scope and complexity. We define clear milestones and delivery timelines during discovery.",
     },
     {
-      question: "Can you redesign an existing product?",
+      question: "Can you redesign an existing website or app?",
       answer:
-        "Yes. We can review your existing product, identify usability and technical issues and redesign the experience around your current goals.",
+        "Yes. We improve existing products through UX research, UI/UX design, redesign, and development.",
     },
     {
-      question: "Do you build MVPs?",
+      question: "Do you build MVPs for startups?",
       answer:
-        "Yes. We help define, design and develop focused MVPs that validate the core product idea without unnecessary complexity.",
+        "Yes. We help startups turn validated ideas into functional MVPs by combining product strategy, UX/UI design and software development.",
     },
   ];
   const isMobile = useIsMobile();
