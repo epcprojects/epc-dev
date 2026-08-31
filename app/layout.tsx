@@ -26,7 +26,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${manrope.className} ${playfair.variable} h-full antialiased`}
     >
       <head>
-        <link rel="manifest" href="/favicon/site.webmanifest" />
+        <link rel="manifest" href="favicon/site.webmanifest" />
       </head>
       <body className="min-h-full flex flex-col">
         <Preloader />

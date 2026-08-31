@@ -13,10 +13,10 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
 
   title:
-    "Product Design & Development Company | 15+ Years Experience | Endpoint Clients",
+    "Endpoint Clients | AI-Powered Product Development  Services",
 
   description:
-    "Build and scale digital products with Endpoint Clients. Get UI/UX design, custom software, web, mobile, SaaS, AI development, APIs and product engineering.",
+    "Endpoint Clients is a product development company building scalable digital products through strategy, UX design, software development, AI, and modern technology.",
 
   alternates: {
     canonical: "https://endpointclients.dev/",
