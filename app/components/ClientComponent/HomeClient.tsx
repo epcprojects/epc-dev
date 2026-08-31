@@ -1009,7 +1009,7 @@ export default function HomeClient() {
             </div>
             <video
               src="/videos/IndustriesNewThree.mp4"
-              className="h-full rounded-[20px]"
+              className=" rounded-[20px]"
               autoPlay
               muted
               loop

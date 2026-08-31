@@ -1,9 +1,10 @@
-/* eslint-disable @next/next/no-img-element */
+/* eslint-disable prefer-const */
 "use client";
 
 import { useEffect, useState } from "react";
 
-const PRELOADER_DURATION = 3200;
+const MINIMUM_DURATION = 1000;
+const MAXIMUM_DURATION = 15000;
 const FADE_DURATION = 500;
 
 const Preloader = () => {
@@ -11,33 +12,143 @@ const Preloader = () => {
   const [isLeaving, setIsLeaving] = useState(false);
 
   useEffect(() => {
+    let isMounted = true;
+    let exitTimer: number | undefined;
+    let maximumTimer: number | undefined;
+
     const previousOverflow =
       document.body.style.overflow;
 
     document.body.style.overflow = "hidden";
 
-    const startExit = () => {
+    const minimumDelay = new Promise<void>(
+      (resolve) => {
+        window.setTimeout(resolve, MINIMUM_DURATION);
+      },
+    );
+
+    const waitForWindowLoad = new Promise<void>(
+      (resolve) => {
+        if (document.readyState === "complete") {
+          resolve();
+          return;
+        }
+
+        window.addEventListener(
+          "load",
+          () => resolve(),
+          { once: true },
+        );
+      },
+    );
+
+    const waitForImage = (
+      image: HTMLImageElement,
+    ): Promise<void> => {
+      if (image.complete) {
+        return Promise.resolve();
+      }
+
+      return new Promise((resolve) => {
+        const finish = () => resolve();
+
+        image.addEventListener("load", finish, {
+          once: true,
+        });
+
+        // Failed image preloader ko block nahi karegi
+        image.addEventListener("error", finish, {
+          once: true,
+        });
+      });
+    };
+
+    const waitForVideo = (
+      video: HTMLVideoElement,
+    ): Promise<void> => {
+      // HAVE_CURRENT_DATA
+      if (video.readyState >= 2) {
+        return Promise.resolve();
+      }
+
+      return new Promise((resolve) => {
+        const finish = () => resolve();
+
+        video.addEventListener(
+          "loadeddata",
+          finish,
+          { once: true },
+        );
+
+        // Failed video preloader ko block nahi karegi
+        video.addEventListener("error", finish, {
+          once: true,
+        });
+      });
+    };
+
+    const waitForMountedMedia =
+      new Promise<void>((resolve) => {
+        // Underlying page ko mount hone ka time dein
+        window.requestAnimationFrame(() => {
+          window.requestAnimationFrame(async () => {
+            const images = Array.from(
+              document.querySelectorAll<HTMLImageElement>(
+                "img",
+              ),
+            );
+
+            const videos = Array.from(
+              document.querySelectorAll<HTMLVideoElement>(
+                "video",
+              ),
+            );
+
+            await Promise.allSettled([
+              ...images.map(waitForImage),
+              ...videos.map(waitForVideo),
+            ]);
+
+            resolve();
+          });
+        });
+      });
+
+    const hidePreloader = () => {
+      if (!isMounted) return;
+
       setIsLeaving(true);
 
       exitTimer = window.setTimeout(() => {
+        if (!isMounted) return;
+
         setIsVisible(false);
         document.body.style.overflow =
           previousOverflow;
       }, FADE_DURATION);
     };
 
-    let exitTimer: number | undefined;
+    Promise.all([
+      minimumDelay,
+      waitForWindowLoad,
+      waitForMountedMedia,
+    ]).then(hidePreloader);
 
-    const displayTimer = window.setTimeout(
-      startExit,
-      PRELOADER_DURATION,
+    // Safety fallback
+    maximumTimer = window.setTimeout(
+      hidePreloader,
+      MAXIMUM_DURATION,
     );
 
     return () => {
-      window.clearTimeout(displayTimer);
+      isMounted = false;
 
       if (exitTimer) {
         window.clearTimeout(exitTimer);
+      }
+
+      if (maximumTimer) {
+        window.clearTimeout(maximumTimer);
       }
 
       document.body.style.overflow =
