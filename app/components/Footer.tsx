@@ -103,11 +103,11 @@ export default function Footer() {
             </div>
 
             {/* links */}
-            <div className="grid md:grid-cols-3  gap-6">
+            <div className="flex flex-wrap gap-10 xl:gap-30 justify-between">
               {footerMenuColumns.map((column) => (
                 <div
                   key={column.title}
-                  className="flex flex-col sm:gap-6 gap-5 2xl:min-w-96.25!"
+                  className="flex flex-col sm:gap-6 gap-5 "
                 >
                   <h4 className="text-[17px]! font-semibold! uppercase text-white">
                     {column.title}
@@ -153,7 +153,7 @@ export default function Footer() {
               </div>
               <div className="flex flex-col sm:gap-3 gap-2">
                 <p className="font-manrope font-normal text-sm sm:text-base text-gray-50">
-                  Call Us
+                  Send a Message
                 </p>
                 <a
                   href="https://wa.me/447598981921"
@@ -161,17 +161,18 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className=" flex items-center gap-3"
                 >
+                  <Image
+                    src={Images.footerimages.WatsappIcon}
+                    alt="whatsapp icon"
+                    className="w-7 h-7"
+                  />
                   <span
                     className="font-manrope font-normal text-2xl sm:text-[28px] text-gray-50 hover:text-gray-300 transition-colors relative
                   duration-400  after:absolute after:left-0 after:-bottom-1 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-white after:transition-transform after:duration-300 after:ease-out hover:after:scale-x-100"
                   >
                     +44 7598 981921
                   </span>
-                  <Image
-                    src={Images.footerimages.WatsappIcon}
-                    alt="whatsapp icon"
-                    className="w-7 h-7"
-                  />
+                  
                 </a>
               </div>
             </div>
