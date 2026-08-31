@@ -98,9 +98,9 @@ const TestimonialsSection = ({ testimonials }: TestimonialsSectionProps) => {
       <div className="container mx-auto max-w-7xl px-4 sm:px-6 xl:px-8">
         <div className="flex flex-col items-start gap-5 xl:gap-13">
           <div className="flex w-full flex-row items-center gap-5 xl:w-auto xl:gap-10.5">
-            <p className="shrink-0 text-base text-gray-50 xl:text-2xl">
-              Testimonials
-            </p>
+            <h2 className="shrink-0 text-base text-gray-50 xl:text-2xl">
+              Our Clients Stories
+            </h2>
 
             <div className="h-px flex-1 bg-white/12 xl:w-46 xl:flex-none" />
           </div>

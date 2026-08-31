@@ -67,7 +67,9 @@ import InstagramFooterIcon from "./InstagramFooterIcon";
 import LinkedinFooterIcon from "./LinkedinFooterIcon";
 import XFooterIcon from "./XFooterIcon";
 import YoutubeFooterIcon from "./YoutubeFooterIcon";
+import TopRatedProjectsIcon from "./TopRatedProjectsIcon";
 export {
+  TopRatedProjectsIcon,
     BahrainFlagIcon,
     LondonFlagIcon,
     PakFlagIcon,

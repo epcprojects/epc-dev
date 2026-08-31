@@ -38,9 +38,9 @@ const ProcessCard = ({
         </div>
 
         <div className="flex flex-col gap-2 xl:gap-4">
-          <p className="text-xl font-semibold text-white md:text-3xl xl:text-5xl">
+          <h3 className="text-xl font-semibold text-white md:text-3xl xl:text-5xl">
             {title}
-          </p>
+          </h3>
 
           <p className="text-sm leading-relaxed text-neutral-400 md:text-lg xl:text-xl">
             {description}

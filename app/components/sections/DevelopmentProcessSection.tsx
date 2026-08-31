@@ -62,17 +62,17 @@ const DevelopmentProcessSection = ({
       <div className="container mx-auto flex max-w-7xl flex-col gap-16 md:gap-10 px-4 sm:px-6 xl:hidden">
         <div className="flex flex-col items-start gap-5">
           <div className="flex flex-col items-start gap-2.5">
-            <PulsingLabel text="Our Development Process" />
+            <PulsingLabel text="Our Product Development Process" />
 
             <h3 className="text-3xl font-semibold leading-[100%] text-white md:text-4xl">
-              From Idea To Execution
+             From Idea to Launch, We Build Products That Scale
             </h3>
 
-            <p className="text-base leading-relaxed text-neutral-400 md:text-lg">
+            {/* <p className="text-base leading-relaxed text-neutral-400 md:text-lg">
               We have become experts in creating top-notch digital products. We
               design beautifully and develop excellently. And we care deeply
               about what we do.
-            </p>
+            </p> */}
           </div>
 
           <ThemeButton
@@ -109,17 +109,17 @@ const DevelopmentProcessSection = ({
             <div className="flex flex-col gap-30">
               <div className="flex flex-col items-start gap-6">
                 <div className="flex flex-col items-start gap-3">
-                  <PulsingLabel text="Our Development Process" />
+                  <PulsingLabel text="Our Product Development Process" />
 
-                  <h3 className="text-2xl md:text-5xl font-semibold leading-[130%] md:leading-[100%] text-white">
-                    From Idea To Execution
+                  <h3 className="text-2xl md:text-5xl font-semibold leading-[130%] md:leading-[120%] text-white">
+                    From Idea to Launch,<br/> We Build Products That Scale
                   </h3>
 
-                  <p className="text-xl text-gray-100">
+                  {/* <p className="text-xl text-gray-100">
                     We have become experts in creating top-notch digital
                     products. We design beautifully and develop excellently. And
                     we care deeply about what we do.
-                  </p>
+                  </p> */}
                 </div>
 
                 <ThemeButton

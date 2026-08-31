@@ -1,11 +1,18 @@
-
-
+"use client";
 import Link from "next/link";
 import Image from "next/image";
 import { Images } from "../ui";
-import { footerBadgeLinks, footerLocations, footerMenuColumns, footerSocialLinks } from "../constants/footerConstants";
+import {
+  footerBadgeLinks,
+  footerLocations,
+  footerMenuColumns,
+  footerSocialLinks,
+} from "../constants/footerConstants";
 import { FooterLocationCard } from "./cards/FooterLocationCard";
 import GradientBorderButton from "./button/GradientBorderButton";
+import PlatformLogo from "./PlatformLogo";
+import ThemeButton from "./button/ThemeButton";
+import { MouseEvent } from "react";
 export default function Footer() {
   return (
     <footer className="relative overflow-hidden  pt-8! md:pt-16! pb-27! md:pb-8! bg-[#191919]">
@@ -16,22 +23,22 @@ export default function Footer() {
         className="object-cover object-center -z-10 "
       /> */}
       <div className="container max-w-330 mx-auto px-4! lg:px-8! flex flex-col gap-6 lg:gap-8">
-       <div className="flex flex-col sm:gap-10 gap-6">
-         {/* footer  top content */}
-        <div className="grid lg:grid-cols-2 sm:gap-10 gap-8">
-          <div className="flex flex-col  items-start sm:w-148 w-88 gap-10!">
-            <div className="flex flex-col items-start! gap-6 max-w-173.25!">
-              <div className="flex flex-col gap-2">
-                <span className=" text-2xl sm:text-3xl md:text-[34px]! text-start! font-manrope font-medium! text-gray-50!">
-                  Have a project in mind?
-                </span>
-                <p className="font-manrope font-normal text-base text-gray-50!">
-                  Let’s talk about your goals and create something great
-                  together.
-                </p>
-              </div>
-              <div className="flex items-center gap-4">
-                {footerBadgeLinks.map((badge) => (
+        <div className="flex flex-col sm:gap-10 gap-6">
+          {/* footer  top content */}
+          <div className="grid lg:grid-cols-2 sm:gap-10 gap-8">
+            <div className="flex flex-col  items-start sm:w-148 w-88 gap-10!">
+              <div className="flex flex-col items-start! gap-6 max-w-173.25!">
+                <div className="flex flex-col gap-2">
+                  <span className=" text-2xl sm:text-3xl md:text-[34px]! text-start! font-manrope font-medium! text-gray-50!">
+                    Have a project in mind?
+                  </span>
+                  <p className="font-manrope font-normal text-base text-gray-50!">
+                    Let’s talk about your goals and create something great
+                    together.
+                  </p>
+                </div>
+                <div className="flex items-center gap-4">
+                  {/* {footerBadgeLinks.map((badge) => (
                   <div key={badge.alt} className="relative group">
                     <Link href={badge.href} target="_blank" rel="noreferrer">
                       <Image
@@ -50,107 +57,141 @@ export default function Footer() {
                       </div>
                     </div>
                   </div>
-                ))}
+                ))} */}
+                  <PlatformLogo
+                    src={Images.landingImages.UpworkLogoImage}
+                    alt="Upwork logo"
+                    href="https://www.upwork.com/agencies/1735503164466835456/"
+                  />
+
+                  <PlatformLogo
+                    src={Images.landingImages.FiverrLogoImage}
+                    alt="Fiverr logo"
+                    href="https://pro.fiverr.com/freelancers/templateplanet"
+                  />
+
+                  <PlatformLogo
+                    src={Images.landingImages.ClutchLogoImage}
+                    alt="Clutch logo"
+                    href="https://clutch.co/profile/endpoint-clients"
+                  />
+
+                  <PlatformLogo
+                    src={Images.landingImages.TechBehemothsLogoImage}
+                    alt="TechBehemoths logo"
+                    href="https://techbehemoths.com/company/endpoint-clients-ui-ux-design-agency"
+                  />
+                </div>
               </div>
-            </div>
-            {/* button */}
-            {/* <div className=" lg:w-auto! ">
+              {/* button */}
+              {/* <div className=" lg:w-auto! ">
              
               <Link href="/contact">  <button className="bg-[#191919] py-2.5! md:py-[12px]! md:py-[16px]! px-[16px]! md:px-[24px]! rounded-[12px]! border border-amber-300">Contact Us</button></Link>
             
             </div> */}
-            <GradientBorderButton/>
-          </div>
-
-          {/* links */}
-          <div className="grid md:grid-cols-3  gap-6">
-            {footerMenuColumns.map((column) => (
-              <div
-                key={column.title}
-                className="flex flex-col sm:gap-6 gap-5 2xl:min-w-96.25!"
-              >
-                <h4 className="text-[17px]! font-semibold! uppercase text-white">
-                  {column.title}
-                </h4>
-
-                <div className="flex flex-col gap-3">
-                  {column.links.map((link) => (
-                    <Link
-                    
-                      key={link.label}
-                      href={link.href}
-                      target={link.target}
-                      // className="text-[16px]! font-normal! text-gray-300! hover:text-white transition-colors"
-                      className="relative w-fit text-[14px]! font-manrope! font-normal! text-gray-300! transition-colors duration-400 hover:text-white! after:absolute after:left-0 after:-bottom-1 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-white after:transition-transform after:duration-300 after:ease-out hover:after:scale-x-100"
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="border border-white/10"/>
-
-        {/* footer mid content */}
-        <div className="flex lg:flex-row flex-col gap-10 lg:gap-20">
-          {/* contact  */}
-          <div className="flex flex-col sm:gap-11 gap-6  ">
-            <div className="flex flex-col sm:gap-3 gap-2">
-              <p className="font-manrope font-normal text-sm sm:text-base text-gray-50">
-                Email us
-              </p>
-              <p>
-                <a
-                  href="mailto:info@endpointclients.com"
-                  className="font-manrope font-normal text-2xl sm:text-[28px] text-gray-50 hover:text-gray-300 transition-colors relative
-                  duration-400  after:absolute after:left-0 after:-bottom-1 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-white after:transition-transform after:duration-300 after:ease-out hover:after:scale-x-100"
-                >
-                  info@endpointclients.com
-                </a>
-              </p>
-            </div>
-            <div className="flex flex-col sm:gap-3 gap-2">
-              <p className="font-manrope font-normal text-sm sm:text-base text-gray-50">
-                Call Us
-              </p>
-              <a href="https://wa.me/447598981921"
-                  target="_blank"
-                  rel="noopener noreferrer" className=" flex items-center gap-3">
-                <span
-                  
-                  className="font-manrope font-normal text-2xl sm:text-[28px] text-gray-50 hover:text-gray-300 transition-colors relative
-                  duration-400  after:absolute after:left-0 after:-bottom-1 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-white after:transition-transform after:duration-300 after:ease-out hover:after:scale-x-100"
-                >
-                  +44 7598 981921
-                </span>
-                <Image
-                  src={Images.footerimages.WatsappIcon}
-                  alt="whatsapp icon"
-                  className="w-7 h-7"
-                />
-              </a>
-            </div>
-          </div>
-          {/* address */}
-          <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 md:gap-10 ">
-            {footerLocations.map((location) => (
-              <FooterLocationCard
-                key={location.country}
-                country={location.country}
-                address={location.address}
-                phone={location.phone}
-                phoneHref={location.phoneHref}
-                FlagIcon={location.flag}
+              <ThemeButton
+                label="Contact Us"
+                onClick={() => {
+                  window.open(
+                    "https://calendly.com/endpointclients/30min",
+                    "_blank",
+                    "noopener,noreferrer",
+                  );
+                }}
               />
-            ))}
-          </div>
-        </div>
+              {/* <GradientBorderButton /> */}
+            </div>
 
-         <div className="border border-white/10"/>
-       </div>
+            {/* links */}
+            <div className="grid md:grid-cols-3  gap-6">
+              {footerMenuColumns.map((column) => (
+                <div
+                  key={column.title}
+                  className="flex flex-col sm:gap-6 gap-5 2xl:min-w-96.25!"
+                >
+                  <h4 className="text-[17px]! font-semibold! uppercase text-white">
+                    {column.title}
+                  </h4>
+
+                  <div className="flex flex-col gap-3">
+                    {column.links.map((link) => (
+                      <Link
+                        key={link.label}
+                        href={link.href}
+                        target={link.target}
+                        // className="text-[16px]! font-normal! text-gray-300! hover:text-white transition-colors"
+                        className="relative w-fit text-[14px]! font-manrope! font-normal! text-gray-300! transition-colors duration-400 hover:text-white! after:absolute after:left-0 after:-bottom-1 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-white after:transition-transform after:duration-300 after:ease-out hover:after:scale-x-100"
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="border border-white/10" />
+
+          {/* footer mid content */}
+          <div className="flex lg:flex-row flex-col gap-10 lg:gap-20">
+            {/* contact  */}
+            <div className="flex flex-col sm:gap-11 gap-6  ">
+              <div className="flex flex-col sm:gap-3 gap-2">
+                <p className="font-manrope font-normal text-sm sm:text-base text-gray-50">
+                  Email us
+                </p>
+                <p>
+                  <a
+                    href="mailto:info@endpointclients.com"
+                    className="font-manrope font-normal text-2xl sm:text-[28px] text-gray-50 hover:text-gray-300 transition-colors relative
+                  duration-400  after:absolute after:left-0 after:-bottom-1 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-white after:transition-transform after:duration-300 after:ease-out hover:after:scale-x-100"
+                  >
+                    info@endpointclients.com
+                  </a>
+                </p>
+              </div>
+              <div className="flex flex-col sm:gap-3 gap-2">
+                <p className="font-manrope font-normal text-sm sm:text-base text-gray-50">
+                  Call Us
+                </p>
+                <a
+                  href="https://wa.me/447598981921"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className=" flex items-center gap-3"
+                >
+                  <span
+                    className="font-manrope font-normal text-2xl sm:text-[28px] text-gray-50 hover:text-gray-300 transition-colors relative
+                  duration-400  after:absolute after:left-0 after:-bottom-1 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-white after:transition-transform after:duration-300 after:ease-out hover:after:scale-x-100"
+                  >
+                    +44 7598 981921
+                  </span>
+                  <Image
+                    src={Images.footerimages.WatsappIcon}
+                    alt="whatsapp icon"
+                    className="w-7 h-7"
+                  />
+                </a>
+              </div>
+            </div>
+            {/* address */}
+            <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 md:gap-10 ">
+              {footerLocations.map((location) => (
+                <FooterLocationCard
+                  key={location.country}
+                  country={location.country}
+                  address={location.address}
+                  phone={location.phone}
+                  phoneHref={location.phoneHref}
+                  FlagIcon={location.flag}
+                />
+              ))}
+            </div>
+          </div>
+
+          <div className="border border-white/10" />
+        </div>
 
         {/* footer bottom content */}
         <div className="flex flex-col-reverse md:flex-row items-center justify-between md:gap-0 gap-4! px-0!">
@@ -182,9 +223,8 @@ export default function Footer() {
         </div>
       </div>
 
-       
-  <div
-  className="
+      <div
+        className="
     absolute
     -bottom-40
       -right-32
@@ -195,7 +235,7 @@ export default function Footer() {
     blur-[150px]
     pointer-events-none
   "
-/>
+      />
     </footer>
   );
 }

@@ -11,6 +11,7 @@ const manrope = Manrope({
 const playfair = Playfair_Display({
   variable: "--font-playfair",
   subsets: ["latin"],
+  style: "italic"
 });
 
 export const metadata: Metadata = {

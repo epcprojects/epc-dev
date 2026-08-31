@@ -135,9 +135,9 @@ const ServicePill = ({
           {icon}
         </div>
 
-        <p className="text-xs xl:text-xl font-medium text-gray-50 ">
+        <h3 className="text-xs xl:text-xl font-medium text-gray-50 ">
           {title}
-        </p>
+        </h3>
       </div>
     </div>
   );

@@ -14,6 +14,7 @@ import {
   HappyClientsIcon,
   OurClientsIcon,
   SecurityCheckIcon,
+  TopRatedProjectsIcon,
   TraditionalIcon,
   UnilinkIcon,
   WebDesignIcon,
@@ -98,7 +99,7 @@ export default function HomeClient() {
       description:
         "Research, flows, information architecture, wireframes, prototypes, high-fidelity UI and scalable design systems.",
       video: "/videos/CapabilitiesVideo1.mp4",
-      pills: ["Enterprise Software", "Web Applications", "Custom Solutions"],
+      pills: ["User Experience", "Prototype", "Web Design"],
     },
     {
       id: 2,
@@ -210,9 +211,9 @@ export default function HomeClient() {
         </div>
 
         <div className="flex shrink-0 flex-col gap-1.5 md:gap-3 px-4 md:px-8">
-          <p className="text-lg font-bold text-desert-storm xl:text-[34px]">
+          <h3 className="text-lg font-bold text-desert-storm xl:text-[34px]">
             {capability.title}
-          </p>
+          </h3>
 
           <p className="text-sm leading-[150%] text-neutral-400 xl:text-xl">
             {capability.description}
@@ -241,50 +242,50 @@ export default function HomeClient() {
     {
       number: "/01",
       image: Images.landingImages.DiscoveryPlanningImage,
-      imageAlt: "Discovery and planning",
-      title: "Discovery & Planning",
+      imageAlt: "Product Development Discovery and planning",
+      title: "Product Discovery & Strategy",
       description:
-        "We begin by understanding your business and goals. In a collaborative session, we define requirements, outline project scope, and plan features.",
+        "We understand your goals, users, and requirements to define the right product scope, features, and roadmap.",
     },
     {
       number: "/02",
       image: Images.landingImages.CalendarImage,
-      imageAlt: "Discovery & Planning",
-      title: "Discovery & Planning",
+      imageAlt: "Product Development Discovery & Planning",
+      title: "Product Design & Prototyping",
       description:
-        "We begin by understanding your business and goals. In a collaborative session, we define requirements, outline project scope, and plan features",
+        "We turn product ideas into intuitive experiences through UX research, user flows, wireframes, UI design, prototypes, and scalable design systems.",
     },
     {
       number: "/03",
       image: Images.landingImages.DesignPrototypingImage,
-      imageAlt: "Design & Prototyping",
-      title: "Design & Prototyping",
+      imageAlt: "Product Development Design & Prototyping",
+      title: "Product Development & Engineering",
       description:
-        "Next, we create wireframes or mockups to visualize the solution. You’ll see early designs and give feedback so the final product matches your vision",
+        "We build scalable digital products with modern frontend, backend, mobile, API, cloud, and AI technologies aligned with your product requirements and growth goals.",
     },
     {
       number: "/04",
       image: Images.landingImages.DevelopmentImage,
-      imageAlt: "Development",
-      title: "Development",
+      imageAlt: "Product Development Testing",
+      title: "Testing & Quality Assurance ",
       description:
-        "Our developers write the code and build the solution in short sprints. We continuously test the software for quality and performance, ensuring each part works before moving on.",
+        "We validate every product through functional, usability, performance, and compatibility testing to deliver reliable software ready for real-world users.",
     },
     {
       number: "/05",
       image: Images.landingImages.TestingImage,
-      imageAlt: "Testing",
-      title: "Testing",
+      imageAlt: "Product Development Launch & Deployment",
+      title: "Launch & Deployment ",
       description:
-        "Cross-device testing, refinements and production handoff. We continuously test the software for quality and performance, ensuring each part works before moving on.",
+        "We prepare your digital product for launch with production deployment, cloud infrastructure, integrations, security checks, and performance optimization. ",
     },
     {
       number: "/06",
       image: Images.landingImages.LaunchImage,
-      imageAlt: "Launch & Support",
-      title: "Launch & Support",
+      imageAlt: "Product Development Support & Growth",
+      title: "Product Support & Growth",
       description:
-        "Once you’re happy with the product, we deploy it to your preferred platform. We provide documentation and training, and even after launch we offer ongoing maintenance to help your solution evolve as your business grows",
+        "We continuously improve your product through maintenance, monitoring, performance optimization, new features, and technical support as your business grows.",
     },
   ];
   const testimonials: Testimonial[] = [
@@ -483,7 +484,7 @@ export default function HomeClient() {
                   </div>
 
                   <div className="relative z-20 rounded-[7px] bg-mirage px-3.5 py-1.5">
-                    <p
+                    <h1
                       className="
     w-fit
     bg-[linear-gradient(90deg,#8740FF_0%,#FFFFFF_40%,#8740FF_100%)]
@@ -494,22 +495,22 @@ export default function HomeClient() {
     animate-text-gradient
   "
                     >
-                      Global Product Development Agency
-                    </p>
+                      Global Product Development Company
+                    </h1>
                   </div>
                 </div>
 
-                <h1 className="text-[32px] xl:text-66 font-semibold text-white leading-[120%] xl:leading-21.5 tracking-[-1px]">
+                <h2 className="text-[32px] xl:text-66 font-semibold text-white leading-[120%] xl:leading-21.5 tracking-[-1px]">
                   Empower Your Business with Custom Software & Web & App
                   Solutions
-                </h1>
+                </h2>
               </div>
-              <p className="text-base xl:text-xl text-white">
-                We combine product design expertise with full-cycle software
-                engineering to build web platforms, mobile apps, SaaS products
-                and AI-powered solutions that are intuitive to use and ready to
-                grow with your business.
-              </p>
+              <h3 className="text-base xl:text-xl text-white">
+                Endpoint Clients is a full-cycle product development agency
+                combining UI/UX design, custom software engineering and AI to
+                build web platforms, mobile apps, SaaS products and digital
+                experiences that are ready to scale.
+              </h3>
             </div>
             <div className="flex flex-wrap items-center gap-1.5 md:gap-5">
               <div className="flex flex-row items-center gap-1.5 py-1">
@@ -540,7 +541,7 @@ export default function HomeClient() {
               </div>
             </div>
           </div>
-          <div className="md:col-span-3 flex items-center justify-center  w-full">
+          <div className="md:col-span-3 hidden md:flex items-center justify-center  w-full">
             <ParticleImage />
           </div>
         </div>
@@ -616,7 +617,7 @@ export default function HomeClient() {
 
               <motion.div className="w-fit md:mt-7" variants={leftPillVariants}>
                 <ServicePill
-                  title="SaaS Engineering"
+                  title="SaaS Dashboards"
                   icon={
                     <WebDesignIcon
                       width={isMobile ? "24" : "33"}
@@ -638,12 +639,14 @@ export default function HomeClient() {
       xl:order-2 xl:col-span-8
     "
             >
-              <PulsingLabel text="What We Build" />
+              <PulsingLabel text="Product Development Expertise" />
 
-              <p className="text-center font-playfair text-2xl leading-[120%] text-white xl:text-5xl">
-                We design and engineer digital products across web, mobile, SaaS
-                and AI from the user experience to the technology behind it.
-              </p>
+              <h3 className="text-center  text-2xl leading-[120%] text-white xl:text-5xl">
+                We Design and Engineer{" "}
+                <span className="font-playfair">Digital Products</span> across
+                Web, Mobile, SaaS and AI from the User Experience to the
+                Technology behind it.
+              </h3>
             </div>
 
             {/* Desktop right pills */}
@@ -824,13 +827,13 @@ export default function HomeClient() {
           <div className="container max-w-175 mx-auto flex items-center justify-center ">
             <div className="flex flex-col items-start gap-7">
               <div className="flex flex-col gap-4 md:gap-4.5">
-                <PulsingLabel text="Our Capabilities" />
+                <PulsingLabel text="Our Product Development Services" />
 
                 <div className="flex flex-col gap-3">
-                  <p className="text-2xl md:text-5xl font-bold leading-[130%] md:leading-[100%] text-desert-storm">
+                  <h3 className="text-2xl md:text-5xl font-bold leading-[130%] md:leading-[100%] text-desert-storm">
                     Built to take your product from bold idea to real-world
                     software
-                  </p>
+                  </h3>
                   <p className="text-xl text-white">
                     End-to-end digital solutions designed to help businesses
                     build, launch, and scale modern software products with
@@ -891,9 +894,9 @@ export default function HomeClient() {
       "
           >
             <div className="flex flex-col items-start gap-3 md:gap-4">
-              <PulsingLabel text="Full-cycle product team" />
+              <PulsingLabel text="Full-cycle Product Development" />
 
-              <p
+              <h3
                 className="
             text-xl font-semibold
             leading-[130%] text-gray-50
@@ -901,11 +904,11 @@ export default function HomeClient() {
           "
               >
                 Design, development and AI expertise under one roof.
-              </p>
+              </h3>
             </div>
 
             <ThemeButton
-              label="Explore Our Services"
+              label="Explore Our Design Services"
               variant="white"
               icon={<ArrowUpIcon fill="#030712" />}
               onClick={() => {
@@ -952,7 +955,17 @@ export default function HomeClient() {
             title={<CountUpNumber end={50} suffix="+" />}
             subtitle="Countries Served"
           />
-          <div className="px-8 2xl:px-4 2xl:py-9 py-4 flex flex-row gap-1 md:gap-2 items-center justify-start md:justify-center">
+          <StatsCard
+            icon={
+              <TopRatedProjectsIcon
+                width={isMobile ? "30" : "68"}
+                height={isMobile ? "30" : "68"}
+              />
+            }
+            title={<CountUpNumber end={500} suffix="+" />}
+            subtitle="Top Rated Projects"
+          />
+          {/* <div className="px-8 2xl:px-4 2xl:py-9 py-4 flex flex-row gap-1 md:gap-2 items-center justify-start md:justify-center">
             <PlatformLogo
               src={Images.landingImages.UpworkLogoImage}
               alt="Upwork logo"
@@ -969,7 +982,7 @@ export default function HomeClient() {
               src={Images.landingImages.TechBehemothsLogoImage}
               alt="TechBehemoths logo"
             />
-          </div>
+          </div> */}
         </div>
       </section>
       <section className="bg-mirage  md:pt-24 xl:pb-16">
@@ -977,26 +990,24 @@ export default function HomeClient() {
           <div className="flex flex-col items-center gap-10 md:gap-20">
             <div className="grid w-full grid-cols-1 items-center gap-3 md:grid-cols-12 md:gap-4">
               <div className=" md:col-start-6 md:col-end-10">
-                <PulsingLabel text="INDUSTRIES WE SERVE" />
+                <PulsingLabel text="Product Development By Industry" />
               </div>
               <div className="md:col-start-3 md:col-end-12">
-                <h2 className="md:text-center text-2xl leading-[130%] font-semibold text-white md:text-5xl md:leading-[120%]">
-                  Digital products shaped around how your industry actually
-                  works
-                </h2>
+                <h3 className="md:text-center text-2xl leading-[130%] font-semibold text-white md:text-5xl md:leading-[120%]">
+                  Digital Products Built Around Your Industry Needs
+                </h3>
               </div>
               <div className="md:col-start-2 md:col-end-12 md:ml-10">
                 <p className="md:text-center text-base leading-relaxed text-neutral-400 md:text-xl">
-                  Different industries bring different users, workflows,
-                  regulations and operational challenges. We combine product
-                  thinking, engineering and AI to build solutions around the
-                  realities of your market.
+                  We build scalable digital products around your industry’s
+                  unique users, workflows, and business needs with strategy, UX
+                  design, software engineering, and AI.
                 </p>
               </div>
             </div>
             <video
               src="/videos/IndustriesNewThree.mp4"
-              className="h-full rounded-[28px]"
+              className="h-full rounded-[20px]"
               autoPlay
               muted
               loop
@@ -1010,6 +1021,18 @@ export default function HomeClient() {
       <DevelopmentProcessSection processSteps={processSteps} />
       <section className="bg-mirage py-8 md:py-16">
         <div className="container max-w-7xl mx-auto px-4 md:px-8 space-y-3 md:space-y-4.5">
+          <div className="block xl:hidden">
+            <video
+              src="/videos/BentoCard3.mp4"
+              className="h-auto w-full"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              aria-label="Bento card animation"
+            />
+          </div>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 md:gap-4.5 items-stretch">
             <div className="lg:col-span-8 h-full">
               <div className="rounded-4xl h-full overflow-hidden grid grid-cols-1 lg:grid-cols-2 items-center bg-rangoon-green pb-5 pt-4 px-4 md:pl-4 ring ring-inset ring-white-smoke/4 shadow-[inset_2px_4px_16px_0_rgba(248,248,248,0.06)]">
@@ -1025,12 +1048,12 @@ export default function HomeClient() {
                 />
                 <div className="xl:px-4 flex flex-col gap-3.5 md:gap-6">
                   <div className="flex flex-col items-center gap-1.5">
-                    <p className="w-fit bg-linear-to-r from-[#8353D5] to-white bg-clip-text text-xs text-transparent">
-                      Better Digital Experiences
-                    </p>
-                    <p className="text-xl md:text-[32px] leading-[140%] font-bold text-center text-snow-drift/95">
+                    <h2 className="w-fit bg-linear-to-r from-[#8353D5] to-white bg-clip-text text-xs text-transparent">
+                      Digital Experiences for Growing Products
+                    </h2>
+                    <h3 className="text-xl md:text-[32px] leading-[140%] font-bold text-center text-snow-drift/95">
                       Everything Your Product Needs To Grow.
-                    </p>
+                    </h3>
                   </div>
                   <p className="text-sm text-snow-drift/70 text-center">
                     From intuitive interfaces to scalable technology, we bring
@@ -1040,7 +1063,7 @@ export default function HomeClient() {
                 </div>
               </div>
             </div>
-            <div className="lg:col-span-4">
+            <div className="hidden xl:block lg:col-span-4">
               <video
                 src="/videos/BentoCard2.mp4"
                 className="h-auto w-full"
@@ -1053,10 +1076,10 @@ export default function HomeClient() {
               />
             </div>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-4.5 items-stretch">
+          <div className="hidden xl:grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-4.5 items-stretch">
             <video
               src="/videos/BentoCard3.mp4"
-              className="h-auto w-full"
+              className="h-auto w-full "
               autoPlay
               muted
               loop
@@ -1066,7 +1089,7 @@ export default function HomeClient() {
             />
             <video
               src="/videos/BentoCard4.mp4"
-              className="h-auto w-full"
+              className="h-auto w-full "
               autoPlay
               muted
               loop
@@ -1075,6 +1098,18 @@ export default function HomeClient() {
               aria-label="Bento card animation"
             />
             <video
+              src="/videos/BentoCard5.mp4"
+              className="h-auto w-full"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              aria-label="Bento card animation"
+            />
+          </div>
+          <div className="block xl:hidden">
+             <video
               src="/videos/BentoCard5.mp4"
               className="h-auto w-full"
               autoPlay
@@ -1094,12 +1129,12 @@ export default function HomeClient() {
             <div className="flex flex-col gap-8 md:gap-8 items-start md:items-center">
               <div className=" w-full grid md:grid-cols-12 space-y-3">
                 <div className="md:col-start-6 md:col-end-9">
-                  <PulsingLabel text={"Why Endpoint Clients"} />
+                  <PulsingLabel text={"Why Choose Us"} />
                 </div>
                 <div className="md:col-start-3 md:col-end-11 ">
-                  <p className="text-2xl md:text-5xl text-white font-semibold md:text-center leading-[130%] xl:leading-[120%]">
+                  <h3 className="text-2xl md:text-5xl text-white font-semibold md:text-center leading-[130%] xl:leading-[120%]">
                     One product team. Fewer handoffs. Better execution.
-                  </p>
+                  </h3>
                 </div>
                 <div className="md:col-start-3 md:col-end-11 ">
                   <p className="text-base md:text-xl text-neutral-400 md:text-center leading-[150%]">
@@ -1148,14 +1183,24 @@ export default function HomeClient() {
                 <div className="lg:col-span-4">
                   <ComparisonCard
                     title="Traditional Agencies"
-                    titleIcon={<TraditionalIcon width={isMobile?"24":"28"} height={isMobile?"24":"28"} />}
+                    titleIcon={
+                      <TraditionalIcon
+                        width={isMobile ? "24" : "28"}
+                        height={isMobile ? "24" : "28"}
+                      />
+                    }
                     features={traditionalAgencyFeatures}
                   />
                 </div>
                 <div className="lg:col-span-4">
                   <ComparisonCard
                     title="Endpointclients"
-                    titleIcon={<EpcLogoIcon width={isMobile?"24":"31"} height={isMobile?"24":"31"}/>}
+                    titleIcon={
+                      <EpcLogoIcon
+                        width={isMobile ? "24" : "31"}
+                        height={isMobile ? "24" : "31"}
+                      />
+                    }
                     features={epcFeatures}
                     showGlow
                   />
@@ -1183,9 +1228,11 @@ export default function HomeClient() {
             <div className="flex flex-col gap-6 md:gap-7 items-start md:items-center">
               <div className="flex flex-col gap-3 items-start md:items-center">
                 <PulsingLabel text={"Technology Stack "} />
-                <p className="text-2xl md:text-5xl font-semibold text-white leading-[130%] md:leading-[100%]">
-                  The right technology for every layer of your product.
-                </p>
+                <h3 className="text-2xl md:text-5xl font-semibold text-white leading-[130%] md:leading-[100%] text-center">
+                  Modern Technology for End-to-End{" "}
+                  <br className="md:block hidden" />
+                  Product Development
+                </h3>
               </div>
               <div className="relative flex w-full max-w-full flex-row overflow-x-auto rounded-full border border-white/8 bg-heavy-metal p-1  md:p-1.5 [scrollbar-width:none] xl:w-fit [&::-webkit-scrollbar]:hidden">
                 <div
@@ -1250,13 +1297,13 @@ export default function HomeClient() {
           <div className="bg-woodsmoke border border-white/12 py-8 md:py-16 px-4 md:px-25 rounded-2xl md:rounded-4xl bg-[url('/images/ReadyProjectBgImage.png')] bg-cover bg-center relative overflow-hidden">
             <div className="flex flex-col gap-5 md:gap-10.5 items-center">
               <div className="flex flex-col gap-3 md:gap-3.5 items-center">
-                <p className="text-2xl md:text-[56px] text-center font-semibold text-white leading-[130%] md:leading-[120%]">
+                <h2 className="text-2xl md:text-[56px] text-center font-semibold text-white leading-[130%] md:leading-[120%]">
                   Ready to start your project?
-                </p>
-                <p className="text-base md:text-2xl text-neutral-400 text-center">
+                </h2>
+                <h3 className="text-base md:text-2xl text-neutral-400 text-center">
                   Whether you’re launching something new or improving an
                   existing platform.let’s build something great together.
-                </p>
+                </h3>
               </div>
               <ThemeButton
                 label="Start Project"
