@@ -1,0 +1,56 @@
+<svg width="1180" height="1907" viewBox="0 0 1180 1907" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+svg { overflow: visible; }
+@keyframes kf_Background_21__transform_0 {
+  0% {
+    transform: translateX(508.323px) translateX(0px) translateY(-192px);
+  }
+  18.13% {
+    transform: translateX(508.323px) translateX(0px) translateY(294.243px);
+  }
+  34.34% {
+    transform: translateX(508.323px) translateX(0px) translateY(-13.686px);
+  }
+  50.89% {
+    transform: translateX(508.323px) translateX(0px) translateY(294.243px);
+  }
+  64.44% {
+    transform: translateX(508.323px) translateX(0px) translateY(123.171px);
+  }
+  78.49% {
+    transform: translateX(508.323px) translateX(0px) translateY(287.4px);
+  }
+  87.4% {
+    transform: translateX(508.323px) translateX(0px) translateY(225.814px);
+  }
+  96.04% {
+    transform: translateX(508.323px) translateX(0px) translateY(287.4px);
+  }
+  98.93% {
+    transform: translateX(508.323px) translateX(0px) translateY(287.4px);
+  }
+  99.59% {
+    transform: translateX(508.323px) translateX(0px) translateY(282px);
+  }
+  100% {
+    transform: translateX(508.323px) translateX(0px) translateY(282px);
+  }
+}
+#Background_21_ {
+  transform-origin: 0 0;
+  animation: kf_Background_21__transform_0 3.2s linear infinite;
+}
+</style>
+<g id="Group">
+<g id="Background_23_" transform="translate(0 445.493)">
+<g id="Group_2">
+<path id="Vector" d="M907.529 1164.79H357.7C282.136 1164.79 166.408 1095.63 166.408 1019.57C166.408 943.534 217.875 883.445 293.463 883.445H1083.14C1083.14 882.899 1083.19 882.426 1083.19 881.905C1083.19 729.128 962.222 587.132 829.006 581.166L463.351 577.891C386.271 577.891 287.424 509.495 287.424 432.657C287.424 355.76 331.821 299.527 408.876 299.527H964.453C964.926 292.978 965.181 286.429 965.181 279.808C965.181 125.236 836.367 0 681.141 0H501.891C346.689 0 211.763 125.236 211.763 279.808C211.763 370.239 239.134 442.323 284.064 493.645C300.169 512.09 306.778 556.366 275.345 586.902C257.53 604.195 253.929 608.403 214.831 636.841C143.063 689.157 90.7469 777.187 90.7469 881.88C90.7469 940.43 106.318 994.771 133.022 1039.88C153.371 1074.18 178.51 1087.62 178.51 1134.54C178.51 1161.77 167.693 1187.49 109.071 1229.3C39.6676 1278.7 0 1362.72 0 1456.75C0 1458.29 0.109176 1459.76 0.109176 1461.3H1179.92C1179.92 1459.76 1180 1458.29 1180 1456.75C1179.98 1302.18 1057.88 1184.37 907.529 1164.79Z" fill="white"/>
+</g>
+</g>
+<g id="Background_21_" transform="translate(508.323)">
+<g id="Group_3">
+<path id="Vector_2" d="M81.7122 0C36.5631 0 0 36.5631 0 81.7C0 126.776 36.5752 163.4 81.7122 163.4C126.788 163.4 163.388 126.764 163.388 81.7C163.388 36.5631 126.788 0 81.7122 0Z" fill="white"/>
+</g>
+</g>
+</g>
+</svg>

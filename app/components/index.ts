@@ -13,6 +13,7 @@ import FeatureRow from "./cards/FeatureRow";
 import ComparisonCard from "./cards/ComparisonCard";
 import FAQAccordion from "./FaqAccordion";
 import CountUpNumber from "./CountUpNumber";
+import Preloader from "./Preloader";
 export {
     Header,
     ServicePill,
@@ -28,5 +29,6 @@ export {
     FeatureRow,
     ComparisonCard,
     FAQAccordion,
-    CountUpNumber
+    CountUpNumber,
+    Preloader
 }
