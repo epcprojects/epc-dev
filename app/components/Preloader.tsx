@@ -16,35 +16,24 @@ const Preloader = () => {
     let exitTimer: number | undefined;
     let maximumTimer: number | undefined;
 
-    const previousOverflow =
-      document.body.style.overflow;
+    const previousOverflow = document.body.style.overflow;
 
     document.body.style.overflow = "hidden";
 
-    const minimumDelay = new Promise<void>(
-      (resolve) => {
-        window.setTimeout(resolve, MINIMUM_DURATION);
-      },
-    );
+    const minimumDelay = new Promise<void>((resolve) => {
+      window.setTimeout(resolve, MINIMUM_DURATION);
+    });
 
-    const waitForWindowLoad = new Promise<void>(
-      (resolve) => {
-        if (document.readyState === "complete") {
-          resolve();
-          return;
-        }
+    const waitForWindowLoad = new Promise<void>((resolve) => {
+      if (document.readyState === "complete") {
+        resolve();
+        return;
+      }
 
-        window.addEventListener(
-          "load",
-          () => resolve(),
-          { once: true },
-        );
-      },
-    );
+      window.addEventListener("load", () => resolve(), { once: true });
+    });
 
-    const waitForImage = (
-      image: HTMLImageElement,
-    ): Promise<void> => {
+    const waitForImage = (image: HTMLImageElement): Promise<void> => {
       if (image.complete) {
         return Promise.resolve();
       }
@@ -63,9 +52,7 @@ const Preloader = () => {
       });
     };
 
-    const waitForVideo = (
-      video: HTMLVideoElement,
-    ): Promise<void> => {
+    const waitForVideo = (video: HTMLVideoElement): Promise<void> => {
       // HAVE_CURRENT_DATA
       if (video.readyState >= 2) {
         return Promise.resolve();
@@ -74,11 +61,7 @@ const Preloader = () => {
       return new Promise((resolve) => {
         const finish = () => resolve();
 
-        video.addEventListener(
-          "loadeddata",
-          finish,
-          { once: true },
-        );
+        video.addEventListener("loadeddata", finish, { once: true });
 
         // Failed video preloader ko block nahi karegi
         video.addEventListener("error", finish, {
@@ -87,32 +70,27 @@ const Preloader = () => {
       });
     };
 
-    const waitForMountedMedia =
-      new Promise<void>((resolve) => {
-        // Underlying page ko mount hone ka time dein
-        window.requestAnimationFrame(() => {
-          window.requestAnimationFrame(async () => {
-            const images = Array.from(
-              document.querySelectorAll<HTMLImageElement>(
-                "img",
-              ),
-            );
+    const waitForMountedMedia = new Promise<void>((resolve) => {
+      // Underlying page ko mount hone ka time dein
+      window.requestAnimationFrame(() => {
+        window.requestAnimationFrame(async () => {
+          const images = Array.from(
+            document.querySelectorAll<HTMLImageElement>("img"),
+          );
 
-            const videos = Array.from(
-              document.querySelectorAll<HTMLVideoElement>(
-                "video",
-              ),
-            );
+          const videos = Array.from(
+            document.querySelectorAll<HTMLVideoElement>("video"),
+          );
 
-            await Promise.allSettled([
-              ...images.map(waitForImage),
-              ...videos.map(waitForVideo),
-            ]);
+          await Promise.allSettled([
+            ...images.map(waitForImage),
+            ...videos.map(waitForVideo),
+          ]);
 
-            resolve();
-          });
+          resolve();
         });
       });
+    });
 
     const hidePreloader = () => {
       if (!isMounted) return;
@@ -123,22 +101,16 @@ const Preloader = () => {
         if (!isMounted) return;
 
         setIsVisible(false);
-        document.body.style.overflow =
-          previousOverflow;
+        document.body.style.overflow = previousOverflow;
       }, FADE_DURATION);
     };
 
-    Promise.all([
-      minimumDelay,
-      waitForWindowLoad,
-      waitForMountedMedia,
-    ]).then(hidePreloader);
+    Promise.all([minimumDelay, waitForWindowLoad, waitForMountedMedia]).then(
+      hidePreloader,
+    );
 
     // Safety fallback
-    maximumTimer = window.setTimeout(
-      hidePreloader,
-      MAXIMUM_DURATION,
-    );
+    maximumTimer = window.setTimeout(hidePreloader, MAXIMUM_DURATION);
 
     return () => {
       isMounted = false;
@@ -151,8 +123,7 @@ const Preloader = () => {
         window.clearTimeout(maximumTimer);
       }
 
-      document.body.style.overflow =
-        previousOverflow;
+      document.body.style.overflow = previousOverflow;
     };
   }, []);
 
@@ -174,16 +145,16 @@ const Preloader = () => {
         }
       `}
     >
-      <img
-        src="/images/PreLoaderEPC.svg"
-        alt=""
-        aria-hidden="true"
-        className="h-auto w-28 sm:w-36 md:w-44"
-      />
+      <div className="flex h-44 w-44 items-center justify-center sm:h-52 sm:w-52 md:h-64 md:w-64">
+        <img
+          src="/images/PreLoaderEPC.svg"
+          alt=""
+          aria-hidden="true"
+          className="h-full w-full object-contain"
+        />
+      </div>
 
-      <span className="sr-only">
-        Loading website
-      </span>
+      <span className="sr-only">Loading website</span>
     </div>
   );
 };

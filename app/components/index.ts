@@ -14,6 +14,7 @@ import ComparisonCard from "./cards/ComparisonCard";
 import FAQAccordion from "./FaqAccordion";
 import CountUpNumber from "./CountUpNumber";
 import Preloader from "./Preloader";
+import SmoothScroll from "./layout/SmoothScroll";
 export {
     Header,
     ServicePill,
@@ -30,5 +31,6 @@ export {
     ComparisonCard,
     FAQAccordion,
     CountUpNumber,
-    Preloader
+    Preloader,
+    SmoothScroll
 }

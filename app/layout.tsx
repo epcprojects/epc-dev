@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Manrope, Playfair_Display} from "next/font/google";
 import "./globals.css";
-import { Header, Preloader } from "./components";
+import { Header, Preloader, SmoothScroll } from "./components";
 import Footer from "./components/Footer";
 
 const manrope = Manrope({
@@ -48,12 +48,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       </head>
       <body className="min-h-full flex flex-col">
         <Preloader />
+        <SmoothScroll>
         <Header />
 
         <main className="flex-1">
           {children}
         </main>
         <Footer/>
+        </SmoothScroll>
       </body>
     </html>
   );
