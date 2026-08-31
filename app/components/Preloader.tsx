@@ -178,7 +178,7 @@ const Preloader = () => {
         src="/images/PreLoaderEPC.svg"
         alt=""
         aria-hidden="true"
-        className="h-40 w-auto sm:h-48 md:h-56"
+        className="h-auto w-28 sm:w-36 md:w-44"
       />
 
       <span className="sr-only">
