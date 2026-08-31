@@ -147,7 +147,7 @@ const Preloader = () => {
     >
       <div className="flex h-44 w-44 items-center justify-center sm:h-52 sm:w-52 md:h-64 md:w-64">
         <img
-          src="/images/PreLoaderEPC.svg"
+          src="/images/EPCPreLoader.svg"
           alt=""
           aria-hidden="true"
           className="h-full w-full object-contain"

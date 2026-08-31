@@ -1,4 +1,4 @@
-<svg width="1180" height="1907" viewBox="0 0 1180 1907" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="1180" height="2127" viewBox="0 0 1180 2127" fill="none" xmlns="http://www.w3.org/2000/svg">
 <style>
 svg { overflow: visible; }
 @keyframes kf_Background_21__transform_0 {
@@ -41,6 +41,8 @@ svg { overflow: visible; }
   animation: kf_Background_21__transform_0 3.2s linear infinite;
 }
 </style>
+<g id="Frame_2147238710">
+<g id="Frame_2147238709" transform="translate(0 220)">
 <g id="Group">
 <g id="Background_23_" transform="translate(0 445.493)">
 <g id="Group_2">
@@ -50,6 +52,8 @@ svg { overflow: visible; }
 <g id="Background_21_" transform="translate(508.323)">
 <g id="Group_3">
 <path id="Vector_2" d="M81.7122 0C36.5631 0 0 36.5631 0 81.7C0 126.776 36.5752 163.4 81.7122 163.4C126.788 163.4 163.388 126.764 163.388 81.7C163.388 36.5631 126.788 0 81.7122 0Z" fill="white"/>
+</g>
+</g>
 </g>
 </g>
 </g>
