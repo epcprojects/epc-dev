@@ -2,15 +2,23 @@
 
 import { useState, type ReactNode } from "react";
 import { Autoplay } from "swiper/modules";
-import Image, { type StaticImageData } from "next/image";
+import Image, {
+  type StaticImageData,
+} from "next/image";
 
-import { Swiper, SwiperSlide } from "swiper/react";
+import {
+  Swiper,
+  SwiperSlide,
+} from "swiper/react";
 
 import type { Swiper as SwiperType } from "swiper";
 
 import "swiper/css";
 
-import { ArrowLeftIcon, InvertedCommasIcon } from "@/public/icons";
+import {
+  ArrowLeftIcon,
+  InvertedCommasIcon,
+} from "@/public/icons";
 
 export type Testimonial = {
   id: string | number;
@@ -27,49 +35,41 @@ type TestimonialsSectionProps = {
 
 type NavigationButtonProps = {
   direction: "previous" | "next";
-  disabled: boolean;
   onClick: () => void;
   icon: ReactNode;
 };
 
 const NavigationButton = ({
   direction,
-  disabled,
   onClick,
   icon,
 }: NavigationButtonProps) => {
   const shouldRotateIcon = direction === "next";
-
-  if (disabled) {
-    return (
-      <button
-        type="button"
-        disabled
-        aria-label={
-          direction === "previous" ? "Previous testimonial" : "Next testimonial"
-        }
-        className="flex h-11 w-11 cursor-not-allowed items-center justify-center rounded-lg border border-dark-gray opacity-50 xl:h-14 xl:w-14 xl:rounded-xl"
-      >
-        <span className={shouldRotateIcon ? "rotate-180" : ""}>{icon}</span>
-      </button>
-    );
-  }
 
   return (
     <button
       type="button"
       onClick={onClick}
       aria-label={
-        direction === "previous" ? "Previous testimonial" : "Next testimonial"
+        direction === "previous"
+          ? "Previous testimonial"
+          : "Next testimonial"
       }
-      className="h-11 w-11 overflow-hidden rounded-lg bg-linear-to-r from-medium-teal-blue via-[#A6C8D0] to-[#4434F0] p-px xl:h-14 xl:w-14 xl:rounded-xl"
+      className="
+        h-11 w-11 overflow-hidden rounded-lg
+        bg-linear-to-r from-medium-teal-blue
+        via-[#A6C8D0] to-[#4434F0] p-px
+        xl:h-14 xl:w-14 xl:rounded-xl
+      "
     >
       <span className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-[7px] bg-woodsmoke xl:rounded-[11px]">
         <span className="absolute top-0 h-2 w-11 rounded-full bg-medium-teal-blue blur-[10px] xl:w-14" />
 
         <span
           className={
-            shouldRotateIcon ? "relative z-10 rotate-180" : "relative z-10"
+            shouldRotateIcon
+              ? "relative z-10 rotate-180"
+              : "relative z-10"
           }
         >
           {icon}
@@ -79,17 +79,11 @@ const NavigationButton = ({
   );
 };
 
-const TestimonialsSection = ({ testimonials }: TestimonialsSectionProps) => {
-  const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null);
-
-  const [isBeginning, setIsBeginning] = useState(true);
-
-  const [isEnd, setIsEnd] = useState(testimonials.length <= 1);
-
-  const updateNavigationState = (swiper: SwiperType) => {
-    setIsBeginning(swiper.isBeginning);
-    setIsEnd(swiper.isEnd);
-  };
+const TestimonialsSection = ({
+  testimonials,
+}: TestimonialsSectionProps) => {
+  const [swiperInstance, setSwiperInstance] =
+    useState<SwiperType | null>(null);
 
   if (!testimonials.length) return null;
 
@@ -116,25 +110,22 @@ const TestimonialsSection = ({ testimonials }: TestimonialsSectionProps) => {
                 slidesPerView={1}
                 speed={650}
                 allowTouchMove
-                rewind={testimonials.length > 1}
+                loop={testimonials.length > 1}
                 autoplay={{
                   delay: 4000,
                   disableOnInteraction: false,
                   pauseOnMouseEnter: true,
                 }}
-                onSwiper={(swiper) => {
-                  setSwiperInstance(swiper);
-                  updateNavigationState(swiper);
-                }}
-                onSlideChange={updateNavigationState}
-                onReachBeginning={updateNavigationState}
-                onReachEnd={updateNavigationState}
+                onSwiper={setSwiperInstance}
                 className="w-full [&_.swiper-wrapper]:items-stretch"
               >
                 {testimonials.map((testimonial) => (
-                  <SwiperSlide key={testimonial.id} className="h-auto!">
+                  <SwiperSlide
+                    key={testimonial.id}
+                    className="h-auto!"
+                  >
                     <div className="flex h-full flex-col justify-between gap-3 xl:gap-30">
-                      <p className="text-xl leading-[140%] font-medium text-white sm:text-3xl xl:text-42">
+                      <p className="line-clamp-4 text-ellipsis text-xl leading-[140%] font-medium text-white sm:text-3xl xl:text-42">
                         {testimonial.text}
                       </p>
 
@@ -169,15 +160,9 @@ const TestimonialsSection = ({ testimonials }: TestimonialsSectionProps) => {
                 ))}
               </Swiper>
 
-              <div   className="
-    absolute bottom-0 z-10
-    flex flex-row gap-2
-    right-0 
-    xl:gap-2.5
-  ">
+              <div className="absolute right-0 bottom-0 z-10 flex flex-row gap-2 xl:gap-2.5">
                 <NavigationButton
                   direction="previous"
-                  disabled={isBeginning}
                   onClick={() => {
                     swiperInstance?.slidePrev();
                   }}
@@ -186,7 +171,6 @@ const TestimonialsSection = ({ testimonials }: TestimonialsSectionProps) => {
 
                 <NavigationButton
                   direction="next"
-                  disabled={isEnd}
                   onClick={() => {
                     swiperInstance?.slideNext();
                   }}

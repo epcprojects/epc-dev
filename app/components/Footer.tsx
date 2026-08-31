@@ -15,7 +15,7 @@ import ThemeButton from "./button/ThemeButton";
 import { MouseEvent } from "react";
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden  pt-8! md:pt-16! pb-27! md:pb-8! bg-[#191919]">
+    <footer className="relative overflow-hidden  pt-8! md:pt-16! pb-6! md:pb-8! bg-[#191919]">
       {/* <Image
         alt="logo epc"
         src={images.footerimages.FooterBg}
@@ -213,13 +213,13 @@ export default function Footer() {
         </div>
 
         <div className="lg:-mb-18 md:-mb-10 -mb-12">
-          <Link href={`/`} className="" scroll={true}>
+          <div  className="">
             <Image
               alt="logo epc"
               src={Images.footerimages.FooterLogo}
               className="md:h-84! h-30! w-auto"
             />
-          </Link>
+          </div>
         </div>
       </div>
 

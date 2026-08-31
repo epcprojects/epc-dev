@@ -22,6 +22,10 @@ import TestingImage from "@/public/images/TestingImage.svg"
 import LaunchImage from "@/public/images/LaunchImage.svg"
 import TestimonialImage from "@/public/images/testimonialImage.png"
 import ReadyProjectBottomLineImage from "@/public/images/ReadyProjectBottomImage.svg"
+import MaxstoImage from "@/public/images/MaxSto.png"
+import MuhunImage from "@/public/images/Muhun.jpeg"
+import DarellImage from "@/public/images/Darell.png"
+import MarcoGamaImage from "@/public/images/Marco Gama-Endpoint CLients-Review-Testimonial.jpeg"
 export const landingImages = { Logo, EndpointPicture, HeroBgGradient ,
     MahanaLogo,
     BoondheshamsLogo,
@@ -43,5 +47,9 @@ export const landingImages = { Logo, EndpointPicture, HeroBgGradient ,
     TestingImage,
     LaunchImage,
     TestimonialImage,
-    ReadyProjectBottomLineImage
+    ReadyProjectBottomLineImage,
+    MaxstoImage,
+    MuhunImage,
+    DarellImage,
+    MarcoGamaImage
 };

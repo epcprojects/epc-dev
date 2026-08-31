@@ -115,49 +115,30 @@ export const footerMenuColumns: FooterMenuColumn[] = [
     title: "Services",
     links: [
       {
-        label: "UI/UX Design",
-        href: "https://endpointclients.com/services",
-        target: "_blank",
+        label: "UI/UX & Product Design",
+        href: "/#services",
+     
       },
       {
-        label: "Web & Mobile App",
-        href: "https://endpointclients.com/services",
-        target: "_blank",
+        label: "Web & SaaS Development",
+        href: "/#services",
+     
       },
       {
-        label: "Dashboard",
-        href: "https://endpointclients.com/services",
-        target: "_blank",
+        label: "Mobile App Development",
+        href: "/#services",
+        
       },
       {
-        label: "Ai & ML Development",
-        href: "https://endpointclients.com/services",
-        target: "_blank",
+        label: "AI & ML Development",
+         href: "/#services",
+        
       },
        {
-        label: "Dashboard Design",
-        href: "https://endpointclients.com/services",
-        target: "_blank",
+        label: "Cloud, APIs & Integrations",
+        href: "/#services",
       },
-       {
-        label: "MVP Development",
-        href: "https://endpointclients.com/services",
-        target: "_blank",
-      },
-      {
-        label: "Branding",
-        href: "https://endpointclients.com/services",
-        target: "_blank",
-      },
-      {
-        label: "SEO & Social Media Marketing",
-        href: "https://endpointclients.com/services",
-        target: "_blank",
-      },{
-        label: "Motion Design & Video Editing",
-        href: "https://endpointclients.com/services",
-        target: "_blank",
-      },
+      
     ],
   },
   {

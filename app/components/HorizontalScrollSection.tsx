@@ -211,7 +211,16 @@ const HorizontalScrollSection = ({
 
   return (
     <>
-      <section className=" bg-mirage 2xl:hidden  ">
+    <section 
+     id="services"
+    style={{
+      scrollMarginTop:
+        "calc(var(--header-height, 0px) + 16px)",
+    }}
+    >
+
+    
+      <section  className=" bg-mirage 2xl:hidden  ">
         <div className="border-b border-white/12 px-4 md:px-6 py-7 md:py-12">{leftContent}</div>
 
         <div className="flex flex-col">
@@ -287,7 +296,7 @@ const HorizontalScrollSection = ({
       </section> */}
       <section
         ref={sectionRef}
-        className="relative hidden bg-mirage py-4 2xl:block"
+        className="relative hidden bg-mirage py-4 2xl:block "
         style={{
           height: sectionHeight,
         }}
@@ -376,6 +385,7 @@ const HorizontalScrollSection = ({
             ))}
           </motion.div>
         </div>
+      </section>
       </section>
     </>
   );

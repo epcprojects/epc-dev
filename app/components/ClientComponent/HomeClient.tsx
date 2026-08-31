@@ -293,25 +293,42 @@ export default function HomeClient() {
       id: 1,
       text: "Endpoint is one of the most helpful website and mobile app design teams I’ve worked with. Clear communication, thoughtful execution and strong product thinking.",
       authorName: "Sienna Hewitt",
-      authorDescription: "Sr. Manager Procurement",
+      authorDescription: "United States",
       authorImage: Images.landingImages.TestimonialImage,
       authorImageAlt: "Sienna Hewitt",
     },
     {
       id: 2,
-      text: "The team understood our product requirements quickly and transformed them into a polished experience that was easy for our customers to use.",
-      authorName: "John Williams",
-      authorDescription: "Product Director",
-      authorImage: Images.landingImages.TestimonialImage,
-      authorImageAlt: "John Williams",
+      text: "It was great to work with Endpoint Clients, I needed something urgently to kick-off app development and within 24 hours I had a first good version which iterated on.",
+      authorName: "Max Stoeckl",
+      authorDescription: "France",
+      authorImage: Images.landingImages.MaxstoImage,
+      authorImageAlt: "Max Stoeckl",
     },
-    {
+    
+     {
       id: 3,
-      text: "Their communication, design quality and technical understanding helped us move from an early idea to a reliable digital product.",
-      authorName: "Emma Brown",
-      authorDescription: "Chief Operating Officer",
-      authorImage: Images.landingImages.TestimonialImage,
-      authorImageAlt: "Emma Brown",
+      text: "It has been outstanding working with the team at EndPoint Clients. The exception eye to detail and greater understanding has made our products exceptionally great.",
+      authorName: "Muhunthan",
+      authorDescription: "Sri Lanka",
+      authorImage: Images.landingImages.MuhunImage,
+      authorImageAlt: "Muhunthan",
+    },
+     {
+      id: 4,
+      text: "EndPoint is one of the most helpful website/mobile app design companies I worked with. A great team with fresh ideas, fair pricing, amazing designs and innovative thinking. Most of all very responsive, when working with Endpoint it is like having a second team on your side.",
+      authorName: "Darrell Fertakos",
+      authorDescription: "United States",
+      authorImage: Images.landingImages.DarellImage,
+      authorImageAlt: "Darrell Fertakos",
+    },
+  {
+      id: 5,
+      text: "I highly recommend Endpoint Clients for their outstanding commitment and performance. They not only fulfilled the assigned tasks but also consistently went above and beyond, proactively suggesting improvements throughout the project. Communication was clear and assertive, ensuring all details were precisely...",
+      authorName: "Marco Gama",
+      authorDescription: "Andorra",
+      authorImage: Images.landingImages.MarcoGamaImage,
+      authorImageAlt: "Marco Gama",
     },
   ];
   const features = [
@@ -505,11 +522,10 @@ export default function HomeClient() {
                   Solutions
                 </h2>
               </div>
-              <h3 className="text-base xl:text-xl text-white">
-                Endpoint Clients is a full-cycle product development agency
-                combining UI/UX design, custom software engineering and AI to
-                build web platforms, mobile apps, SaaS products and digital
-                experiences that are ready to scale.
+              <h3 className="text-base text-white xl:text-xl">
+                {isMobile
+                  ? "We are full-cycle product development company  that combines Product design, Engineering and AI to Build experiences that are ready to scale."
+                  : "Endpoint Clients is a full-cycle product development agency combining UI/UX design, custom software engineering and AI to build web platforms, mobile apps, SaaS products and digital experiences that are ready to scale."}
               </h3>
             </div>
             <div className="flex flex-wrap items-center gap-1.5 md:gap-5">
@@ -843,7 +859,7 @@ export default function HomeClient() {
               </div>
 
               <ThemeButton
-                label="Book a Call"
+                label="Discuss Your Product With Experts"
                 variant="gradient"
                 icon={<ArrowUpIcon />}
                 onClick={() => {
@@ -1109,7 +1125,7 @@ export default function HomeClient() {
             />
           </div>
           <div className="block xl:hidden">
-             <video
+            <video
               src="/videos/BentoCard5.mp4"
               className="h-auto w-full"
               autoPlay
@@ -1158,54 +1174,72 @@ export default function HomeClient() {
               />
             </div>
             <div className="flex flex-col gap-7 md:gap-35">
-              <div className="rounded-3xl md:rounded-[48px] bg-dark-jungle-green border border-white/6 shadow-[0_0_150px_0_rgba(131,83,213,0.08)] p-3 md:p-4.5 grid grid-cols-1 lg:grid-cols-11 gap-4 md:gap-5">
-                <div className="lg:col-span-3">
-                  <div className="flex flex-col">
-                    <div className="px-2 py-3 md:px-6 md:py-6">
-                      <p className="text-xl md:text-2xl font-semibold text-white">
-                        What Matters
-                      </p>
-                    </div>
-                    <div className="flex flex-col gap-4 px-2 py-4 md:px-6 md:py-6">
-                      {features.map((feature, index) => {
-                        const isLastItem = index === features.length - 1;
-                        return (
-                          <FeatureRow
-                            key={feature}
-                            label={feature}
-                            showBorder={!isLastItem}
-                          />
-                        );
-                      })}
+              <div className="w-full overflow-x-auto overscroll-x-contain">
+                <div
+                  className="
+        grid min-w-250.5 grid-cols-11 gap-4
+        rounded-3xl border border-white/6
+        bg-dark-jungle-green p-3
+        shadow-[0_0_150px_0_rgba(131,83,213,0.08)]
+        md:gap-5 md:rounded-[48px] md:p-4.5
+        lg:min-w-0 
+      "
+                >
+                  <div className="col-span-3 flex">
+                    <div className="flex flex-col w-full h-full">
+                      <div className="px-2 py-3 md:px-6 md:py-6">
+                        <p className="text-xl font-semibold text-white md:text-2xl">
+                          What Matters
+                        </p>
+                      </div>
+
+                      <div className="flex flex-col gap-4 px-2 py-4 md:px-6 md:py-6">
+                        {features.map((feature, index) => {
+                          const isLastItem = index === features.length - 1;
+
+                          return (
+                            <FeatureRow
+                              key={feature}
+                              label={feature}
+                              showBorder={!isLastItem}
+                            />
+                          );
+                        })}
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className="lg:col-span-4">
-                  <ComparisonCard
-                    title="Traditional Agencies"
-                    titleIcon={
-                      <TraditionalIcon
-                        width={isMobile ? "24" : "28"}
-                        height={isMobile ? "24" : "28"}
-                      />
-                    }
-                    features={traditionalAgencyFeatures}
-                  />
-                </div>
-                <div className="lg:col-span-4">
-                  <ComparisonCard
-                    title="Endpointclients"
-                    titleIcon={
-                      <EpcLogoIcon
-                        width={isMobile ? "24" : "31"}
-                        height={isMobile ? "24" : "31"}
-                      />
-                    }
-                    features={epcFeatures}
-                    showGlow
-                  />
+
+                  <div className="col-span-4 flex">
+                    <ComparisonCard
+                      title="Traditional Agencies"
+                      titleIcon={
+                        <TraditionalIcon
+                          width={isMobile ? "24" : "28"}
+                          height={isMobile ? "24" : "28"}
+                        />
+                      }
+                      features={traditionalAgencyFeatures}
+                      className="h-full w-full"
+                    />
+                  </div>
+
+                  <div className="col-span-4 flex">
+                    <ComparisonCard
+                      title="Endpointclients"
+                      titleIcon={
+                        <EpcLogoIcon
+                          width={isMobile ? "24" : "31"}
+                          height={isMobile ? "24" : "31"}
+                        />
+                      }
+                      features={epcFeatures}
+                      className="h-full w-full"
+                      showGlow
+                    />
+                  </div>
                 </div>
               </div>
+
               <div className="overflow-hidden">
                 <video
                   src="/videos/DevMapVideo.mp4"
@@ -1226,7 +1260,7 @@ export default function HomeClient() {
         <div className="container max-w-7xl mx-auto pt-8 md:pt-16  px-4 md:px-8 xl:pb-8">
           <div className="flex flex-col gap-8 md:gap-16">
             <div className="flex flex-col gap-6 md:gap-7 items-start md:items-center">
-              <div className="flex flex-col gap-3 items-start md:items-center">
+              <div className="flex flex-col gap-3 items-center">
                 <PulsingLabel text={"Technology Stack "} />
                 <h3 className="text-2xl md:text-5xl font-semibold text-white leading-[130%] md:leading-[100%] text-center">
                   Modern Technology for End-to-End{" "}
@@ -1306,7 +1340,7 @@ export default function HomeClient() {
                 </h3>
               </div>
               <ThemeButton
-                label="Start Project"
+                label="Let's Build Your Project"
                 variant="gradient"
                 icon={<ArrowUpIcon />}
                 onClick={() => {
