@@ -175,6 +175,7 @@ export default function HomeClient() {
             muted
             loop
             playsInline
+            data-page-preload
             preload="metadata"
             aria-label={capability.title}
           />

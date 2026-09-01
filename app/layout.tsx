@@ -3,6 +3,7 @@ import { Manrope, Playfair_Display} from "next/font/google";
 import "./globals.css";
 import { Header, Preloader, SmoothScroll } from "./components";
 import Footer from "./components/Footer";
+import TopLoadingBar from "./components/layout/TopLoadingBar";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -47,6 +48,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <link rel="manifest" href="favicon/site.webmanifest" />
       </head>
       <body className="min-h-full flex flex-col">
+          <TopLoadingBar />
         <SmoothScroll>
         <Header />
 

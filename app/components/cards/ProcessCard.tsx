@@ -1,6 +1,4 @@
-import Image, {
-  type StaticImageData,
-} from "next/image";
+import Image, { type StaticImageData } from "next/image";
 
 type ProcessCardProps = {
   number: string;
@@ -30,11 +28,13 @@ const ProcessCard = ({
           <Image
             src={image}
             alt={imageAlt}
+            preload
+            data-page-preload
             className="h-17.5 w-auto object-contain sm:h-36 xl:h-auto xl:w-auto"
           />
-            <p className="text-42 font-semibold text-white/18 md:text-4xl xl:min-w-60.75 xl:text-[64px] xl:hidden block">
-          {number}
-        </p>
+          <p className="text-42 font-semibold text-white/18 md:text-4xl xl:min-w-60.75 xl:text-[64px] xl:hidden block">
+            {number}
+          </p>
         </div>
 
         <div className="flex flex-col gap-2 xl:gap-4">
