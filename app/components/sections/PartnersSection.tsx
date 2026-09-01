@@ -8,7 +8,7 @@ import { partnerLogos } from "@/app/constants/constants";
 const PartnersSection = () => {
   return (
     <section
-      className="overflow-hidden bg-[#222222] py-1.5 md:py-2.5 relative"
+      className="overflow-hidden bg-[#222222] min-h-10.5 md:min-h-15.5 py-1.5 md:py-2.5 relative"
       aria-label="Our partners"
     >
       <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 md:w-64 bg-linear-to-r from-mirage to-mirage/0" />
