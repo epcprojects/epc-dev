@@ -5,6 +5,7 @@ import { Header, Preloader, SmoothScroll } from "./components";
 import Footer from "./components/Footer";
 import TopLoadingBar from "./components/layout/TopLoadingBar";
 
+
 const manrope = Manrope({
   subsets: ["latin"],
   display: "swap",

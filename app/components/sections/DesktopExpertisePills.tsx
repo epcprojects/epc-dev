@@ -80,7 +80,7 @@ const DesktopExpertisePills = ({
         initial="hidden"
         whileInView="visible"
         viewport={{
-          once: true,
+          once: false,
           amount: 0.35,
         }}
       >
@@ -156,7 +156,7 @@ const DesktopExpertisePills = ({
       initial="hidden"
       whileInView="visible"
       viewport={{
-        once: true,
+        once: false,
         amount: 0.35,
       }}
     >
