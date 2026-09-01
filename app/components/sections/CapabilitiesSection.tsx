@@ -101,7 +101,7 @@ const capabilityCards = capabilities.map(
           <video
             src={capability.video}
             className="
-            h-full w-full object-contain
+        h-full w-full object-contain
             xl:rounded-[42px]
           "
             autoPlay
