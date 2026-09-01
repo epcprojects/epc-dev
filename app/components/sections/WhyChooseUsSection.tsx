@@ -74,7 +74,7 @@ const epcFeatures = [
 
 const WhyChooseUsSection = () => {
   return (
-    <section className="bg-mirage pt-8 md:pt-24 pb-8">
+    <section className="bg-mirage pt-8 md:pt-24 pb-8 space-y-13.5" >
       <div className="container max-w-7xl mx-auto px-4 md:px-8">
         <div className="flex flex-col gap-6 md:gap-15.5">
           <div className="flex flex-col gap-8 md:gap-8 items-start md:items-center">
@@ -168,10 +168,14 @@ const WhyChooseUsSection = () => {
               </div>
             </div>
 
-            <div className="relative left-1/2 w-screen -translate-x-1/2 overflow-hidden">
+            
+          </div>
+        </div>
+      </div>
+      <div className="overflow-hidden ">
               <video
                 src="/videos/DevMapVideoLatest.mp4"
-                className="h-full w-full object-contain"
+                className="h-full w-full object-cover"
                 autoPlay
                 muted
                 loop
@@ -180,9 +184,6 @@ const WhyChooseUsSection = () => {
                 aria-label="Development map animation"
               />
             </div>
-          </div>
-        </div>
-      </div>
     </section>
   );
 };
