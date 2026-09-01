@@ -47,7 +47,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <link rel="manifest" href="favicon/site.webmanifest" />
       </head>
       <body className="min-h-full flex flex-col">
-        <Preloader />
         <SmoothScroll>
         <Header />
 
