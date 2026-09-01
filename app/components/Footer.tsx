@@ -103,7 +103,7 @@ export default function Footer() {
             </div>
 
             {/* links */}
-            <div className="flex flex-wrap gap-10 xl:gap-30 justify-between">
+            <div className="flex flex-wrap gap-10 xl:gap-30 xl:justify-between">
               {footerMenuColumns.map((column) => (
                 <div
                   key={column.title}
