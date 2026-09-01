@@ -30,7 +30,6 @@ import HorizontalScrollSection from "../HorizontalScrollSection";
 import ThemeButton from "../button/ThemeButton";
 import ImageColumns from "../ImageColumns";
 import StatsCard from "../cards/StatsCard";
-import PlatformLogo from "../PlatformLogo";
 import DevelopmentProcessSection from "../sections/DevelopmentProcessSection";
 import TestimonialsSection, {
   Testimonial,
@@ -437,7 +436,7 @@ export default function HomeClient() {
   const isMobile = useIsMobile();
   return (
     <>
-      {/* <section className="-mt-13 md:-mt-28 bg-mirage bg-[url('/images/HeroBgGradient.png')] bg-position-[center_top] bg-size-[100%_auto] bg-no-repeat pt-5  md:pt-28 ">
+      <section className="-mt-13 md:-mt-28 bg-mirage bg-[url('/images/HeroBgGradient.png')] bg-position-[center_top] bg-size-[100%_auto] bg-no-repeat pt-5  md:pt-28 ">
         <div className="pt-15 xl:pt-20 pb-10 xl:pb-26.5 container max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-10 items-center gap-5">
           <div className="md:col-span-7 flex flex-col gap-4 md:gap-7.5">
             <div className="flex flex-col gap-2 md:gap-4.5">
@@ -525,8 +524,8 @@ export default function HomeClient() {
             <ParticleImage />
           </div>
         </div>
-      </section> */}
-      {/* <section
+      </section>
+      <section
         className="overflow-hidden bg-[#222222] py-1.5 md:py-2.5 relative"
         aria-label="Our partners"
       >
@@ -543,8 +542,8 @@ export default function HomeClient() {
           ))}
         </Marquee>
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 md:w-64 bg-linear-to-r from-mirage/0 to-mirage" />
-      </section> */}
-      {/* <section className="bg-mirage py-8 xl:py-24">
+      </section>
+      <section className="bg-mirage py-8 xl:py-24">
         <div className="container max-w-7xl mx-auto py-4 md:py-16 px-4 md:px-8 overflow-visible">
           <div className="grid grid-cols-1 gap-8 overflow-visible xl:grid-cols-14 xl:-translate-x-3 xl:gap-3 2xl:translate-x-0">
             <motion.div
@@ -781,9 +780,9 @@ export default function HomeClient() {
             </div>
           </div>
         </div>
-      </section> */}
+      </section>
 
-      {/* <HorizontalScrollSection
+      <HorizontalScrollSection
         leftContent={
           <div className="container max-w-175 mx-auto flex items-center justify-center ">
             <div className="flex flex-col items-start gap-7">
@@ -819,8 +818,8 @@ export default function HomeClient() {
           </div>
         }
         items={capabilityCards}
-      /> */}
-      {/* <section className="bg-mirage px-4 py-4 xl:px-16 md:py-16">
+      />
+      <section className="bg-mirage px-4 py-4 xl:px-16 md:py-16">
         <div
           className="
       relative overflow-hidden
@@ -882,8 +881,8 @@ export default function HomeClient() {
             />
           </div>
         </div>
-      </section> */}
-      {/* <section className="bg-mirage border-y border-y-white/18">
+      </section>
+      <section className="bg-mirage border-y border-y-white/18">
         <div className="container max-w-7xl mx-auto px-0 2xl:px-8 flex flex-col  2xl:flex-row">
           <StatsCard
             icon={
@@ -927,8 +926,8 @@ export default function HomeClient() {
             subtitle="Top Rated Projects"
           />
         </div>
-      </section> */}
-      {/* <section className="bg-mirage  md:pt-24 xl:pb-16">
+      </section>
+      <section className="bg-mirage  md:pt-24 xl:pb-16">
         <div className="container mx-auto max-w-7xl px-4 pt-8 md:px-8 md:pt-16">
           <div className="flex flex-col items-center gap-10 md:gap-20">
             <div className="grid w-full grid-cols-1 items-center gap-3 md:grid-cols-12 md:gap-4">
@@ -960,9 +959,9 @@ export default function HomeClient() {
             />
           </div>
         </div>
-      </section> */}
-      {/* <DevelopmentProcessSection processSteps={processSteps} /> */}
-      {/* <section className="bg-mirage py-8 md:py-16">
+      </section>
+      <DevelopmentProcessSection processSteps={processSteps} />
+      <section className="bg-mirage py-8 md:py-16">
         <div className="container max-w-7xl mx-auto px-4 md:px-8 space-y-3 md:space-y-4.5">
           <div className="block xl:hidden">
             <video
@@ -1064,9 +1063,9 @@ export default function HomeClient() {
             />
           </div>
         </div>
-      </section> */}
-      {/* <TestimonialsSection testimonials={testimonials} /> */}
-      {/* <section className="bg-mirage pt-8 md:pt-24 pb-8">
+      </section>
+      <TestimonialsSection testimonials={testimonials} />
+      <section className="bg-mirage pt-8 md:pt-24 pb-8">
         <div className="container max-w-7xl mx-auto px-4 md:px-8">
           <div className="flex flex-col gap-6 md:gap-15.5">
             <div className="flex flex-col gap-8 md:gap-8 items-start md:items-center">
@@ -1182,8 +1181,8 @@ export default function HomeClient() {
             </div>
           </div>
         </div>
-      </section> */}
-      {/* <section className="bg-mirage">
+      </section>
+      <section className="bg-mirage">
         <div className="container max-w-7xl mx-auto pt-8 md:pt-16  px-4 md:px-8 xl:pb-8">
           <div className="flex flex-col gap-8 md:gap-16">
             <div className="flex flex-col gap-6 md:gap-7 items-start md:items-center">
@@ -1239,8 +1238,8 @@ export default function HomeClient() {
             />
           </div>
         </div>
-      </section> */}
-      {/* <section className="bg-mirage py-8 md:py-24">
+      </section>
+      <section className="bg-mirage py-8 md:py-24">
         <div className="container max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-10 gap-6 md:gap-12">
           <div className="md:col-span-4 flex flex-col gap-2 md:gap-3 items-start">
             <PulsingLabel text={"FAQs"} />
@@ -1252,8 +1251,8 @@ export default function HomeClient() {
             <FAQAccordion faqs={faqItems} />
           </div>
         </div>
-      </section> */}
-      {/* <section className="bg-mirage pb-8 md:pb-20">
+      </section>
+      <section className="bg-mirage pb-8 md:pb-20">
         <div className="container max-w-7xl mx-auto px-4 md:px-8">
           <div className="bg-woodsmoke border border-white/12 py-8 md:py-16 px-4 md:px-25 rounded-2xl md:rounded-4xl bg-[url('/images/ReadyProjectBgImage.png')] bg-cover bg-center relative overflow-hidden">
             <div className="flex flex-col gap-5 md:gap-10.5 items-center">
@@ -1286,7 +1285,7 @@ export default function HomeClient() {
             />
           </div>
         </div>
-      </section> */}
+      </section>
     </>
   );
 }
