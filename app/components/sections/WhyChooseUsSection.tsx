@@ -1,7 +1,4 @@
-import {
-  AlertIcon,
-  CheckmarkIcon,
-} from "@/public/icons";
+import { AlertIcon, CheckmarkIcon } from "@/public/icons";
 
 import CalendlyThemeButton from "../button/CalendlyThemeButton";
 import ComparisonCard from "../cards/ComparisonCard";
@@ -74,7 +71,7 @@ const epcFeatures = [
 
 const WhyChooseUsSection = () => {
   return (
-    <section className="bg-mirage pt-8 md:pt-24 pb-8 space-y-13.5" >
+    <section className="bg-mirage pt-8 md:pt-24 pb-8 space-y-10 md:space-y-23.5">
       <div className="container max-w-7xl mx-auto px-4 md:px-8">
         <div className="flex flex-col gap-6 md:gap-15.5">
           <div className="flex flex-col gap-8 md:gap-8 items-start md:items-center">
@@ -102,7 +99,7 @@ const WhyChooseUsSection = () => {
           </div>
 
           <div className="flex flex-col gap-7 md:gap-35">
-            <div className="w-full overflow-x-auto overscroll-x-contain">
+            <div className="w-full overflow-x-auto overscroll-x-contain rounded-3xl md:rounded-[48px]">
               <div
                 className="
         grid min-w-250.5 grid-cols-11 gap-4
@@ -122,21 +119,17 @@ const WhyChooseUsSection = () => {
                     </div>
 
                     <div className="flex flex-col gap-4 px-2 py-4 md:px-6 md:py-6">
-                      {features.map(
-                        (feature, index) => {
-                          const isLastItem =
-                            index ===
-                            features.length - 1;
+                      {features.map((feature, index) => {
+                        const isLastItem = index === features.length - 1;
 
-                          return (
-                            <FeatureRow
-                              key={feature}
-                              label={feature}
-                              showBorder={!isLastItem}
-                            />
-                          );
-                        },
-                      )}
+                        return (
+                          <FeatureRow
+                            key={feature}
+                            label={feature}
+                            showBorder={!isLastItem}
+                          />
+                        );
+                      })}
                     </div>
                   </div>
                 </div>
@@ -144,12 +137,8 @@ const WhyChooseUsSection = () => {
                 <div className="col-span-4 flex">
                   <ComparisonCard
                     title="Traditional Agencies"
-                    titleIcon={
-                      <ResponsiveComparisonIcon icon="traditional" />
-                    }
-                    features={
-                      traditionalAgencyFeatures
-                    }
+                    titleIcon={<ResponsiveComparisonIcon icon="traditional" />}
+                    features={traditionalAgencyFeatures}
                     className="h-full w-full"
                   />
                 </div>
@@ -157,9 +146,7 @@ const WhyChooseUsSection = () => {
                 <div className="col-span-4 flex">
                   <ComparisonCard
                     title="Endpointclients"
-                    titleIcon={
-                      <ResponsiveComparisonIcon icon="endpoint" />
-                    }
+                    titleIcon={<ResponsiveComparisonIcon icon="endpoint" />}
                     features={epcFeatures}
                     className="h-full w-full"
                     showGlow
@@ -167,23 +154,21 @@ const WhyChooseUsSection = () => {
                 </div>
               </div>
             </div>
-
-            
           </div>
         </div>
       </div>
       <div className="overflow-hidden ">
-              <video
-                src="/videos/DevMapVideoLatest.mp4"
-                className="h-full w-full object-cover"
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                aria-label="Development map animation"
-              />
-            </div>
+        <video
+          src="/videos/DevMapVideoLatest.mp4"
+          className="h-full w-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-label="Development map animation"
+        />
+      </div>
     </section>
   );
 };
