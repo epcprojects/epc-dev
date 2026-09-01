@@ -91,23 +91,23 @@ const scale = useTransform(
   shouldFade ? [0.96, 1] : [1, 1],
 );
 
-  useEffect(() => {
-    const container = slideRef.current;
+  // useEffect(() => {
+  //   const container = slideRef.current;
 
-    if (!container) return;
+  //   if (!container) return;
 
-    const videos = Array.from(
-      container.querySelectorAll<HTMLVideoElement>("video"),
-    );
+  //   const videos = Array.from(
+  //     container.querySelectorAll<HTMLVideoElement>("video"),
+  //   );
 
-    videos.forEach((video) => {
-      if (isActive) {
-        void video.play().catch(() => {});
-      } else {
-        video.pause();
-      }
-    });
-  }, [isActive]);
+  //   videos.forEach((video) => {
+  //     if (isActive) {
+  //       void video.play().catch(() => {});
+  //     } else {
+  //       video.pause();
+  //     }
+  //   });
+  // }, [isActive]);
 
   return (
     // <motion.div

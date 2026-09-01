@@ -15,14 +15,14 @@ import ThemeButton from "./button/ThemeButton";
 import { MouseEvent } from "react";
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden  pt-8! md:pt-16! pb-6! md:pb-8! bg-[#191919]">
+    <footer className="relative overflow-hidden  pt-8! md:pt-16! pb-6! md:pb-8! bg-[#191919] border-t border-t-white/5">
         <div
     aria-hidden="true"
     className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
   >
-    <div className="footer-aurora footer-aurora-purple" />
-    <div className="footer-aurora footer-aurora-blue" />
-    <div className="footer-aurora footer-aurora-pink" />
+    <div className="footer-aurora footer-aurora-purple " />
+    <div className="footer-aurora footer-aurora-blue " />
+    <div className="footer-aurora footer-aurora-pink " />
 
     <div className="absolute inset-0 bg-[#191919]/25" />
   </div>
