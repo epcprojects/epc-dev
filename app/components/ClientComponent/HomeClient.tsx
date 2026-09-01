@@ -147,36 +147,6 @@ export default function HomeClient() {
       pills: ["Cloud Architecture", "API Integration", "Backend Development"],
     },
   ];
-  // const capabilityCards = capabilities.map((capability) => (
-  //   <article
-  //     key={capability.id}
-  //     className="flex items-center justify-center h-full  2xl:border-r 2xl:border-white/12 px-4 xl:px-12 py-8"
-  //   >
-  //     <div className="xl:container xl:max-w-200 xl:mx-auto flex flex-col gap-6 xl:gap-6">
-  //                 <video
-  //       src={capability.video}
-  //       className="h-auto  w-full rounded-[42px]"
-  //       autoPlay
-  //       muted
-  //       loop
-  //       playsInline
-  //       preload="metadata"
-  //       aria-label={capability.title}
-  //     />
-
-  //     <div className="flex flex-col gap-3">
-  //       <p className="text-xl xl:text-[34px] font-bold text-desert-storm">
-  //         {capability.title}
-  //       </p>
-
-  //       <p className="text-base xl:text-xl text-white leading-[150%]">
-  //         {capability.description}
-  //       </p>
-  //     </div>
-  //     </div>
-
-  //   </article>
-  // ));
   const capabilityCards = capabilities.map((capability) => (
     <article
       key={capability.id}
