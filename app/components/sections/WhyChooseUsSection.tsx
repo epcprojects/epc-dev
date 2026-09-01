@@ -170,7 +170,7 @@ const WhyChooseUsSection = () => {
 
             <div className="overflow-hidden">
               <video
-                src="/videos/DevMapVideo.mp4"
+                src="/videos/DevMapUpdatedVideo.mp4"
                 className="h-full w-full object-cover"
                 autoPlay
                 muted

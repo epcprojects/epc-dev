@@ -160,7 +160,7 @@ const TestimonialsSection = ({
                 ))}
               </Swiper>
 
-              <div className="absolute right-0 bottom-0 z-10 flex flex-row gap-2 xl:gap-2.5">
+              <div className="absolute right-0 bottom-3 z-10 flex flex-row gap-2 xl:gap-2.5">
                 <NavigationButton
                   direction="previous"
                   onClick={() => {
