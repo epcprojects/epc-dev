@@ -9,6 +9,7 @@ import { ArrowUpIcon } from "@/public/icons";
 import ThemeButton from "./button/ThemeButton";
 import { useRouter } from "next/navigation";
 import { useIsMobile } from "../hooks/useIsMobile";
+import Link from "next/link";
 
 const Header = () => {
   const headerRef = useRef<HTMLElement>(null);
@@ -76,14 +77,31 @@ const Header = () => {
       `}
     >
       <div className="container mx-auto flex max-w-7xl flex-wrap items-start justify-between gap-4 px-4 md:flex-row md:items-center md:gap-0 xl:px-8">
-        <Image src={Images.landingImages.Logo} alt="Endpoint clients logo" className="xl:w-auto xl:h-auto w-30 h-auto" />
-        
+        <Link
+          href="/"
+          onClick={(event) => {
+            if (window.location.pathname === "/") {
+              event.preventDefault();
 
-         <ThemeButton
+              window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: "smooth",
+              });
+            }
+          }}
+        >
+          <Image
+            src={Images.landingImages.Logo}
+            alt="Endpoint clients logo"
+            className="h-auto w-30 xl:h-auto xl:w-auto"
+          />
+        </Link>
+
+        <ThemeButton
           label="Book a Call"
           variant="gradient"
           icon={<ArrowUpIcon />}
-          
           onClick={() => {
             window.open(
               "https://calendly.com/endpointclients/30min",
@@ -92,7 +110,6 @@ const Header = () => {
             );
           }}
         />
-       
       </div>
     </header>
   );

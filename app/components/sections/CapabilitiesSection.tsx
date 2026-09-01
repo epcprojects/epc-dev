@@ -93,12 +93,12 @@ const capabilityCards = capabilities.map((capability) => (
             aria-label={capability.title}
           />
         </div> */}
-      <div className="flex  items-center justify-center overflow-hidden">
+      <div className="flex  items-center justify-center overflow-hidden ">
         <video
           src={capability.video}
           className="
-      h-auto w-full object-contain
-      2xl:max-h-[52svh]
+      h-auto w-auto object-contain
+      2xl:max-h-[49svh]
       xl:rounded-[42px]
     "
           autoPlay
