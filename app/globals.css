@@ -588,3 +588,126 @@ button[aria-disabled='true'] {
     animation: none;
   }
 }
+
+
+/* footer glow classes */
+.footer-aurora {
+  position: absolute;
+  width: min(70vw, 900px);
+  height: min(60vw, 700px);
+  border-radius: 9999px;
+  filter: blur(140px);
+  opacity: 0.26;
+  will-change: transform;
+}
+
+/* Purple glow */
+
+.footer-aurora-purple {
+  top: -35%;
+  left: -25%;
+  background: rgba(105, 39, 218, 0.65);
+  animation: footer-aurora-purple 20s
+    cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
+}
+
+/* Blue glow */
+
+.footer-aurora-blue {
+  top: 15%;
+  right: -35%;
+  background: rgba(45, 108, 223, 0.45);
+  animation: footer-aurora-blue 24s
+    cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
+}
+
+/* Pink glow */
+
+.footer-aurora-pink {
+  bottom: -50%;
+  left: 20%;
+  background: rgba(196, 72, 221, 0.38);
+  animation: footer-aurora-pink 28s
+    cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
+}
+
+@keyframes footer-aurora-purple {
+  0% {
+    transform: translate3d(-10%, -10%, 0)
+      rotate(-15deg) scale(0.9);
+  }
+
+  35% {
+    transform: translate3d(55vw, 15%, 0)
+      rotate(5deg) scale(1.08);
+  }
+
+  70% {
+    transform: translate3d(25vw, 75%, 0)
+      rotate(-8deg) scale(0.95);
+  }
+
+  100% {
+    transform: translate3d(5vw, 25%, 0)
+      rotate(10deg) scale(1.05);
+  }
+}
+
+@keyframes footer-aurora-blue {
+  0% {
+    transform: translate3d(10%, -15%, 0)
+      rotate(10deg) scale(1);
+  }
+
+  40% {
+    transform: translate3d(-55vw, 45%, 0)
+      rotate(-10deg) scale(0.9);
+  }
+
+  75% {
+    transform: translate3d(-20vw, -10%, 0)
+      rotate(8deg) scale(1.08);
+  }
+
+  100% {
+    transform: translate3d(-5vw, 55%, 0)
+      rotate(-5deg) scale(0.95);
+  }
+}
+
+@keyframes footer-aurora-pink {
+  0% {
+    transform: translate3d(-20%, 10%, 0)
+      rotate(-8deg) scale(0.9);
+  }
+
+  45% {
+    transform: translate3d(35vw, -65%, 0)
+      rotate(8deg) scale(1.05);
+  }
+
+  75% {
+    transform: translate3d(-20vw, -85%, 0)
+      rotate(-5deg) scale(0.95);
+  }
+
+  100% {
+    transform: translate3d(10vw, -30%, 0)
+      rotate(10deg) scale(1.08);
+  }
+}
+
+@media (max-width: 767px) {
+  .footer-aurora {
+    width: 520px;
+    height: 420px;
+    filter: blur(110px);
+    opacity: 0.22;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-aurora {
+    animation: none;
+  }
+}

@@ -16,13 +16,23 @@ import { MouseEvent } from "react";
 export default function Footer() {
   return (
     <footer className="relative overflow-hidden  pt-8! md:pt-16! pb-6! md:pb-8! bg-[#191919]">
+        <div
+    aria-hidden="true"
+    className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
+  >
+    <div className="footer-aurora footer-aurora-purple" />
+    <div className="footer-aurora footer-aurora-blue" />
+    <div className="footer-aurora footer-aurora-pink" />
+
+    <div className="absolute inset-0 bg-[#191919]/25" />
+  </div>
       {/* <Image
         alt="logo epc"
         src={images.footerimages.FooterBg}
         fill
         className="object-cover object-center -z-10 "
       /> */}
-      <div className="container max-w-330 mx-auto px-4! lg:px-8! flex flex-col gap-6 lg:gap-8">
+      <div className="container max-w-330 mx-auto px-4! lg:px-8! flex flex-col gap-6 lg:gap-8 relative z-10">
         <div className="flex flex-col sm:gap-10 gap-6">
           {/* footer  top content */}
           <div className="grid lg:grid-cols-2 sm:gap-10 gap-8">
@@ -224,7 +234,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div
+      {/* <div
         className="
     absolute
     -bottom-40
@@ -236,7 +246,7 @@ export default function Footer() {
     blur-[150px]
     pointer-events-none
   "
-      />
+      /> */}
     </footer>
   );
 }

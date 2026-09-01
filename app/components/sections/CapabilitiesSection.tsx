@@ -1,6 +1,8 @@
+import { div } from "motion/react-client";
 import HorizontalScrollSection from "../HorizontalScrollSection";
 import PulsingLabel from "../PulsingLabel";
 import CalendlyThemeButton from "../button/CalendlyThemeButton";
+import CapabilityPills from "../cards/CapabilityPills";
 
 const capabilities = [
   {
@@ -118,10 +120,10 @@ const capabilityCards = capabilities.map((capability) => (
           {capability.description}
         </p>
 
-        <div className="flex flex-wrap gap-2 md:gap-2.5">
+        {/* <div className="flex flex-wrap gap-2 md:gap-2.5">
           {capability.pills.map((pill) => (
-            <div
-              key={pill}
+            <div key={pill} className="p-px rounded-full bg-linear-to-r from-white/0 via-[#A6C8D0] to-[#4434F0]">
+              <div
               className="
                 rounded-full bg-[#303030]
                 px-3 py-2
@@ -132,8 +134,10 @@ const capabilityCards = capabilities.map((capability) => (
             >
               {pill}
             </div>
+            </div>
           ))}
-        </div>
+        </div> */}
+        <CapabilityPills pills={capability.pills} />
       </div>
     </div>
   </article>
