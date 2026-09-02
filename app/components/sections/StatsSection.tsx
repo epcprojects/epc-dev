@@ -17,6 +17,7 @@ const StatsSection = () => {
             />
           }
           subtitle="Happy Clients"
+          isLeftBorder
         />
 
         <StatsCard

@@ -5,7 +5,7 @@ const ProductBentoSection = () => {
         <div className="block xl:hidden">
           <video
             src="/videos/BentoCard3.mp4"
-            className="h-auto w-full"
+            className="h-auto w-full rounded-4xl"
             autoPlay
             muted
             loop
@@ -52,7 +52,7 @@ const ProductBentoSection = () => {
           <div className="hidden xl:block lg:col-span-4">
             <video
               src="/videos/BentoCard2.mp4"
-              className="h-auto w-full"
+              className="h-auto w-full rounded-4xl"
               autoPlay
               muted
               loop
@@ -66,7 +66,7 @@ const ProductBentoSection = () => {
         <div className="hidden xl:grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-4.5 items-stretch">
           <video
             src="/videos/BentoCard3.mp4"
-            className="h-auto w-full "
+            className="h-auto w-full rounded-4xl"
             autoPlay
             muted
             loop
@@ -77,7 +77,7 @@ const ProductBentoSection = () => {
 
           <video
             src="/videos/BentoCard4.mp4"
-            className="h-auto w-full "
+            className="h-auto w-full rounded-4xl"
             autoPlay
             muted
             loop
@@ -88,7 +88,7 @@ const ProductBentoSection = () => {
 
           <video
             src="/videos/BentoCard5.mp4"
-            className="h-auto w-full"
+            className="h-auto w-full rounded-4xl"
             autoPlay
             muted
             loop
@@ -101,7 +101,7 @@ const ProductBentoSection = () => {
         <div className="block xl:hidden">
           <video
             src="/videos/BentoCard5.mp4"
-            className="h-auto w-full"
+            className="h-auto w-full rounded-4xl"
             autoPlay
             muted
             loop

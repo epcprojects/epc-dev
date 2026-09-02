@@ -4,15 +4,17 @@ import ExploreServicesButton from "../button/ExploreServicesButton";
 
 const FullCycleDevelopmentSection = () => {
   return (
-    <section className="bg-mirage px-4 py-4 xl:px-16 md:py-16">
+    <section className="bg-mirage ">
+      {/* px-4 py-4 xl:px-16 md:py-16 */}
       <div
         className="
       relative overflow-hidden
-      rounded-[18px] bg-woodsmoke
+      bg-woodsmoke
       px-1.5 py-4
-      md:rounded-[48px] md:px-24 md:py-24
+       md:px-24 md:py-24
     "
       >
+        {/*  rounded-[18px] md:rounded-[48px] */}
         <div
           className="
         pointer-events-none absolute inset-0 z-0

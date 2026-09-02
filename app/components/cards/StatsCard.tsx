@@ -6,6 +6,7 @@ type StatsCardProps = {
   subtitle: string;
   className?: string;
   minwidthClass?: string;
+  isLeftBorder?: boolean;
 };
 
 const StatsCard = ({
@@ -13,11 +14,12 @@ const StatsCard = ({
   title,
   subtitle,
   className = "",
-  minwidthClass
+  minwidthClass,
+  isLeftBorder=false
 }: StatsCardProps) => {
   return (
     <div
-      className={`flex ${minwidthClass?minwidthClass:"2xl:min-w-75.25 "} flex-row  items-center gap-4 2xl:gap-8 2xl:border-r border-b border-b-white/18 2xl:border-b-0 xl:border-r-white/18 px-8 md:px-9 md:py-9 py-4 ${className}`}
+      className={`flex ${minwidthClass?minwidthClass:"2xl:min-w-75.25 "} ${isLeftBorder?"border-l border-l-white/18":""}  flex-row  items-center gap-4 2xl:gap-8 2xl:border-r border-b border-b-white/18 2xl:border-b-0 xl:border-r-white/18 px-8 md:px-9 md:py-9 py-4 ${className}`}
     >
       <div className="shrink-0">
         {icon}
