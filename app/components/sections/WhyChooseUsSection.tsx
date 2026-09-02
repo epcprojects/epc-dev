@@ -157,10 +157,10 @@ const WhyChooseUsSection = () => {
           </div>
         </div>
       </div>
-      <div className="overflow-hidden ">
+      <div className="overflow-hidden px-10 ">
         <video
           src="/videos/DevMapVideoLatest.mp4"
-          className="h-full w-full object-cover"
+          className="h-full w-full object-cover rounded-xl"
           autoPlay
           muted
           loop

@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #191919;
+  --background: #0C0D0E;
   --foreground: #ffffff;
 }
 
@@ -10,7 +10,7 @@
   --color-foreground: var(--foreground);
   --font-manrope: var(--font-manrope);
   --font-playfair: var(--font-playfair);
-  --color-mirage: #191919;
+  --color-mirage: #0C0D0E;
   --color-purple-blue: #6927DA;
   --color-medium-purple: #885DD3;
   --color-desert-storm: #FAF7F6;
