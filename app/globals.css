@@ -699,15 +699,36 @@ button[aria-disabled='true'] {
 
 @media (max-width: 767px) {
   .footer-aurora {
-    width: 520px;
-    height: 420px;
-    filter: blur(110px);
-    opacity: 0.22;
+    width: 420px;
+    height: 360px;
+    filter: blur(20px);
+    opacity: 0.65;
+    animation-play-state: running;
+    will-change: transform;
+  }
+
+  .footer-aurora-purple {
+    top: -5%;
+    left: -45%;
+    animation: footer-aurora-purple 20s
+      cubic-bezier(0.45, 0, 0.55, 1)
+      infinite alternate;
+  }
+
+  .footer-aurora-blue {
+    top: 30%;
+    right: -45%;
+    animation: footer-aurora-blue 24s
+      cubic-bezier(0.45, 0, 0.55, 1)
+      infinite alternate;
+  }
+
+  .footer-aurora-pink {
+    bottom: -10%;
+    left: -20%;
+    animation: footer-aurora-pink 28s
+      cubic-bezier(0.45, 0, 0.55, 1)
+      infinite alternate;
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .footer-aurora {
-    animation: none;
-  }
-}
