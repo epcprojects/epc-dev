@@ -34,13 +34,11 @@ export default function FAQAccordion({ faqs }: FAQAccordionProps) {
             className="
   group/item relative overflow-hidden
   rounded-2xl
-  bg-linear-to-b
-  from-[#B6B8BA]/30
-  to-mirage
+  bg-dark-gray
   p-px
  "
           >
-            <div className="bg-linear-to-b from-[#282828] to-[#020308] rounded-2xl relative overflow-hidden">
+            <div className="bg-mirage rounded-2xl relative overflow-hidden">
               <div
                 aria-hidden="true"
                 className="
@@ -80,13 +78,18 @@ ease-[cubic-bezier(0.22,1,0.36,1)]  cursor-pointer items-center gap-1 justify-be
   group-data-[state=open]:to-white/0
  "
                   >
-                    <ArrowUpIcon width={isMobile?"20":"24"} height={isMobile?"20":"24"}/>
+                    <ArrowUpIcon
+                      width={isMobile ? "20" : "24"}
+                      height={isMobile ? "20" : "24"}
+                    />
                   </span>
                 </Accordion.Trigger>
               </Accordion.Header>
 
               <Accordion.Content className=" overflow-hidden accordion-content  px-4 md:px-4.75">
-                <p className="text-sm md:text-lg  text-neutral-400  pb-4">{faq.answer}</p>
+                <p className="text-sm md:text-lg  text-neutral-400  pb-4">
+                  {faq.answer}
+                </p>
               </Accordion.Content>
             </div>
           </Accordion.Item>

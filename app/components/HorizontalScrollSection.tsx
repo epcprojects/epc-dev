@@ -296,7 +296,7 @@ const HorizontalScrollSection = ({
       </section> */}
       <section
         ref={sectionRef}
-        className="relative hidden bg-mirage py-4 2xl:block "
+        className="relative hidden bg-mirage pt-4 2xl:block "
         style={{
           height: sectionHeight,
         }}
