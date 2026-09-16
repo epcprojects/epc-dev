@@ -1,11 +1,23 @@
+import Image from "next/image";
 import ParticleImage from "../ParticleImage";
 import HeroPulsingBadge from "./HeroPulsingBadge";
 import ResponsiveHeroDescription from "./ResponsiveHeroDescription";
 
 const HeroSection = () => {
   return (
-    <section className="-mt-18 md:-mt-28 bg-mirage bg-[url('/images/HeroBgGradient.png')] bg-position-[center_top] bg-size-[100%_auto] bg-no-repeat pt-5  md:pt-25 ">
-      <div className="pt-15 xl:pt-20 pb-10 xl:pb-26.5 container max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-10 items-center gap-5">
+    <section className="-mt-18 md:-mt-28 bg-mirage relative z-0 pt-5 md:pt-25">
+      <Image
+        src="/images/HeroBgGradient.png"
+        alt=""
+        fill
+        priority
+        fetchPriority="high"
+        quality={80}
+        sizes="100vw"
+        className="object-cover object-top -z-10 pointer-events-none select-none"
+      />
+
+      <div className="relative z-10 pt-15 xl:pt-20 pb-10 xl:pb-26.5 container max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-10 items-center gap-5">
         <div className="md:col-span-7 flex flex-col gap-4 md:gap-7.5">
           <div className="flex flex-col gap-2 md:gap-4.5">
             <div className="flex flex-col gap-3">
@@ -27,7 +39,6 @@ const HeroSection = () => {
               <p className="text-2xl xl:text-30 text-lavendar-indigo font-bold">
                 15+
               </p>
-
               <p className="text-xs md:text-sm text-gray-300">
                 (Years of Experience)
               </p>
@@ -39,7 +50,6 @@ const HeroSection = () => {
               <p className="text-2xl xl:text-30 text-gray-50 font-bold">
                 1.2k+
               </p>
-
               <p className="text-xs md:text-sm text-gray-300">
                 (Projects Shipped)
               </p>
@@ -51,7 +61,6 @@ const HeroSection = () => {
               <p className="text-2xl xl:text-30 text-lavendar-indigo font-bold">
                 350+
               </p>
-
               <p className="text-xs md:text-sm text-gray-300">
                 (Brands Worldwide)
               </p>
@@ -59,7 +68,7 @@ const HeroSection = () => {
           </div>
         </div>
 
-        <div className="md:col-span-3 hidden md:flex items-center justify-center  w-full">
+        <div className="md:col-span-3 hidden md:flex items-center justify-center w-full">
           <ParticleImage />
         </div>
       </div>
