@@ -1,3 +1,5 @@
+import LazyVideo from "../LazyVideo";
+
 const ProductBentoSection = () => {
   return (
     <section className="bg-mirage py-8 md:py-16">
@@ -18,15 +20,10 @@ const ProductBentoSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 md:gap-4.5 items-stretch">
           <div className="lg:col-span-8 h-full">
             <div className="rounded-4xl h-full overflow-hidden grid grid-cols-1 lg:grid-cols-2 items-center bg-rangoon-green pb-5 pt-4 px-4 md:pl-4 ring ring-inset ring-white-smoke/4 shadow-[inset_2px_4px_16px_0_rgba(248,248,248,0.06)]">
-              <video
+              <LazyVideo
                 src="/videos/BentoCard1New.mp4"
                 className="h-full w-full"
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                aria-label="Bento card animation"
+                ariaLabel="Bento card animation"
               />
 
               <div className="xl:px-4 flex flex-col gap-3.5 md:gap-6">
@@ -50,64 +47,39 @@ const ProductBentoSection = () => {
           </div>
 
           <div className="hidden xl:block lg:col-span-4">
-            <video
+            <LazyVideo
               src="/videos/BentoCard2.mp4"
               className="h-auto w-full rounded-4xl"
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              aria-label="Bento card animation"
+              ariaLabel="Bento card animation"
             />
           </div>
         </div>
 
         <div className="hidden xl:grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-4.5 items-stretch">
-          <video
+          <LazyVideo
             src="/videos/BentoCard3.mp4"
             className="h-auto w-full rounded-4xl"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            aria-label="Bento card animation"
+            ariaLabel="Bento card animation"
           />
 
-          <video
+          <LazyVideo
             src="/videos/BentoCard4.mp4"
             className="h-auto w-full rounded-4xl"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            aria-label="Bento card animation"
+            ariaLabel="Bento card animation"
           />
 
-          <video
+          <LazyVideo
             src="/videos/BentoCard5.mp4"
             className="h-auto w-full rounded-4xl"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            aria-label="Bento card animation"
+            ariaLabel="Bento card animation"
           />
         </div>
 
         <div className="block xl:hidden">
-          <video
+          <LazyVideo
             src="/videos/BentoCard5.mp4"
             className="h-auto w-full rounded-4xl"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            aria-label="Bento card animation"
+            ariaLabel="Bento card animation"
           />
         </div>
       </div>

@@ -1,3 +1,4 @@
+import LazyVideo from "../LazyVideo";
 import PulsingLabel from "../PulsingLabel";
 
 const IndustrySection = () => {
@@ -18,22 +19,17 @@ const IndustrySection = () => {
 
             <div className="md:col-start-2 md:col-end-12 md:ml-10">
               <p className="md:text-center text-base leading-relaxed text-neutral-400 md:text-xl">
-                We build scalable digital products around your industry’s
-                unique users, workflows, and business needs with strategy, UX
-                design, software engineering, and AI.
+                We build scalable digital products around your industry’s unique
+                users, workflows, and business needs with strategy, UX design,
+                software engineering, and AI.
               </p>
             </div>
           </div>
 
-          <video
-            src="/videos/IndustriesNewThree.mp4"
-            className=" rounded-[20px]"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            aria-label="Industries we serve"
+          <LazyVideo
+            src="https://res.cloudinary.com/dgbdcdqd1/video/upload/v1789553955/IndustriesNewThree_wzp9qg.mp4"
+            className="rounded-[20px]"
+            ariaLabel="Industries we serve"
           />
         </div>
       </div>

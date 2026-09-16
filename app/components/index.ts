@@ -15,6 +15,7 @@ import FAQAccordion from "./FaqAccordion";
 import CountUpNumber from "./CountUpNumber";
 import Preloader from "./Preloader";
 import SmoothScroll from "./layout/SmoothScroll";
+import LazyVideo from "./LazyVideo";
 export {
     Header,
     ServicePill,
@@ -32,5 +33,6 @@ export {
     FAQAccordion,
     CountUpNumber,
     Preloader,
-    SmoothScroll
+    SmoothScroll,
+    LazyVideo,
 }

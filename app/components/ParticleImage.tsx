@@ -47,6 +47,11 @@ export default function ParticleImage({
     let animationFrame = 0;
     let particles: Particle[] = [];
 
+    // ---- NAYA: visibility control ke liye ----
+  let isInViewport = false;
+  let isTabVisible = !document.hidden;
+  let isAnimating = false;
+
     const pointer = {
       x: -9999,
       y: -9999,
@@ -55,8 +60,8 @@ export default function ParticleImage({
     };
 
     const config = {
-      desktopParticles: 30000,
-      mobileParticles: 38000,
+      desktopParticles: 4000,
+      mobileParticles: 4000,
       spring: 0.06,
       friction: 0.84,
       particleMin: 0.25,
@@ -559,22 +564,58 @@ function buildParticles() {
         requestAnimationFrame(animate);
     }
 
+    // ---- NAYA: animation start/stop karne wale helper functions ----
+  function startAnimation() {
+    if (isAnimating) return; // pehle se chal raha hai to dobara mat karo
+    isAnimating = true;
+    animationFrame = requestAnimationFrame(animate);
+  }
+
+  function stopAnimation() {
+    isAnimating = false;
+    cancelAnimationFrame(animationFrame);
+  }
+
+  function updateAnimationState() {
+    // sirf tab shuru karo jab dono conditions true hon
+    if (isInViewport && isTabVisible) {
+      startAnimation();
+    } else {
+      stopAnimation();
+    }
+  }
+
+  // ---- NAYA: IntersectionObserver — section screen par hai ya nahi ----
+  const visibilityObserver = new IntersectionObserver(
+    ([entry]) => {
+      isInViewport = entry.isIntersecting;
+      updateAnimationState();
+    },
+    { threshold: 0.1 } // 10% bhi dikhe to "visible" maano
+  );
+
+  // ---- NAYA: tab minimize/switch detect karna ----
+  function handleVisibilityChange() {
+    isTabVisible = !document.hidden;
+    updateAnimationState();
+  }
+
     const resizeObserver =
       new ResizeObserver(resizeCanvas);
 
     sourceImage.onload = () => {
       resizeCanvas();
 
-      cancelAnimationFrame(animationFrame);
-
-      animationFrame =
-        requestAnimationFrame(animate);
+      // pehle seedha animate() call hota tha, ab updateAnimationState() se control hoga
+    updateAnimationState();
     };
 
     
    sourceImage.src = "/images/ParticleHeroImage.png";
 
     resizeObserver.observe(canvas);
+    visibilityObserver.observe(canvas); // NAYA
+  document.addEventListener("visibilitychange", handleVisibilityChange); // NAYA
 
     canvas.addEventListener(
       "pointermove",
@@ -592,8 +633,10 @@ function buildParticles() {
     );
 
     return () => {
-      cancelAnimationFrame(animationFrame);
+      stopAnimation(); // NAYA: cancelAnimationFrame ki jagah
       resizeObserver.disconnect();
+      visibilityObserver.disconnect(); // NAYA
+    document.removeEventListener("visibilitychange", handleVisibilityChange); // NAYA
 
       canvas.removeEventListener(
         "pointermove",

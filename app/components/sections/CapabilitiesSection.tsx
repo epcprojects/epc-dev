@@ -3,6 +3,7 @@ import HorizontalScrollSection from "../HorizontalScrollSection";
 import PulsingLabel from "../PulsingLabel";
 import CalendlyThemeButton from "../button/CalendlyThemeButton";
 import CapabilityPills from "../cards/CapabilityPills";
+import LazyVideo from "../LazyVideo";
 
 const capabilities = [
   {
@@ -94,20 +95,10 @@ const capabilityCards = capabilities.map((capability) => (
           />
         </div> */}
       <div className="flex  items-center justify-center overflow-hidden ">
-        <video
+        <LazyVideo
           src={capability.video}
-          className="
-      h-auto w-auto object-contain
-      2xl:max-h-[49svh]
-      xl:rounded-[42px]
-    "
-          autoPlay
-          muted
-          loop
-          playsInline
-          data-page-preload
-          preload="metadata"
-          aria-label={capability.title}
+          className="h-auto w-auto object-contain 2xl:max-h-[49svh] xl:rounded-[42px]"
+          ariaLabel={capability.title}
         />
       </div>
 

@@ -5,6 +5,7 @@ import ComparisonCard from "../cards/ComparisonCard";
 import FeatureRow from "../cards/FeatureRow";
 import ResponsiveComparisonIcon from "../cards/ResponsiveComparisonIcon";
 import PulsingLabel from "../PulsingLabel";
+import LazyVideo from "../LazyVideo";
 
 const features = [
   "Product Direction",
@@ -158,15 +159,10 @@ const WhyChooseUsSection = () => {
         </div>
       </div>
       <div className="overflow-hidden px-4 xl:px-10 ">
-        <video
-          src="/videos/DevMapVideoLatest.mp4"
+        <LazyVideo
+          src="https://res.cloudinary.com/dgbdcdqd1/video/upload/v1789553953/DevMapVideoLatest_n03har.mp4"
           className="h-full w-full object-cover rounded-[25px] xl:rounded-[50px]"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          aria-label="Development map animation"
+          ariaLabel="Development map animation"
         />
       </div>
     </section>
