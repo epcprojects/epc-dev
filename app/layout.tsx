@@ -47,6 +47,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         />
         <meta name="apple-mobile-web-app-title" content="MyWebSite" />
         <link rel="manifest" href="favicon/site.webmanifest" />
+<link rel="preload" href="/_next/static/immutable/chunks/338lzu_k9kqfk.css" as="style" />
       </head>
       <body className="min-h-full flex flex-col">
           <TopLoadingBar />
